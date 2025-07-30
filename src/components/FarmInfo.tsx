@@ -15,8 +15,6 @@ function FarmInformationInput({ label, placeholder }: FarmInformationInputOption
 }
 
 function FarmInfo() {
-  // <p> into a component, subheading component or something.
-
   return (
     <div className="flex flex-col">
       <H2 text="You're almost there!"/>

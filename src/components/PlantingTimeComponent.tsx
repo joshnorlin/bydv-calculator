@@ -7,7 +7,6 @@ import A from "./A";
 interface PlantingOptionProps {
   label: string;
   description: string;
-  value: string;
   selected: boolean;
   onClick: () => void;
 }
@@ -62,21 +61,18 @@ function PlantingTimeComponent() {
         <PlantingOption
           label="Early!"
           description="mid-September"
-          value="early"
           selected={plantedTime === 'early'}
           onClick={() => dispatch(setPlantedTime('early'))}
         />
         <PlantingOption
           label="On time."
           description="mid- to late-October"
-          value="on-time"
           selected={plantedTime === 'on-time'}
           onClick={() => dispatch(setPlantedTime('on-time'))}
         />
         <PlantingOption
           label="A little later."
           description="late-November"
-          value="late"
           selected={plantedTime === 'late'}
           onClick={() => dispatch(setPlantedTime('late'))}
         />

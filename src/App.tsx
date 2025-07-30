@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "./store/store";
-import './App.css'
 import Header from './components/Header';
 import CalculatorInformation from './components/CalculatorInformation';
 import Plantings from './components/Plantings';

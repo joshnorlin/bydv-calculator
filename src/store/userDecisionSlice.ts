@@ -26,7 +26,6 @@ const userDecisionSlice = createSlice({
   },
 });
 
-export const { setPlantedStatus } = userDecisionSlice.actions;
-export const { setPlantedTime } = userDecisionSlice.actions;
+export const { setPlantedStatus, setPlantedTime } = userDecisionSlice.actions;
 
 export default userDecisionSlice.reducer;
