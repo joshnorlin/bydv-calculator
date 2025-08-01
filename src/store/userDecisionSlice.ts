@@ -4,13 +4,23 @@ export type PlantedStatusOptions = 'planted' | 'not-planted' | 'non-farmer' | nu
 export type PlantedTimeOptions = 'early' | 'on-time' | 'late' | null;
 
 interface UserDecisionState {
-  plantedStatus: PlantedStatusOptions,
-  plantedTime: PlantedTimeOptions
+  plantedStatus: PlantedStatusOptions;
+  plantedTime: string | null;
+  cropStage?: string | null;
+  aphidPresence?: string | null;
+  farmInfo?: { field1: string; field2: string; field3: string };
+  zipCode?: string | null; // <-- Add this line
+  calculated?: boolean;
 }
 
 const initialState: UserDecisionState = {
   plantedStatus: null,
   plantedTime: null,
+  cropStage: null,
+  aphidPresence: null,
+  farmInfo: { field1: "", field2: "", field3: "" },
+  zipCode: null,
+  calculated: false,
 };
 
 const userDecisionSlice = createSlice({
@@ -22,10 +32,19 @@ const userDecisionSlice = createSlice({
     },
     setPlantedTime(state, action: PayloadAction<PlantedTimeOptions>) {
       state.plantedTime = action.payload;
-    }
+    },
+    setZipCode(state, action: PayloadAction<string>) {
+      state.zipCode = action.payload;
+    },
+    setFarmInfo(state, action: PayloadAction<{ field1: string; field2: string; field3: string }>) {
+      state.farmInfo = action.payload;
+    },
+    setCalculated(state, action: PayloadAction<boolean>) {
+      state.calculated = action.payload;
+    },
   },
 });
 
-export const { setPlantedStatus, setPlantedTime } = userDecisionSlice.actions;
+export const { setPlantedStatus, setPlantedTime, setZipCode, setFarmInfo, setCalculated } = userDecisionSlice.actions;
 
 export default userDecisionSlice.reducer;
