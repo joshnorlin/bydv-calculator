@@ -42,9 +42,16 @@ const userDecisionSlice = createSlice({
     setCalculated(state, action: PayloadAction<boolean>) {
       state.calculated = action.payload;
     },
+    setCropStage(state, action: PayloadAction<string>) {
+      state.cropStage = action.payload;
+    },
+    setAphidPresence(state, action: PayloadAction<string>) {
+      state.aphidPresence = action.payload;
+    },
   },
 });
 
-export const { setPlantedStatus, setPlantedTime, setZipCode, setFarmInfo, setCalculated } = userDecisionSlice.actions;
+export const { setPlantedStatus, setPlantedTime, setZipCode, setFarmInfo, setCalculated, setCropStage, setAphidPresence } =
+userDecisionSlice.actions;
 
 export default userDecisionSlice.reducer;
