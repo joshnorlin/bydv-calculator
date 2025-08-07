@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setFarmInfo } from "../store/userDecisionSlice";
-import type { RootState } from "../store/store";
-import H2 from "./H2";
+import { setFarmInfo } from "../../store/userDecisionSlice";
+import type { RootState } from "../../store/store";
 
 interface FarmInformationInputOptions {
   label: string;
@@ -14,10 +13,10 @@ function FarmInformationInput({ label, placeholder, value, onChange, name }: Far
   name: string;
 }) {
   return (
-    <div className="flex items-center justify-between">
-      <div className="text-lg">{label}</div>
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+      <label className="text-sm font-medium text-gray-700 sm:flex-1">{label}</label>
       <input
-        className="py-1 px-2 border-2 border-black rounded-md text-right"
+        className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors sm:w-32 text-right"
         type="text"
         maxLength={10}
         placeholder={placeholder}
@@ -44,10 +43,12 @@ function FarmInfo() {
   };
 
   return (
-    <div className="flex flex-col items-center my-8">
-      <H2 text="You're almost there!" />
-      <p className="mt-2 mb-6">We just need some basic information about your fields.</p>
-      <div className="flex flex-col border-2 border-black rounded-3xl p-4 gap-4 shadow-lg max-w-2xl">
+    <section className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+      <div className="text-center mb-6">
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">You're almost there!</h2>
+        <p className="text-gray-600">We just need some basic information about your fields.</p>
+      </div>
+      <div className="space-y-6 max-w-lg mx-auto">
         <FarmInformationInput
           label="How many total acres are in use?"
           placeholder="125"
@@ -70,7 +71,7 @@ function FarmInfo() {
           name="field3"
         />
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import type { RootState } from "../store/store";
-import { setCalculated } from "../store/userDecisionSlice";
+import { useNavigate } from "react-router-dom";
+import type { RootState } from "../../store/store";
+import { setCalculated } from "../../store/userDecisionSlice";
 
 function CalculateButton() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userDecision = useSelector((state: RootState) => state.userDecision);
 
   // Check if all required info is entered
@@ -16,6 +18,8 @@ function CalculateButton() {
 
   const handleCalculate = () => {
     dispatch(setCalculated(true));
+    // Navigate to results page after calculation
+    navigate('/results');
   };
 
   return (

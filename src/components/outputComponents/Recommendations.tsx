@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import type { RootState } from "../store/store";
+import type { RootState } from "../../store/store";
 
 function Recommendations() {
   const userDecision = useSelector((state: RootState) => state.userDecision);
