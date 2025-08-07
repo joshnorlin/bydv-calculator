@@ -52,11 +52,11 @@ function PlantingTimeComponent() {
   }
 
   return (
-    <section className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+    <section className="bg-white rounded border border-gray-300 p-8">
       <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Awesome!</h2>
-          <div className="text-gray-600">
+          <h2 className="text-2xl font-bold text-green-800 mb-4">Awesome!</h2>
+          <div className="text-gray-700">
             {textContent}
           </div>
         </div>

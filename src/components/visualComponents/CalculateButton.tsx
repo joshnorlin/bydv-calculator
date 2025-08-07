@@ -26,14 +26,14 @@ function CalculateButton() {
     <div className="flex flex-col items-center my-8">
       {canCalculate && !userDecision.calculated && (
         <button
-          className="bg-blue-500 text-white px-6 py-2 rounded-xl font-bold mb-6"
+          className="bg-green-700 text-white px-8 py-3 rounded font-medium mb-6 hover:bg-green-800 transition-colors duration-200"
           onClick={handleCalculate}
         >
-          Calculate
+          Calculate Recommendations
         </button>
       )}
       {userDecision.calculated && (
-        <div className="w-full max-w-xl bg-gray-100 rounded-xl p-4 border border-gray-300">
+        <div className="w-full max-w-xl bg-gray-50 rounded p-4 border border-gray-300">
           <h2 className="text-lg font-semibold mb-2">Current State Info (placeholder):</h2>
           <pre className="text-xs bg-white p-2 rounded">{JSON.stringify(userDecision, null, 2)}</pre>
         </div>

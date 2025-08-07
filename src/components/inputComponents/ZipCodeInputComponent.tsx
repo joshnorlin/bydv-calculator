@@ -12,11 +12,11 @@ function ZipCodeInputComponent() {
   };
 
   return (
-    <section className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+    <section className="bg-white rounded border border-gray-300 p-8">
       <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Last question, I promise.</h2>
-          <div className="text-gray-600 space-y-2">
+          <h2 className="text-2xl font-bold text-green-800 mb-4">Last question, I promise.</h2>
+          <div className="text-gray-700 space-y-2">
             <p>
               Please enter your farm's zip code to help us calculate the area's crop disease risk factor.
             </p>
@@ -31,7 +31,7 @@ function ZipCodeInputComponent() {
           </label>
           <input
             type="text"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
             value={zipCode || ""}
             onChange={handleChange}
             maxLength={10}

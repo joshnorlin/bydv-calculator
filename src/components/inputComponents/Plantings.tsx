@@ -8,10 +8,10 @@ function Plantings() {
   const plantedStatus = useSelector((state: RootState) => state.userDecision.plantedStatus);
 
   return (
-    <section className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+    <section className="bg-white rounded border border-gray-300 p-8">
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">Let's get started</h1>
-        <h2 className="text-lg text-gray-600 mb-6">
+        <h1 className="text-3xl font-bold text-green-800 mb-4">Let's get started</h1>
+        <h2 className="text-lg text-gray-700 mb-6">
           We'll start simple. <span className="font-semibold text-gray-800">Have you planted your wheat yet?</span>
         </h2>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">

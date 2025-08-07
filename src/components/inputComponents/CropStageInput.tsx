@@ -17,23 +17,23 @@ function CropStageInput() {
   const selectedStage = useSelector((state: RootState) => state.userDecision.cropStage);
 
   return (
-    <section className="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+    <section className="bg-white rounded border border-gray-300 p-8">
       <div className="text-center">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Which stage are your crops in?</h2>
+        <h2 className="text-2xl font-bold text-green-800 mb-6">Which stage are your crops in?</h2>
         <img
           src={cropStageImg}
           alt="Winter wheat crop stages"
-          className="mb-8 max-w-full rounded-lg border border-gray-300 shadow-sm mx-auto"
+          className="mb-8 max-w-full rounded border border-gray-300 mx-auto"
           style={{ maxHeight: 300 }}
         />
         <div className="flex flex-wrap gap-3 justify-center max-w-md mx-auto">
           {cropStages.map((stage) => (
             <button
               key={stage}
-              className={`px-4 py-2 rounded-xl border-2 font-semibold transition-all duration-200 min-w-[100px]
+              className={`px-4 py-2 rounded border-2 font-medium transition-all duration-200 min-w-[100px]
                 ${selectedStage === stage
-                  ? "bg-blue-600 text-white border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700"
-                  : "bg-white border-gray-300 text-gray-700 hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700"}
+                  ? "bg-green-700 text-white border-green-700 hover:bg-green-800 hover:border-green-800"
+                  : "bg-white border-gray-400 text-gray-700 hover:bg-green-50 hover:border-green-600 hover:text-green-700"}
               `}
               onClick={() => dispatch(setCropStage(stage))}
               type="button"
