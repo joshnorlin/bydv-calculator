@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import { setCropStage } from "../../store/userDecisionSlice";
-import cropStageImg from "../../assets/img/winter-wheat-crop-stages.jpg";
+import cropStageImg from "../../assets/winter-wheat-crop-stages.jpg";
 
 const cropStages = [
   "seeding",
