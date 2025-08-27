@@ -1,0 +1,24 @@
+{
+  "bushelPrice": 6.00,
+  "baseYield": 50,
+  "treatmentCost": {
+    "cont": 0,
+    "fallApp": 4.275,
+    "SPRNGApp": 4.275,
+    "neon": 16.92,
+    "neonSRNGApp": 21.195,
+    "neonFallApp": 21.195
+  },
+  "treatmentEffects": {
+    "cont": 0,
+    "fallApp": 1,
+    "SPRNGApp": 2,
+    "neon": 3,
+    "neonSRNGApp": 4,
+    "neonFallApp": 5
+  },
+  "aphidEffectCoefficients": {
+    "aphidCoefficient": -1,
+    "infectionCoefficient": -0.2
+  }
+}
