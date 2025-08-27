@@ -9,7 +9,7 @@ import HelpPage from './pages/HelpPage';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-100 flex flex-col">
+      <div data-aos-easing="ease-in-out" data-aos-duration="1000" data-aos-delay="0">
         <Header />
         <Navigation />
         <main className="flex-1">
