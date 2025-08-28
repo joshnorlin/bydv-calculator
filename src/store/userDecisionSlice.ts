@@ -9,7 +9,7 @@ interface UserDecisionState {
   cropStage?: string | null;
   aphidPresence?: string | null;
   farmInfo?: { field1: string; field2: string; field3: string };
-  zipCode?: string | null; // <-- Add this line
+  zipCode?: string | null;
   calculated?: boolean;
 }
 

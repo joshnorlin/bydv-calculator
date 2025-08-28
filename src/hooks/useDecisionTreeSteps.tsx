@@ -68,11 +68,6 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
       render: () => <CropStageInput />,
     },
     {
-      key: "farm-info",
-      show: Boolean(plantedStatus === "not-planted" && plantedTime),
-      render: () => <FarmInfo />,
-    },
-    {
       key: "aphid-presence",
       show: plantedStatus === "planted" && cropStage === "seeding",
       render: () => <AphidPresenceInput />,
@@ -89,14 +84,24 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
       ),
     },
     {
+      key: "farm-info",
+      show: Boolean(
+        (aphidPresence && cropStage && plantedTime)
+      ),
+      render: () => <FarmInfo />,
+    },
+    {
       key: "calculate-btn",
-      show:
-        Boolean((plantedStatus === "not-planted" && farmInfoComplete) ||
-          (plantedStatus === "planted" &&
+      show: // TO DO - update this hook logic, 
+        Boolean(
+          (
+            plantedStatus &&
+            plantedTime &&
             cropStage &&
-            ((cropStage === "seeding" && aphidPresence) ||
-              (cropStage === "ripening")))) &&
-        !calculated,
+            aphidPresence &&
+            farmInfoComplete
+            )
+        ) && !calculated,
       render: () => <CalculateButton />,
     },
   ];

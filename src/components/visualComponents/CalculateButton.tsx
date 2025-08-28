@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import type { RootState } from "../../store/store";
 import { setCalculated } from "../../store/userDecisionSlice";
+import { calculate } from "../../utils/calculate";
+import config from "../../../data.config.json";
 
 function CalculateButton() {
   const dispatch = useDispatch();
@@ -9,14 +11,17 @@ function CalculateButton() {
   const userDecision = useSelector((state: RootState) => state.userDecision);
 
   // Check if all required info is entered
+  // is this already calculated in the decisionTreeSteps hook? might not be bad to double check, but not sure if it's needed.
   const farmInfoComplete = userDecision.farmInfo?.field1 && userDecision.farmInfo?.field2 && userDecision.farmInfo?.field3;
   const canCalculate =
     userDecision.plantedStatus &&
     userDecision.plantedTime &&
     farmInfoComplete &&
-    userDecision.zipCode;
+    userDecision.cropStage &&
+    userDecision.aphidPresence;
 
   const handleCalculate = () => {
+    calculate(userDecision, config)
     dispatch(setCalculated(true));
     // Navigate to results page after calculation
     navigate('/results');
