@@ -10,7 +10,6 @@ interface UserDecisionState {
   aphidPresence?: string | null;
   farmInfo?: { field1: string; field2: string; field3: string };
   zipCode?: string | null;
-  calculated?: boolean;
 }
 
 const initialState: UserDecisionState = {
@@ -20,7 +19,6 @@ const initialState: UserDecisionState = {
   aphidPresence: null,
   farmInfo: { field1: "", field2: "", field3: "" },
   zipCode: null,
-  calculated: false,
 };
 
 const userDecisionSlice = createSlice({
@@ -39,9 +37,6 @@ const userDecisionSlice = createSlice({
     setFarmInfo(state, action: PayloadAction<{ field1: string; field2: string; field3: string }>) {
       state.farmInfo = action.payload;
     },
-    setCalculated(state, action: PayloadAction<boolean>) {
-      state.calculated = action.payload;
-    },
     setCropStage(state, action: PayloadAction<string>) {
       state.cropStage = action.payload;
     },
@@ -51,7 +46,7 @@ const userDecisionSlice = createSlice({
   },
 });
 
-export const { setPlantedStatus, setPlantedTime, setZipCode, setFarmInfo, setCalculated, setCropStage, setAphidPresence } =
+export const { setPlantedStatus, setPlantedTime, setZipCode, setFarmInfo, setCropStage, setAphidPresence } =
 userDecisionSlice.actions;
 
 export default userDecisionSlice.reducer;

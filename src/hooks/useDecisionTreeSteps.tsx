@@ -26,7 +26,6 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
     cropStage,
     aphidPresence,
     farmInfo,
-    calculated
   } = useSelector((state: RootState) => state.userDecision);
 
   // Check if farm info is complete
@@ -101,7 +100,7 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
             aphidPresence &&
             farmInfoComplete
             )
-        ) && !calculated,
+        ),
       render: () => <CalculateButton />,
     },
   ];

@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import type { RootState } from "../../store/store";
-import { setCalculated } from "../../store/userDecisionSlice";
 import { setRecommendations, setRecommendationsLoading, setRecommendationsError } from "../../store/recommendationsSlice";
 import { calculate } from "../../utils/calculate";
 import { useConfig } from "../../context/configContext";
@@ -28,11 +27,12 @@ function CalculateButton() {
       dispatch(setRecommendationsLoading());
       
       // Calculate recommendations using the existing calculate function
+      console.log("userDecision", userDecision);
+      console.log("config", config);
       const recommendations = calculate(userDecision, config);
       
       // Save recommendations to store
       dispatch(setRecommendations(recommendations));
-      dispatch(setCalculated(true));
       
       // Navigate to results page
       navigate('/results');
@@ -44,19 +44,13 @@ function CalculateButton() {
 
   return (
     <div className="flex flex-col items-center my-8">
-      {canCalculate && !userDecision.calculated && (
+      {canCalculate && (
         <button
           className="bg-green-700 text-white px-8 py-3 rounded font-medium mb-6 hover:bg-green-800 transition-colors duration-200"
           onClick={handleCalculate}
         >
           Calculate Recommendations
         </button>
-      )}
-      {userDecision.calculated && (
-        <div className="w-full max-w-xl bg-gray-50 rounded p-4 border border-gray-300">
-          <h2 className="text-lg font-semibold mb-2">Current State Info (placeholder):</h2>
-          <pre className="text-xs bg-white p-2 rounded">{JSON.stringify(userDecision, null, 2)}</pre>
-        </div>
       )}
     </div>
   );
