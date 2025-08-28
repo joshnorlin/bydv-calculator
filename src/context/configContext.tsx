@@ -2,7 +2,6 @@ import { createContext, useState, useContext } from "react";
 import type { ReactNode } from 'react';
 import config from "../../data.config.json";
 
-// Define the shape of your config
 type ConfigType = {
   bushelPrice: number;
   baseYield: number;

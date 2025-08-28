@@ -2,8 +2,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import type { RootState } from "../../store/store";
 import { setCalculated } from "../../store/userDecisionSlice";
+import { setRecommendations, setRecommendationsLoading, setRecommendationsError } from "../../store/recommendationsSlice";
 import { calculate } from "../../utils/calculate";
-import config from "../../../data.config.json";
+import { useConfig } from "../../context/configContext";
 
 function CalculateButton() {
   const dispatch = useDispatch();
@@ -20,11 +21,25 @@ function CalculateButton() {
     userDecision.cropStage &&
     userDecision.aphidPresence;
 
+  const { config } = useConfig();
+
   const handleCalculate = () => {
-    calculate(userDecision, config)
-    dispatch(setCalculated(true));
-    // Navigate to results page after calculation
-    navigate('/results');
+    try {
+      dispatch(setRecommendationsLoading());
+      
+      // Calculate recommendations using the existing calculate function
+      const recommendations = calculate(userDecision, config);
+      
+      // Save recommendations to store
+      dispatch(setRecommendations(recommendations));
+      dispatch(setCalculated(true));
+      
+      // Navigate to results page
+      navigate('/results');
+    } catch (error) {
+      console.error('Calculation error:', error);
+      dispatch(setRecommendationsError('Failed to calculate recommendations'));
+    }
   };
 
   return (
