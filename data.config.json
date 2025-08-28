@@ -20,5 +20,15 @@
   "aphidEffectCoefficients": {
     "aphidCoefficient": -1,
     "infectionCoefficient": -0.2
-  }
+  },
+  "plantingTimeEffects": {
+    "early": 3,
+    "on-time": 2,
+    "late": 1
+  },
+  "cropStageEffects": {
+    "seeding": 1,
+    "ripening": 2
+  },
+  "seedingRate": 140
 }
