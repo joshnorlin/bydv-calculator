@@ -1,13 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import { setCropStage } from "../../store/userDecisionSlice";
-import cropStageImg from "../../assets/winter-wheat-crop-stages.jpg";
 
 const cropStages = [
   "seeding",
   "tillering",
   "jointing",
-  "boot",
+  "booting",
   "heading",
   "ripening",
 ];
@@ -21,7 +20,7 @@ function CropStageInput() {
       <div className="text-center">
         <h2 className="text-2xl font-bold text-green-800 mb-6">Which stage are your crops in?</h2>
         <img
-          src={cropStageImg}
+          src="../../assets/images/winter-wheat-crop-stages.jpg"
           alt="Winter wheat crop stages"
           className="mb-8 max-w-full rounded border border-gray-300 mx-auto"
           style={{ maxHeight: 300 }}

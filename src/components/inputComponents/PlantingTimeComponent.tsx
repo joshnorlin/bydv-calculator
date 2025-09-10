@@ -34,7 +34,7 @@ function PlantingTimeComponent() {
           Great, <span className="font-bold">what part of the season</span> do you <span className="font-bold">plan on planting?</span>
         </p>
         <p className="text-left text-sm text-gray-500 max-w-xs">
-          Don't know when to plant? Click <A href="/help#planting-times" text="here"/>.
+          Don't know when to plant? Click <A href="/calculator/help#planting-times" text="here"/>.
         </p>
       </>
     );

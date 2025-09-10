@@ -2,28 +2,33 @@ import { createContext, useState, useContext } from "react";
 import type { ReactNode } from 'react';
 import config from "../../data.config.json";
 
-type ConfigType = {
+export type ConfigType = {
   bushelPrice: number;
   baseYield: number;
   treatmentCost: {
-    cont: number;
-    fallApp: number;
-    SPRNGApp: number;
-    neon: number;
-    neonSRNGApp: number;
-    neonFallApp: number;
+    'cont': number;
+    'fallApp': number;
+    'SPRNGApp': number;
+    'neon': number;
+    'neonSRNGApp': number;
+    'neonFallApp': number;
   };
   treatmentEffects: {
-    cont: number;
-    fallApp: number;
-    SPRNGApp: number;
-    neon: number;
-    neonSRNGApp: number;
-    neonFallApp: number;
+    'cont': number;
+    'fallApp': number;
+    'SPRNGApp': number;
+    'neon': number;
+    'neonSRNGApp': number;
+    'neonFallApp': number;
+  };
+  aphidPresenceCoefficients: {
+    'little-to-none': number,
+    'some': number,
+    'noticeable': number,
+    'many': number
   };
   aphidEffectCoefficients: {
-    aphidCoefficient: number;
-    infectionCoefficient: number;
+    infectionRateCoefficient: number;
   };
   plantingTimeEffects: {
     'early': number;
@@ -31,8 +36,12 @@ type ConfigType = {
     'late': number;
   };
   cropStageEffects: {
-    seeding: number;
-    ripening: number;
+    'seeding': number;
+    'tillering': number;
+    'jointing': number;
+    'booting': number;
+    'heading': number;
+    'ripening': number;
   };
   seedingRate: number;
 };

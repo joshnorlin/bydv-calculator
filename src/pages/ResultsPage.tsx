@@ -4,9 +4,9 @@ import Recommendations from "../components/outputComponents/Recommendations";
 import { Link } from "react-router-dom";
 
 function ResultsPage() {
-  const { calculated } = useSelector((state: RootState) => state.userDecision);
+  const { recommendations } = useSelector((state: RootState) => state.recommendations);
 
-  if (!calculated) {
+  if (!recommendations) {
     return (
       <div className="flex flex-col items-center flex-1 px-2">
         <div className="w-full max-w-2xl mt-8 text-center">
@@ -26,11 +26,11 @@ function ResultsPage() {
   }
 
   return (
-    <div className="flex flex-col items-center flex-1 px-2">
-      <div className="w-full max-w-2xl mt-8">
+    <div className="flex flex-col items-center flex-1 px-4">
+      <div className="w-full max-w-7xl mt-8">
         <div className="mb-6">
           <Link 
-            to="/" 
+            to="/calculator" 
             className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
           >
             ← Back to Calculator

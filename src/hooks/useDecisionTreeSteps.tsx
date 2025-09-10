@@ -30,9 +30,9 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
 
   // Check if farm info is complete
   const farmInfoComplete =
-    farmInfo?.field1.trim() !== '' &&
-    farmInfo?.field2.trim() !== '' &&
-    farmInfo?.field3.trim() !== '';
+    String(farmInfo?.field1 ?? '').trim() !== '' &&
+    String(farmInfo?.field2 ?? '').trim() !== '' &&
+    String(farmInfo?.field3 ?? '').trim() !== '';
 
   // Array of decision tree steps
   const steps: DecisionTreeStep[] = [
@@ -85,22 +85,20 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
     {
       key: "farm-info",
       show: Boolean(
-        (aphidPresence && cropStage && plantedTime)
+        // Only after the necessary prior inputs are complete
+        (
+          plantedStatus === 'not-planted' && plantedTime
+        ) || (
+          plantedStatus === 'planted' && cropStage && cropStage !== 'seeding'
+        ) || (
+          plantedStatus === 'planted' && cropStage === 'seeding' && aphidPresence
+        )
       ),
       render: () => <FarmInfo />,
     },
     {
       key: "calculate-btn",
-      show: // TO DO - update this hook logic, 
-        Boolean(
-          (
-            plantedStatus &&
-            plantedTime &&
-            cropStage &&
-            aphidPresence &&
-            farmInfoComplete
-            )
-        ),
+      show: Boolean(farmInfoComplete),
       render: () => <CalculateButton />,
     },
   ];

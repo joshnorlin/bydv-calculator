@@ -49,7 +49,7 @@ function AboutPage() {
             Use our calculator to get personalized recommendations for your wheat crops.
           </p>
           <a 
-            href="/" 
+            href="/calculator" 
             className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
           >
             Start Calculator

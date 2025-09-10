@@ -8,7 +8,7 @@ function CalculatorInformation() {
         <div className="bg-white rounded p-6 flex flex-col justify-between h-full">
           <h2 className="text-3xl font-bold font-montserrat text-gray-700 uppercase mb-3">What is this page about?</h2>
           <p className="text-gray-700 font-opensans font-base leading-relaxed">
-            This page helps farmers better understand <A href="/help#pest-management" text="pest management techniques"/> and become more aware of their agricultural situation.
+            This page helps farmers better understand <A href="/calculator/help#pest-management" text="pest management techniques"/> and become more aware of their agricultural situation.
           </p>
         </div>
         <div className="bg-white rounded p-6 flex flex-col justify-between h-full">

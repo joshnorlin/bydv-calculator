@@ -12,13 +12,13 @@ function CalculateButton() {
 
   // Check if all required info is entered
   // is this already calculated in the decisionTreeSteps hook? might not be bad to double check, but not sure if it's needed.
-  const farmInfoComplete = userDecision.farmInfo?.field1 && userDecision.farmInfo?.field2 && userDecision.farmInfo?.field3;
-  const canCalculate =
-    userDecision.plantedStatus &&
-    userDecision.plantedTime &&
-    farmInfoComplete &&
-    userDecision.cropStage &&
-    userDecision.aphidPresence;
+  const farmInfoComplete = Boolean(
+    userDecision.farmInfo?.field1 &&
+    userDecision.farmInfo?.field2 &&
+    userDecision.farmInfo?.field3
+  );
+  // Match useDecisionTreeSteps: show button as soon as Farm Info is complete
+  const canCalculate = farmInfoComplete;
 
   const { config } = useConfig();
 
@@ -26,19 +26,37 @@ function CalculateButton() {
     try {
       dispatch(setRecommendationsLoading());
       
-      // Calculate recommendations using the existing calculate function
-      console.log("userDecision", userDecision);
-      console.log("config", config);
-      const recommendations = calculate(userDecision, config);
+      // Prepare input data for calculation
+      const inputData = {
+        aphidPresence: userDecision.aphidPresence,
+        plantedTime: userDecision.plantedTime,
+        cropStage: userDecision.cropStage
+      };
+      
+      console.log("Input data for calculation:", JSON.stringify(inputData, null, 2));
+      console.log("Configuration:", JSON.stringify({
+        baseYield: config.baseYield,
+        aphidCoefficients: config.aphidPresenceCoefficients,
+        plantingEffects: config.plantingTimeEffects,
+        treatmentEffects: config.treatmentEffects,
+        cropStageEffects: config.cropStageEffects
+      }, null, 2));
+      
+      const recommendations = calculate(inputData, config);
+      console.log("Recommendations:", recommendations);
+      
+      if (!recommendations || !Array.isArray(recommendations) || recommendations.length === 0) {
+        throw new Error('No recommendations were generated');
+      }
       
       // Save recommendations to store
       dispatch(setRecommendations(recommendations));
       
       // Navigate to results page
-      navigate('/results');
+      navigate('/calculator/results');
     } catch (error) {
       console.error('Calculation error:', error);
-      dispatch(setRecommendationsError('Failed to calculate recommendations'));
+      dispatch(setRecommendationsError(error instanceof Error ? error.message : 'Failed to calculate recommendations'));
     }
   };
 
