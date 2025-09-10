@@ -1,43 +1,91 @@
 {
-  "bushelPrice": 6.00,
-  "baseYield": 50,
-  "treatmentCost": {
+  "bushelPrice": 5.30,
+  "treatmentCostsPerAcre": {
     "cont": 0,
-    "fallApp": 4.275,
-    "SPRNGApp": 4.275,
     "neon": 16.92,
-    "neonSRNGApp": 21.195,
-    "neonFallApp": 21.195
+    "fallApp": 8.67,
+    "springApp": 8.67,
+    "neonFallApp": 25.59,
+    "neonSpringApp": 25.59
   },
-  "treatmentEffects": {
-    "cont": 1,
-    "fallApp": 1.1,
-    "SPRNGApp": 1.05,
-    "neon": 1.2,
-    "neonSRNGApp": 1.27,
-    "neonFallApp": 1.31
-  },
-  "aphidPresenceCoefficients": {
-    "little-to-none": 1,
-    "some": 0.96,
-    "noticeable": 0.84,
-    "many": 0.72
-  },
-  "aphidEffectCoefficients": {
-    "infectionRateCoefficient": -0.2
-  },
-  "plantingTimeEffects": {
-    "early": 1.17,
-    "on-time": 1,
-    "late": 0.97
-  },
-  "cropStageEffects": {
-    "seeding": 2,
-    "tillering": 1.7,
-    "jointing": 1.3,
-    "booting": 1,
-    "heading": 0.90,
-    "ripening": 0.80
-  },
-  "seedingRate": 140
+  "treatmentProfitsPerAcre": {
+    "sparec": {
+      "sept-oct": {
+        "cont": 0,
+        "neon": 9.32,
+        "fallApp": 16.11,
+        "springApp": 18.10,
+        "neonFallApp": 35.76,
+        "neonSpringApp": 14.16
+      },
+      "oct-nov": {
+        "cont": 0,
+        "neon": 43.90,
+        "fallApp": 39.69,
+        "springApp": 12.53,
+        "neonFallApp": 19.46,
+        "neonSpringApp": 38.94
+      },
+      "nov-dec": {
+        "cont": 0,
+        "neon": -29.77,
+        "fallApp": null,
+        "springApp": 42.21,
+        "neonFallApp": null,
+        "neonSpringApp": 9.79
+      }
+    },
+    "rusty": {
+      "sept-oct": {
+        "cont": 0,
+        "neon": 31.44,
+        "fallApp": 11.74,
+        "springApp": 3.39,
+        "neonFallApp": -23.20,
+        "neonSpringApp": -26.25
+      },
+      "oct-nov": {
+        "cont": 0,
+        "neon": -5.79,
+        "fallApp": 8.82,
+        "springApp": 12.80,
+        "neonFallApp": 16.15,
+        "neonSpringApp": -5.32
+      },
+      "nov-dec": {
+        "cont": 0,
+        "neon": -49.07,
+        "fallApp": null,
+        "springApp": 27.19,
+        "neonFallApp": null,
+        "neonSpringApp": -37.29
+      }
+    },
+    "warsaw": {
+      "sept-oct": {
+        "cont": 0,
+        "neon": -9.93,
+        "fallApp": 10.44,
+        "springApp": -12.71,
+        "neonFallApp": 11.03,
+        "neonSpringApp": -6.16
+      },
+      "oct-nov": {
+        "cont": 0,
+        "neon": -3.90,
+        "fallApp": -28.55,
+        "springApp": 13.90,
+        "neonFallApp": -6.93,
+        "neonSpringApp": -12.12
+      },
+      "nov-dec": {
+        "cont": 0,
+        "neon": -14.68,
+        "fallApp": null,
+        "springApp": -1.17,
+        "neonFallApp": null,
+        "neonSpringApp": -22.51
+      }
+    }
+  }
 }
