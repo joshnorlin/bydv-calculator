@@ -5,9 +5,6 @@ import type { RootState } from '../store/store';
 // Component imports
 import Plantings from '../components/inputComponents/Plantings';
 import PlantingTimeComponent from '../components/inputComponents/PlantingTimeComponent';
-import CropStageInput from '../components/inputComponents/CropStageInput';
-import FarmInfo from '../components/inputComponents/FarmInfo';
-import AphidPresenceInput from '../components/inputComponents/AphidPresenceInput';
 import CalculateButton from '../components/visualComponents/CalculateButton';
 
 // Interface for decision tree steps
@@ -23,16 +20,9 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
   const {
     plantedStatus,
     plantedTime,
-    cropStage,
-    aphidPresence,
-    farmInfo,
   } = useSelector((state: RootState) => state.userDecision);
 
   // Check if farm info is complete
-  const farmInfoComplete =
-    String(farmInfo?.field1 ?? '').trim() !== '' &&
-    String(farmInfo?.field2 ?? '').trim() !== '' &&
-    String(farmInfo?.field3 ?? '').trim() !== '';
 
   // Array of decision tree steps
   const steps: DecisionTreeStep[] = [
@@ -62,43 +52,8 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
       render: () => <PlantingTimeComponent />,
     },
     {
-      key: "crop-stage",
-      show: Boolean(plantedStatus === "planted" && plantedTime),
-      render: () => <CropStageInput />,
-    },
-    {
-      key: "aphid-presence",
-      show: plantedStatus === "planted" && cropStage === "seeding",
-      render: () => <AphidPresenceInput />,
-    },
-    {
-      key: "late-stage-msg",
-      show: plantedStatus === "planted" && cropStage === "ripening",
-      render: () => (
-        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center">
-          <div className="text-lg text-blue-800 font-medium">
-            At this stage, pest management is less critical.
-          </div>
-        </div>
-      ),
-    },
-    {
-      key: "farm-info",
-      show: Boolean(
-        // Only after the necessary prior inputs are complete
-        (
-          plantedStatus === 'not-planted' && plantedTime
-        ) || (
-          plantedStatus === 'planted' && cropStage && cropStage !== 'seeding'
-        ) || (
-          plantedStatus === 'planted' && cropStage === 'seeding' && aphidPresence
-        )
-      ),
-      render: () => <FarmInfo />,
-    },
-    {
       key: "calculate-btn",
-      show: Boolean(farmInfoComplete),
+      show: Boolean(plantedTime),
       render: () => <CalculateButton />,
     },
   ];
