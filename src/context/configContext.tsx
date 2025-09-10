@@ -2,48 +2,101 @@ import { createContext, useState, useContext } from "react";
 import type { ReactNode } from 'react';
 import config from "../../data.config.json";
 
+// question whether we need a whole context file?
+// i believe it has two main purposes:
+// 1. allow farmers to update yield
+// 2. importing as global context might make calculation fetching faster.
+
 export type ConfigType = {
-  bushelPrice: number;
-  baseYield: number;
-  treatmentCost: {
-    'cont': number;
-    'fallApp': number;
-    'SPRNGApp': number;
-    'neon': number;
-    'neonSRNGApp': number;
-    'neonFallApp': number;
-  };
-  treatmentEffects: {
-    'cont': number;
-    'fallApp': number;
-    'SPRNGApp': number;
-    'neon': number;
-    'neonSRNGApp': number;
-    'neonFallApp': number;
-  };
-  aphidPresenceCoefficients: {
-    'little-to-none': number,
-    'some': number,
-    'noticeable': number,
-    'many': number
-  };
-  aphidEffectCoefficients: {
-    infectionRateCoefficient: number;
-  };
-  plantingTimeEffects: {
-    'early': number;
-    'on-time': number;
-    'late': number;
-  };
-  cropStageEffects: {
-    'seeding': number;
-    'tillering': number;
-    'jointing': number;
-    'booting': number;
-    'heading': number;
-    'ripening': number;
-  };
-  seedingRate: number;
+  "bushelPrice": 'number',
+  "treatmentCostsPerAcre": {
+    "cont": 'number',
+    "neon": 'number',
+    "fallApp": 'number',
+    "springApp": 'number',
+    "neonFallApp": 'number',
+    "neonSpringApp": 'number'
+  },
+  "treatmentProfitsPerAcre": {
+    "sparec": {
+      "sept-oct": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": 'number',
+        "springApp": 'number',
+        "neonFallApp": 'number',
+        "neonSpringApp": 'number'
+      },
+      "oct-nov": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": 'number',
+        "springApp": 'number',
+        "neonFallApp": 'number',
+        "neonSpringApp": 'number'
+      },
+      "nov-dec": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": null,
+        "springApp": 'number',
+        "neonFallApp": null,
+        "neonSpringApp": 'number'
+      }
+    },
+    "rusty": {
+      "sept-oct": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": 'number',
+        "springApp": 'number',
+        "neonFallApp": 'number',
+        "neonSpringApp": 'number'
+      },
+      "oct-nov": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": 'number',
+        "springApp": 'number',
+        "neonFallApp": 'number',
+        "neonSpringApp": 'number'
+      },
+      "nov-dec": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": null,
+        "springApp": 'number',
+        "neonFallApp": null,
+        "neonSpringApp": 'number'
+      }
+    },
+    "warsaw": {
+      "sept-oct": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": 'number',
+        "springApp": 'number',
+        "neonFallApp": 'number',
+        "neonSpringApp": 'number'
+      },
+      "oct-nov": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": 'number',
+        "springApp": 'number',
+        "neonFallApp": 'number',
+        "neonSpringApp": 'number'
+      },
+      "nov-dec": {
+        "cont": 'number',
+        "neon": 'number',
+        "fallApp": null,
+        "springApp": 'number',
+        "neonFallApp": null,
+        "neonSpringApp": 'number'
+      }
+    }
+  }
 };
 
 type ConfigContextType = {
