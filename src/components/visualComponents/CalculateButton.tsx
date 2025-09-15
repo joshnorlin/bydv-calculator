@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import type { RootState } from "../../store/store";
 import { setRecommendations, setRecommendationsLoading, setRecommendationsError } from "../../store/recommendationsSlice";
-import { calculate } from "../../utils/calculate";
+import { calculateRecommendations } from "../../utils/calculateRecommendations";
 import { useConfig } from "../../context/configContext";
 
 function CalculateButton() {
@@ -16,23 +16,19 @@ function CalculateButton() {
     try {
       dispatch(setRecommendationsLoading());
       
-      // Prepare input data for calculation
       const inputData = {
-        aphidPresence: userDecision.aphidPresence,
-        plantedTime: userDecision.plantedTime,
-        cropStage: userDecision.cropStage
+        location: userDecision.location,
+        plantingDate: userDecision.plantingDate
       };
       
-      const recommendations = calculate(inputData, config);
+      const recommendations = calculateRecommendations(inputData, config);
       
       if (!recommendations || !Array.isArray(recommendations) || recommendations.length === 0) {
         throw new Error('No recommendations were generated');
       }
       
-      // Save recommendations to store
       dispatch(setRecommendations(recommendations));
       
-      // Navigate to results page
       navigate('/calculator/results');
     } catch (error) {
       console.error('Calculation error:', error);

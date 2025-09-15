@@ -2,8 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface Recommendation {
+  date: string;
   treatment: string;
-  revenue: number;
+  profit: number;
 }
 
 interface RecommendationsState {

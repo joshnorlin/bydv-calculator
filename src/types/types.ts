@@ -1,6 +1,9 @@
+export type LocationType = 'sparec' | 'rusty' | 'warsaw' | null;
+export type PlantingDateType = 'sept-oct' | 'oct-nov' | 'nov-dec' | null;
+
 export type InputDataType = {
-  location: 'sparec' | 'rusty' | 'warsaw'
-  plantingDate: 'sept-oct' | 'oct-nov' | 'nov-dec' | null
+  location: LocationType;
+  plantingDate: PlantingDateType;
 }
 
 /* ----------------------------------------------- */
@@ -28,15 +31,15 @@ export const TreatmentList = {
 /* ----------------------------------------------- */
 
 export type ConfigType = {
-  "bushelPrice": number,
+  "bushelPrice": number;
   treatmentCostsPerAcre: {
     [treatment: string]: number
-  },
+  };
   treatmentProfitsPerAcre: {
     [location: string]: {
       [date: string]: {
         [treatment: string]: number
       }
     }
-  }
+  };
 };
