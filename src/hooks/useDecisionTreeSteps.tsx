@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../store/store';
 
 // Component imports
-import Plantings from '../components/inputComponents/Plantings';
-import PlantingTimeComponent from '../components/inputComponents/PlantingTimeComponent';
+import PlantingStatus from '../components/inputComponents/PlantingStatus';
+import PlantingDate from '../components/inputComponents/PlantingDate';
 import CalculateButton from '../components/visualComponents/CalculateButton';
 
 // Interface for decision tree steps
@@ -18,18 +18,50 @@ interface DecisionTreeStep {
 const useDecisionTreeSteps = (): DecisionTreeStep[] => {
   // Get user decision state from Redux store
   const {
-    plantedStatus,
-    plantedTime,
+    location,
+    plantingStatus,
+    plantingDate,
   } = useSelector((state: RootState) => state.userDecision);
 
   // Check if farm info is complete
 
   // Array of decision tree steps
   const steps: DecisionTreeStep[] = [
-    {
-      key: "non-farmer",
-      show: plantedStatus === "non-farmer",
+    /*{
+      key: "enterLocation",
+      show: true, // can change this condition in the future.
       render: () => (
+        <div>placeholder location input component</div>
+      ),
+    },*/
+    {
+      key: "validLocation",
+      show: true,//Boolean(location !== null && location !== 'not-applicable'),
+      render: () => <PlantingStatus />
+    },
+    {
+      key: "invalidLocation",
+      show: Boolean(location === 'not-applicable'),
+      render: () => (
+        <div>placeholder "not applicable" info component</div>
+      ) // CHANGE THIS COMPONENT NAME
+    },
+    {
+      key: "hasPlanted",
+      show: Boolean(plantingStatus === 'planted'),
+      render: () => <PlantingDate />
+    },
+    {
+      key: "hasNotPlanted",
+      show: Boolean(plantingStatus === 'not-planted'),
+      render: () => (
+        <div>placeholder ugh, you've haven't planted? let's help.</div> // PLACEHOLDER HTML, WHAT WILL THE FLOW BE?
+      ),
+    },
+    {
+      key: "isNotAFarmer",
+      show: Boolean(plantingStatus === 'not-farmer'),
+      render: () => ( // PLACEHOLDER COMPONENT, WHAT WILL THE EDUCATIVE PROCESS BE?
         <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center">
           <div className="text-2xl text-gray-700 font-medium mb-2">
             Thanks for visiting! This tool is designed for farmers.
@@ -42,18 +74,13 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
       ),
     },
     {
-      key: "plantings",
-      show: plantedStatus !== "non-farmer",
-      render: () => <Plantings />,
-    },
-    {
-      key: "planting-time",
-      show: plantedStatus === "planted" || plantedStatus === "not-planted",
-      render: () => <PlantingTimeComponent />,
-    },
-    {
-      key: "calculate-btn",
-      show: Boolean(plantedTime),
+      key: "validInfo",
+      show: Boolean(
+        (true) ||
+        (location && plantingStatus === 'planted' && plantingDate) ||
+        (location && plantingStatus === 'not-planted')
+        // ADD EDUCATIVE STATE VARIABLES FOR 'NOT-FARMER'
+    ),
       render: () => <CalculateButton />,
     },
   ];

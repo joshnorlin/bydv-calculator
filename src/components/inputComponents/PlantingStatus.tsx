@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import ListButton from "../visualComponents/ListButton";
 import type { RootState } from "../../store/store";
+import { setPlantingStatus } from "../../store/userDecisionSlice";
 
-function Plantings() {
+function PlantingStatus() {
   const dispatch = useDispatch();
-  const plantedStatus = useSelector((state: RootState) => state.userDecision.plantingDate);
+  const plantingStatus = useSelector((state: RootState) => state.userDecision.plantingStatus);
 
   /*
     all components are now expecting deleted userDecisionSlice variables.
@@ -23,19 +24,19 @@ function Plantings() {
         </h2>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <ListButton
-            handleClick={() => dispatch(setPlantedStatus(''))}
+            handleClick={() => dispatch(setPlantingStatus('planted'))}
             text="Yes!"
-            selected={plantedStatus === 'planted'}
+            selected={plantingStatus === 'planted'}
           />
           <ListButton
-            handleClick={() => dispatch(setPlantingDate(null))}
+            handleClick={() => dispatch(setPlantingStatus('not-planted'))}
             text="No, not yet."
-            selected={plantedStatus === 'not-planted'}
+            selected={plantingStatus === 'not-planted'}
           />
           <ListButton
-            handleClick={() => dispatch(setPlantedStatus('non-farmer'))}
+            handleClick={() => dispatch(setPlantingStatus('not-farmer'))}
             text="I'm not a farmer..."
-            selected={plantedStatus === 'non-farmer'}
+            selected={plantingStatus === 'not-farmer'}
           />
         </div>
       </div>
@@ -43,4 +44,4 @@ function Plantings() {
   )
 }
 
-export default Plantings;
+export default PlantingStatus;

@@ -16,9 +16,11 @@ function CalculateButton() {
     try {
       dispatch(setRecommendationsLoading());
       
+      // SHOULDN'T WE BE ABLE TO IMPORT THIS??? WHY ARE WE DEFINING IT??
       const inputData = {
         location: userDecision.location,
-        plantingDate: userDecision.plantingDate
+        plantingDate: userDecision.plantingDate,
+        plantingStatus: userDecision.plantingStatus
       };
       
       const recommendations = calculateRecommendations(inputData, config);

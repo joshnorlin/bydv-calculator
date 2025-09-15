@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { LocationType, PlantingDateType, PlantingStatusType } from '../types/types';
 
 interface UserDecisionState {
-  plantingStatus: PlantingStatusType
+  plantingStatus: PlantingStatusType,
   plantingDate: PlantingDateType,
   location: LocationType,
 }
