@@ -1,8 +1,11 @@
 export type LocationType = 'sparec' | 'rusty' | 'warsaw' | null;
 export type PlantingDateType = 'sept-oct' | 'oct-nov' | 'nov-dec' | null;
+export type PlantingStatusType = 'planted' | 'not-planted' | 'not-farmer' | null;
+
 
 export type InputDataType = {
   location: LocationType;
+  plantingStatus: PlantingStatusType;
   plantingDate: PlantingDateType;
 }
 
