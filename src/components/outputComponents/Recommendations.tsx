@@ -65,14 +65,14 @@ function Recommendations() {
   }
 
   // Sort by revenue (highest first)
-  const sortedRecommendations: Recommendation[] = [...recommendations].sort((a, b) => b.revenue - a.revenue);
+  const sortedRecommendations: Recommendation[] = [...recommendations].sort((a, b) => b.profit - a.profit);
   // Determine a continuation (baseline) revenue:
   // 1) Prefer a treatment that looks like "no treatment"/"none"
   // 2) Otherwise use the lowest revenue as a conservative baseline
   const explicitBaseline = sortedRecommendations.find(r => /^(none|no[ _-]?treat(ment)?)$/i.test(r.treatment));
   const contRevenue = explicitBaseline
-    ? explicitBaseline.revenue
-    : (sortedRecommendations[sortedRecommendations.length - 1]?.revenue ?? 0);
+    ? explicitBaseline.profit
+    : (sortedRecommendations[sortedRecommendations.length - 1]?.profit ?? 0);
 
   // Sort recommendations by profit (highest first)
   // const sortedByProfit = [...recommendations].sort((a, b) => b.profit - a.profit);
@@ -140,24 +140,24 @@ function Recommendations() {
             {sortedRecommendations.map((rec, index) => (
               <div 
                 key={index}
-                className={`px-6 py-6 sm:grid sm:grid-cols-4 sm:gap-6 sm:px-8 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} ${getRecommendationColor(rec.revenue)}`}
+                className={`px-6 py-6 sm:grid sm:grid-cols-4 sm:gap-6 sm:px-8 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} ${getRecommendationColor(rec.profit)}`}
               >
                 <dt className="text-sm font-medium text-gray-500 flex items-center whitespace-nowrap">
                   {rec.treatment}
                   <span className="ml-2">
-                    {getRecommendationBadge(rec.revenue)}
+                    {getRecommendationBadge(rec.profit)}
                   </span>
                 </dt>
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3">
                   <div className="grid grid-cols-3 gap-8 items-center">
                     <div>
                       <p className="text-xs text-gray-500">Revenue</p>
-                      <p className="font-medium whitespace-nowrap">${rec.revenue.toLocaleString()}</p>
+                      <p className="font-medium whitespace-nowrap">${rec.profit.toLocaleString()}</p>
                       {contRevenue !== 0 && (
-                        <p className={`text-xs ${rec.revenue >= contRevenue ? 'text-green-600' : 'text-red-600'} whitespace-nowrap`}>
-                          {rec.revenue >= contRevenue ? '↑' : '↓'} 
-                          {Math.abs(((rec.revenue - contRevenue) / contRevenue) * 100).toFixed(1)}% 
-                          {rec.revenue >= contRevenue ? 'higher' : 'lower'} than continuation
+                        <p className={`text-xs ${rec.profit >= contRevenue ? 'text-green-600' : 'text-red-600'} whitespace-nowrap`}>
+                          {rec.profit >= contRevenue ? '↑' : '↓'} 
+                          {Math.abs(((rec.profit - contRevenue) / contRevenue) * 100).toFixed(1)}% 
+                          {rec.profit >= contRevenue ? 'higher' : 'lower'} than continuation
                         </p>
                       )}
                     </div>

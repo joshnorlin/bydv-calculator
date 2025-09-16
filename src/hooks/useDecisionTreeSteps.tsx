@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import type { RootState } from '../store/store';
 
 // Component imports
+import Location from '../components/inputComponents/Location';
 import PlantingStatus from '../components/inputComponents/PlantingStatus';
 import PlantingDate from '../components/inputComponents/PlantingDate';
 import CalculateButton from '../components/visualComponents/CalculateButton';
@@ -27,16 +28,14 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
 
   // Array of decision tree steps
   const steps: DecisionTreeStep[] = [
-    /*{
+    {
       key: "enterLocation",
       show: true, // can change this condition in the future.
-      render: () => (
-        <div>placeholder location input component</div>
-      ),
-    },*/
+      render: () => <Location />
+    },
     {
       key: "validLocation",
-      show: true,//Boolean(location !== null && location !== 'not-applicable'),
+      show: Boolean(location !== null && location !== 'not-applicable'),
       render: () => <PlantingStatus />
     },
     {
@@ -76,7 +75,6 @@ const useDecisionTreeSteps = (): DecisionTreeStep[] => {
     {
       key: "validInfo",
       show: Boolean(
-        (true) ||
         (location && plantingStatus === 'planted' && plantingDate) ||
         (location && plantingStatus === 'not-planted')
         // ADD EDUCATIVE STATE VARIABLES FOR 'NOT-FARMER'

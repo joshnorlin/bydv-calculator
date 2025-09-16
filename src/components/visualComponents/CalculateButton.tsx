@@ -18,11 +18,11 @@ function CalculateButton() {
       
       // SHOULDN'T WE BE ABLE TO IMPORT THIS??? WHY ARE WE DEFINING IT??
       const inputData = {
-        location: userDecision.location,
+        location: userDecision.location, 
         plantingDate: userDecision.plantingDate,
         plantingStatus: userDecision.plantingStatus
       };
-      
+  
       const recommendations = calculateRecommendations(inputData, config);
       
       if (!recommendations || !Array.isArray(recommendations) || recommendations.length === 0) {
