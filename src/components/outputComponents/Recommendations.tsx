@@ -1,66 +1,41 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import type { Recommendation } from "../../store/recommendationsSlice";
+import Container from '@mui/material/Container';
+import Alert from '@mui/material/Alert';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function Recommendations() {
   const { recommendations, loading, error } = useSelector((state: RootState) => state.recommendations);
 
   if (loading) {
     return (
-      <div>
-        <div>
-          <div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <div>
-              <p>Calculating recommendations…</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Alert severity="info">Calculating recommendations…</Alert>
+      </Container>
     );
   }
 
   if (error) {
     return (
-      <div>
-        <div>
-          <div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <div>
-              <p>{error}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Alert severity="error">{error}</Alert>
+      </Container>
     );
   }
 
   if (!recommendations || recommendations.length === 0) {
     return (
-      <div>
-        <div>
-          <div>
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <div>
-              <p>
-                No recommendations available. Please complete the calculator to see your personalized recommendations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Alert severity="warning">No recommendations available. Please complete the calculator to see your personalized recommendations.</Alert>
+      </Container>
     );
   }
 
@@ -75,85 +50,61 @@ function Recommendations() {
     : (sortedRecommendations[sortedRecommendations.length - 1]?.profit ?? 0);
 
   return (
-    <div>
-      <h2>Your Farm Management Recommendations</h2>
-      
-      <div>
-        <div>
-          <h3>
+    <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Typography variant="h5" component="h2" gutterBottom>
+        Your Farm Management Recommendations
+      </Typography>
+
+      <Paper variant="outlined" sx={{ mb: 3 }}>
+        <Box p={2}>
+          <Typography variant="subtitle1" gutterBottom>
             Comparison with No Action (Continuation) Option
-          </h3>
-          <p>
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
             The following options are compared to doing nothing (continuation).
-          </p>
-        </div>
-        
-        <div>
-          <dl>
-            {sortedRecommendations.map((rec, index) => (
-              <div 
-                key={index}
-              >
-                <dt>
-                  {rec.treatment}
-                  <span>
-                    {/* Badge removed */}
-                  </span>
-                </dt>
-                <dd>
-                  <div>
-                    <div>
-                      <p>Revenue</p>
-                      <p>${rec.profit.toLocaleString()}</p>
-                      {contRevenue !== 0 && (
-                        <p>
-                          {rec.profit >= contRevenue ? '↑' : '↓'} 
-                          {Math.abs(((rec.profit - contRevenue) / contRevenue) * 100).toFixed(1)}% 
-                          {rec.profit >= contRevenue ? 'higher' : 'lower'} than continuation
-                        </p>
-                      )}
-                    </div>
-                    {/* Additional metrics like cost/profit can be displayed when available in state */}
-                    <div>
-                      <details>
-                        <summary>
-                          <span>▶</span>
-                          More about this treatment
-                        </summary>
-                        <div>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                      </details>
-                    </div>
-                  </div>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </div>
-      
-      <div>
-        <div>
-          <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-            </svg>
-          </div>
-          <div>
-            <h3>How to interpret these results</h3>
-            <div>
-              <ul>
-                <li><span>Best Choice:</span> Significantly better than doing nothing (20%+ better revenue)</li>
-                <li><span>Good Option:</span> Slightly better than doing nothing (5-20% better revenue)</li>
-                <li><span>Not Recommended:</span> Worse than doing nothing (lower revenue)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </Typography>
+        </Box>
+        <Divider />
+        <Box>
+          {sortedRecommendations.map((rec, index) => (
+            <Box key={index} p={2}>
+              <Typography variant="subtitle2">{rec.treatment}</Typography>
+              <Box mt={1}>
+                <Typography variant="caption">Revenue</Typography>
+                <Typography variant="body2">${rec.profit.toLocaleString()}</Typography>
+                {contRevenue !== 0 && (
+                  <Typography variant="caption" color="text.secondary">
+                    {rec.profit >= contRevenue ? '↑' : '↓'}
+                    {Math.abs(((rec.profit - contRevenue) / contRevenue) * 100).toFixed(1)}% {rec.profit >= contRevenue ? 'higher' : 'lower'} than continuation
+                  </Typography>
+                )}
+              </Box>
+              <Accordion sx={{ mt: 1 }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant="body2">More about this treatment</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="body2" color="text.secondary">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              {index < sortedRecommendations.length - 1 && <Divider sx={{ mt: 2 }} />}
+            </Box>
+          ))}
+        </Box>
+      </Paper>
+
+      <Alert severity="info">
+        <Typography variant="subtitle2">How to interpret these results</Typography>
+        <Box component="ul" sx={{ pl: 2, my: 1 }}>
+          <Box component="li"><strong>Best Choice:</strong> Significantly better than doing nothing (20%+ better revenue)</Box>
+          <Box component="li"><strong>Good Option:</strong> Slightly better than doing nothing (5-20% better revenue)</Box>
+          <Box component="li"><strong>Not Recommended:</strong> Worse than doing nothing (lower revenue)</Box>
+        </Box>
+      </Alert>
+    </Container>
   );
 }
 
