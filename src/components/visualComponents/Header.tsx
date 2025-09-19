@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 
 export default function Header() {
   return (
-    <AppBar position="fixed" color="primary" elevation={1}>
+    <AppBar color="primary" elevation={1}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <img

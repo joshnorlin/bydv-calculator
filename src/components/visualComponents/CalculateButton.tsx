@@ -4,6 +4,7 @@ import type { RootState } from "../../store/store";
 import { setRecommendations, setRecommendationsLoading, setRecommendationsError } from "../../store/recommendationsSlice";
 import { calculateRecommendations } from "../../utils/calculateRecommendations";
 import { useConfig } from "../../context/configContext";
+import Button from "@mui/material/Button";
 
 function CalculateButton() {
   const dispatch = useDispatch();
@@ -40,12 +41,7 @@ function CalculateButton() {
 
   return (
     <div className="flex flex-col items-center my-8">
-      <button
-        className="bg-green-700 text-white px-8 py-3 rounded font-medium mb-6 hover:bg-green-800 transition-colors duration-200"
-        onClick={handleCalculate}
-      >
-        Calculate Recommendations
-      </button>
+      <Button variant="contained" onClick={() => (handleCalculate())}>Hello</Button>
     </div>
   );
 }

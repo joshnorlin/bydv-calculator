@@ -1,46 +1,43 @@
 import { useDispatch, useSelector } from "react-redux";
-import ListButton from "../visualComponents/ListButton";
 import type { RootState } from "../../store/store";
 import { setPlantingStatus } from "../../store/userDecisionSlice";
+import type { PlantingStatusType } from "../../types/types";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import ToggleButton from '@mui/material/ToggleButton';
+import Stack from '@mui/material/Stack';
 
 function PlantingStatus() {
   const dispatch = useDispatch();
   const plantingStatus = useSelector((state: RootState) => state.userDecision.plantingStatus);
 
-  /*
-    all components are now expecting deleted userDecisionSlice variables.
-    TODO:
-      - ponder the minimum input variables needed. maybe just "have you planted?", 
-      if not, don't ask "when they plan to plant hahaha". if so, ask when they planted. ask for location first.
-      we need a chance for them to change their wheat prices, but start with a default price obviously.
-  */
- 
+  const handleChange = (_: unknown, value: string | null) => {
+    if (value) dispatch(setPlantingStatus(value as PlantingStatusType));
+  };
+
   return (
-    <section className="bg-white rounded border border-gray-300 p-8">
-      <div className="text-center">
-        <h1 className="text-3xl font-bold text-green-800 mb-4">Let's get started</h1>
-        <h2 className="text-lg text-gray-700 mb-6">
-          We'll start simple. <span className="font-semibold text-gray-800">Have you planted your wheat yet?</span>
-        </h2>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <ListButton
-            handleClick={() => dispatch(setPlantingStatus('planted'))}
-            text="Yes!"
-            selected={plantingStatus === 'planted'}
-          />
-          <ListButton
-            handleClick={() => dispatch(setPlantingStatus('not-planted'))}
-            text="No, not yet."
-            selected={plantingStatus === 'not-planted'}
-          />
-          <ListButton
-            handleClick={() => dispatch(setPlantingStatus('not-farmer'))}
-            text="I'm not a farmer..."
-            selected={plantingStatus === 'not-farmer'}
-          />
-        </div>
-      </div>
-    </section>
+    <Card variant="outlined">
+      <CardContent>
+        <Stack spacing={2} alignItems="center" textAlign="center">
+          <Typography variant="h4" color="success.main">Let's get started</Typography>
+          <Typography variant="subtitle1">
+            We'll start simple. <strong>Have you planted your wheat yet?</strong>
+          </Typography>
+          <ToggleButtonGroup
+            exclusive
+            value={plantingStatus || null}
+            onChange={handleChange}
+            orientation="horizontal"
+          >
+            <ToggleButton value="planted">Yes!</ToggleButton>
+            <ToggleButton value="not-planted">No, not yet.</ToggleButton>
+            <ToggleButton value="not-farmer">I'm not a farmer...</ToggleButton>
+          </ToggleButtonGroup>
+        </Stack>
+      </CardContent>
+    </Card>
   )
 }
 
