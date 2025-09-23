@@ -1,5 +1,16 @@
+import { Box } from "@mui/material";
+import { Location } from "../../components/Location";
+
 export function CalculatorHome() {
     return (
-        <div>Hello World!</div>
+        <Box
+            sx={{
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+            }}
+        >
+            <Location />
+        </Box>
     )
 }
