@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { Location } from "../../components/Location";
+import { PlantingStatus } from "../../components/PlantingStatus";
 
 export function CalculatorHome() {
     return (
@@ -11,6 +12,7 @@ export function CalculatorHome() {
             }}
         >
             <Location />
+            <PlantingStatus />
         </Box>
     )
 }
