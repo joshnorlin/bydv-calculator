@@ -1,18 +1,9 @@
-import { Autocomplete, TextField, Card, CardContent, Typography, Container, Box } from "@mui/material";
+import { Autocomplete, TextField, Card, CardContent, Typography, Box } from "@mui/material";
 import counties from '../data/virginia_counties_and_cities.json';
 
 export function Location() {
     return (
-        <Container
-            maxWidth="sm"
-            sx={{
-                minHeight: "100vh",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-            }}
-        >
-            <Card sx={{ width: "100%", boxShadow: 3, }}>
+            <Card>
                 <CardContent>
                     <Typography variant="h6" gutterBottom>
                         Enter your county to connect to a planting site and improve your suggestions.
@@ -33,6 +24,5 @@ export function Location() {
                     </Box>
                 </CardContent>
             </Card>
-        </Container>
     );
 }

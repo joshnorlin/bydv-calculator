@@ -1,11 +1,10 @@
-import { Card, CardContent, Container, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
+import { Card, CardContent, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { useState } from "react";
 
 export function PlantingStatus() {
     const [value, setValue] = useState("");
 
     return (
-        <Container maxWidth="sm" sx={{ mt: 4 }}>
             <Card>
                 <CardContent>
                     <FormControl>
@@ -21,6 +20,5 @@ export function PlantingStatus() {
                     </FormControl>
                 </CardContent>
             </Card>
-        </Container>
     );
 }
