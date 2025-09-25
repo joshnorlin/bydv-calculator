@@ -1,0 +1,1 @@
+export const DEFAULT_MAX_RADIUS_KM = 200;

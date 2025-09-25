@@ -1,0 +1,1199 @@
+[
+  {
+    "id": 1,
+    "county": "Accomack",
+    "latitude": 37.8262,
+    "longitude": -75.613,
+    "sparec_dist_in_km": 227.23,
+    "rusty_dist_in_km": 216.23,
+    "warsaw_dist_in_km": 102.02
+  },
+  {
+    "id": 2,
+    "county": "Albemarle",
+    "latitude": 38.0294,
+    "longitude": -78.5513,
+    "sparec_dist_in_km": 116.8,
+    "rusty_dist_in_km": 92.65,
+    "warsaw_dist_in_km": 158.04
+  },
+  {
+    "id": 3,
+    "county": "Alexandria",
+    "latitude": 38.817,
+    "longitude": -77.0806,
+    "sparec_dist_in_km": 210.11,
+    "rusty_dist_in_km": 183.21,
+    "warsaw_dist_in_km": 100.06
+  },
+  {
+    "id": 4,
+    "county": "Alleghany",
+    "latitude": 37.8242,
+    "longitude": -79.8231,
+    "sparec_dist_in_km": 181.98,
+    "rusty_dist_in_km": 172.35,
+    "warsaw_dist_in_km": 270.57
+  },
+  {
+    "id": 5,
+    "county": "Amelia",
+    "latitude": 37.3325,
+    "longitude": -78.0529,
+    "sparec_dist_in_km": 28.59,
+    "rusty_dist_in_km": 6.83,
+    "warsaw_dist_in_km": 134.11
+  },
+  {
+    "id": 6,
+    "county": "Amherst",
+    "latitude": 37.5372,
+    "longitude": -79.1646,
+    "sparec_dist_in_km": 115.58,
+    "rusty_dist_in_km": 107.78,
+    "warsaw_dist_in_km": 217.65
+  },
+  {
+    "id": 7,
+    "county": "Appomattox",
+    "latitude": 37.3592,
+    "longitude": -78.8576,
+    "sparec_dist_in_km": 82.62,
+    "rusty_dist_in_km": 78.32,
+    "warsaw_dist_in_km": 197.3
+  },
+  {
+    "id": 8,
+    "county": "Arlington",
+    "latitude": 38.878,
+    "longitude": -77.1097,
+    "sparec_dist_in_km": 215.46,
+    "rusty_dist_in_km": 188.32,
+    "warsaw_dist_in_km": 107.31
+  },
+  {
+    "id": 9,
+    "county": "Augusta",
+    "latitude": 38.1444,
+    "longitude": -79.0962,
+    "sparec_dist_in_km": 153.56,
+    "rusty_dist_in_km": 133.95,
+    "warsaw_dist_in_km": 206.69
+  },
+  {
+    "id": 10,
+    "county": "Bath",
+    "latitude": 38.0401,
+    "longitude": -79.7677,
+    "sparec_dist_in_km": 189.91,
+    "rusty_dist_in_km": 176.81,
+    "warsaw_dist_in_km": 265.04
+  },
+  {
+    "id": 11,
+    "county": "Bedford",
+    "latitude": 37.3417,
+    "longitude": -79.5026,
+    "sparec_dist_in_km": 137.06,
+    "rusty_dist_in_km": 135.56,
+    "warsaw_dist_in_km": 252.26
+  },
+  {
+    "id": 12,
+    "county": "Bland",
+    "latitude": 37.1273,
+    "longitude": -81.1584,
+    "sparec_dist_in_km": 281.65,
+    "rusty_dist_in_km": 283.96,
+    "warsaw_dist_in_km": 400.55
+  },
+  {
+    "id": 13,
+    "county": "Botetourt",
+    "latitude": 37.4845,
+    "longitude": -79.8446,
+    "sparec_dist_in_km": 170.27,
+    "rusty_dist_in_km": 166.6,
+    "warsaw_dist_in_km": 277.75
+  },
+  {
+    "id": 14,
+    "county": "Bristol",
+    "latitude": 36.7123,
+    "longitude": -82.0379,
+    "sparec_dist_in_km": 363.26,
+    "rusty_dist_in_km": 368.84,
+    "warsaw_dist_in_km": 489.02
+  },
+  {
+    "id": 15,
+    "county": "Brunswick",
+    "latitude": 36.7643,
+    "longitude": -77.8725,
+    "sparec_dist_in_km": 37.03,
+    "rusty_dist_in_km": 64.53,
+    "warsaw_dist_in_km": 165.99
+  },
+  {
+    "id": 16,
+    "county": "Buchanan",
+    "latitude": 37.2713,
+    "longitude": -81.9918,
+    "sparec_dist_in_km": 356.14,
+    "rusty_dist_in_km": 356.84,
+    "warsaw_dist_in_km": 469.31
+  },
+  {
+    "id": 17,
+    "county": "Buckingham",
+    "latitude": 37.6259,
+    "longitude": -78.5623,
+    "sparec_dist_in_km": 78.93,
+    "rusty_dist_in_km": 61.22,
+    "warsaw_dist_in_km": 163.49
+  },
+  {
+    "id": 18,
+    "county": "Buena Vista",
+    "latitude": 37.73,
+    "longitude": -79.3551,
+    "sparec_dist_in_km": 140.64,
+    "rusty_dist_in_km": 129.83,
+    "warsaw_dist_in_km": 230.46
+  },
+  {
+    "id": 19,
+    "county": "Campbell",
+    "latitude": 37.2081,
+    "longitude": -79.1568,
+    "sparec_dist_in_km": 104.23,
+    "rusty_dist_in_km": 105.91,
+    "warsaw_dist_in_km": 228.22
+  },
+  {
+    "id": 20,
+    "county": "Caroline",
+    "latitude": 38.0722,
+    "longitude": -77.2981,
+    "sparec_dist_in_km": 126.9,
+    "rusty_dist_in_km": 101.75,
+    "warsaw_dist_in_km": 49.2
+  },
+  {
+    "id": 21,
+    "county": "Carroll",
+    "latitude": 36.7152,
+    "longitude": -80.7079,
+    "sparec_dist_in_km": 245.54,
+    "rusty_dist_in_km": 253.28,
+    "warsaw_dist_in_km": 377.19
+  },
+  {
+    "id": 22,
+    "county": "Charles City",
+    "latitude": 37.3541,
+    "longitude": -77.0731,
+    "sparec_dist_in_km": 87.7,
+    "rusty_dist_in_km": 80.22,
+    "warsaw_dist_in_km": 72.94
+  },
+  {
+    "id": 23,
+    "county": "Charlotte",
+    "latitude": 36.9987,
+    "longitude": -78.6491,
+    "sparec_dist_in_km": 58.83,
+    "rusty_dist_in_km": 70.77,
+    "warsaw_dist_in_km": 198.9
+  },
+  {
+    "id": 24,
+    "county": "Charlottesville",
+    "latitude": 38.0352,
+    "longitude": -78.4858,
+    "sparec_dist_in_km": 115.09,
+    "rusty_dist_in_km": 90.16,
+    "warsaw_dist_in_km": 152.31
+  },
+  {
+    "id": 25,
+    "county": "Chesapeake",
+    "latitude": 36.7372,
+    "longitude": -76.2745,
+    "sparec_dist_in_km": 158.57,
+    "rusty_dist_in_km": 165.81,
+    "warsaw_dist_in_km": 142.93
+  },
+  {
+    "id": 26,
+    "county": "Chesterfield",
+    "latitude": 37.422,
+    "longitude": -77.5737,
+    "sparec_dist_in_km": 53.61,
+    "rusty_dist_in_km": 36.99,
+    "warsaw_dist_in_km": 93.67
+  },
+  {
+    "id": 27,
+    "county": "Clarke",
+    "latitude": 39.0787,
+    "longitude": -77.9687,
+    "sparec_dist_in_km": 223.22,
+    "rusty_dist_in_km": 194.66,
+    "warsaw_dist_in_km": 163.92
+  },
+  {
+    "id": 28,
+    "county": "Colonial Heights",
+    "latitude": 37.2622,
+    "longitude": -77.397,
+    "sparec_dist_in_km": 57.15,
+    "rusty_dist_in_km": 52.12,
+    "warsaw_dist_in_km": 96.06
+  },
+  {
+    "id": 29,
+    "county": "Covington",
+    "latitude": 37.7802,
+    "longitude": -79.987,
+    "sparec_dist_in_km": 193.02,
+    "rusty_dist_in_km": 184.84,
+    "warsaw_dist_in_km": 285.38
+  },
+  {
+    "id": 30,
+    "county": "Craig",
+    "latitude": 37.4936,
+    "longitude": -80.1805,
+    "sparec_dist_in_km": 199.44,
+    "rusty_dist_in_km": 196.36,
+    "warsaw_dist_in_km": 306.74
+  },
+  {
+    "id": 31,
+    "county": "Culpeper",
+    "latitude": 38.5003,
+    "longitude": -77.9538,
+    "sparec_dist_in_km": 158.65,
+    "rusty_dist_in_km": 130.07,
+    "warsaw_dist_in_km": 121.15
+  },
+  {
+    "id": 32,
+    "county": "Cumberland",
+    "latitude": 37.5831,
+    "longitude": -78.1766,
+    "sparec_dist_in_km": 58.37,
+    "rusty_dist_in_km": 32.83,
+    "warsaw_dist_in_km": 132.03
+  },
+  {
+    "id": 33,
+    "county": "Danville",
+    "latitude": 36.5912,
+    "longitude": -79.4096,
+    "sparec_dist_in_km": 137.58,
+    "rusty_dist_in_km": 152.61,
+    "warsaw_dist_in_km": 280.75
+  },
+  {
+    "id": 34,
+    "county": "Dickenson",
+    "latitude": 37.1179,
+    "longitude": -82.3273,
+    "sparec_dist_in_km": 385.76,
+    "rusty_dist_in_km": 387.73,
+    "warsaw_dist_in_km": 502.02
+  },
+  {
+    "id": 35,
+    "county": "Dinwiddie",
+    "latitude": 37.1051,
+    "longitude": -77.6691,
+    "sparec_dist_in_km": 29.37,
+    "rusty_dist_in_km": 37.57,
+    "warsaw_dist_in_km": 124.81
+  },
+  {
+    "id": 36,
+    "county": "Emporia",
+    "latitude": 36.6947,
+    "longitude": -77.5355,
+    "sparec_dist_in_km": 59.65,
+    "rusty_dist_in_km": 81.71,
+    "warsaw_dist_in_km": 157.05
+  },
+  {
+    "id": 37,
+    "county": "Essex",
+    "latitude": 37.9437,
+    "longitude": -76.9326,
+    "sparec_dist_in_km": 134.89,
+    "rusty_dist_in_km": 114.57,
+    "warsaw_dist_in_km": 15.43
+  },
+  {
+    "id": 38,
+    "county": "Fairfax",
+    "latitude": 38.8426,
+    "longitude": -77.2542,
+    "sparec_dist_in_km": 207.43,
+    "rusty_dist_in_km": 179.85,
+    "warsaw_dist_in_km": 107.96
+  },
+  {
+    "id": 39,
+    "county": "Fairfax City",
+    "latitude": 38.8528,
+    "longitude": -77.302,
+    "sparec_dist_in_km": 207.22,
+    "rusty_dist_in_km": 179.49,
+    "warsaw_dist_in_km": 110.74
+  },
+  {
+    "id": 40,
+    "county": "Falls Church",
+    "latitude": 38.8846,
+    "longitude": -77.1729,
+    "sparec_dist_in_km": 214.19,
+    "rusty_dist_in_km": 186.83,
+    "warsaw_dist_in_km": 109.72
+  },
+  {
+    "id": 41,
+    "county": "Fauquier",
+    "latitude": 38.7444,
+    "longitude": -77.813,
+    "sparec_dist_in_km": 186.57,
+    "rusty_dist_in_km": 157.97,
+    "warsaw_dist_in_km": 127.51
+  },
+  {
+    "id": 42,
+    "county": "Floyd",
+    "latitude": 36.9726,
+    "longitude": -80.3544,
+    "sparec_dist_in_km": 210.55,
+    "rusty_dist_in_km": 215.58,
+    "warsaw_dist_in_km": 337.25
+  },
+  {
+    "id": 43,
+    "county": "Fluvanna",
+    "latitude": 37.8788,
+    "longitude": -78.2895,
+    "sparec_dist_in_km": 92.87,
+    "rusty_dist_in_km": 66.67,
+    "warsaw_dist_in_km": 135.21
+  },
+  {
+    "id": 44,
+    "county": "Franklin",
+    "latitude": 37.0066,
+    "longitude": -79.8554,
+    "sparec_dist_in_km": 165.87,
+    "rusty_dist_in_km": 171.26,
+    "warsaw_dist_in_km": 294.34
+  },
+  {
+    "id": 45,
+    "county": "Franklin City",
+    "latitude": 36.6826,
+    "longitude": -76.9422,
+    "sparec_dist_in_km": 104.21,
+    "rusty_dist_in_km": 117.61,
+    "warsaw_dist_in_km": 143.35
+  },
+  {
+    "id": 46,
+    "county": "Frederick",
+    "latitude": 39.1934,
+    "longitude": -78.2551,
+    "sparec_dist_in_km": 237.11,
+    "rusty_dist_in_km": 208.91,
+    "warsaw_dist_in_km": 190.1
+  },
+  {
+    "id": 47,
+    "county": "Fredericksburg",
+    "latitude": 38.2977,
+    "longitude": -77.4878,
+    "sparec_dist_in_km": 143.23,
+    "rusty_dist_in_km": 115.74,
+    "warsaw_dist_in_km": 74.51
+  },
+  {
+    "id": 48,
+    "county": "Galax",
+    "latitude": 36.6603,
+    "longitude": -80.9136,
+    "sparec_dist_in_km": 264.79,
+    "rusty_dist_in_km": 272.69,
+    "warsaw_dist_in_km": 396.55
+  },
+  {
+    "id": 49,
+    "county": "Giles",
+    "latitude": 37.3334,
+    "longitude": -80.7087,
+    "sparec_dist_in_km": 242.87,
+    "rusty_dist_in_km": 242.68,
+    "warsaw_dist_in_km": 356.25
+  },
+  {
+    "id": 50,
+    "county": "Gloucester",
+    "latitude": 37.3606,
+    "longitude": -76.5204,
+    "sparec_dist_in_km": 135.04,
+    "rusty_dist_in_km": 129.29,
+    "warsaw_dist_in_km": 69.93
+  },
+  {
+    "id": 51,
+    "county": "Goochland",
+    "latitude": 37.729,
+    "longitude": -77.8921,
+    "sparec_dist_in_km": 73.04,
+    "rusty_dist_in_km": 44.52,
+    "warsaw_dist_in_km": 103.22
+  },
+  {
+    "id": 52,
+    "county": "Grayson",
+    "latitude": 36.6708,
+    "longitude": -81.2899,
+    "sparec_dist_in_km": 297.73,
+    "rusty_dist_in_km": 304.78,
+    "warsaw_dist_in_km": 427.41
+  },
+  {
+    "id": 53,
+    "county": "Greene",
+    "latitude": 38.2804,
+    "longitude": -78.4824,
+    "sparec_dist_in_km": 140.73,
+    "rusty_dist_in_km": 114.56,
+    "warsaw_dist_in_km": 155.74
+  },
+  {
+    "id": 54,
+    "county": "Greensville",
+    "latitude": 36.7301,
+    "longitude": -77.4374,
+    "sparec_dist_in_km": 63.5,
+    "rusty_dist_in_km": 83,
+    "warsaw_dist_in_km": 149.79
+  },
+  {
+    "id": 55,
+    "county": "Halifax",
+    "latitude": 36.7607,
+    "longitude": -78.9053,
+    "sparec_dist_in_km": 88.61,
+    "rusty_dist_in_km": 104.84,
+    "warsaw_dist_in_km": 232.82
+  },
+  {
+    "id": 56,
+    "county": "Hampton",
+    "latitude": 37.0397,
+    "longitude": -76.3477,
+    "sparec_dist_in_km": 147.1,
+    "rusty_dist_in_km": 148.64,
+    "warsaw_dist_in_km": 108.8
+  },
+  {
+    "id": 57,
+    "county": "Hanover",
+    "latitude": 37.7636,
+    "longitude": -77.4907,
+    "sparec_dist_in_km": 88.56,
+    "rusty_dist_in_km": 64.26,
+    "warsaw_dist_in_km": 68.13
+  },
+  {
+    "id": 58,
+    "county": "Harrisonburg",
+    "latitude": 38.4543,
+    "longitude": -78.8546,
+    "sparec_dist_in_km": 171.12,
+    "rusty_dist_in_km": 146.96,
+    "warsaw_dist_in_km": 192.18
+  },
+  {
+    "id": 59,
+    "county": "Henrico",
+    "latitude": 37.584,
+    "longitude": -77.4716,
+    "sparec_dist_in_km": 73.1,
+    "rusty_dist_in_km": 52.62,
+    "warsaw_dist_in_km": 75.55
+  },
+  {
+    "id": 60,
+    "county": "Henry",
+    "latitude": 36.6817,
+    "longitude": -79.9094,
+    "sparec_dist_in_km": 176.55,
+    "rusty_dist_in_km": 187.29,
+    "warsaw_dist_in_km": 314.09
+  },
+  {
+    "id": 61,
+    "county": "Highland",
+    "latitude": 38.386,
+    "longitude": -79.5592,
+    "sparec_dist_in_km": 200.76,
+    "rusty_dist_in_km": 182.33,
+    "warsaw_dist_in_km": 250.56
+  },
+  {
+    "id": 62,
+    "county": "Hopewell",
+    "latitude": 37.2867,
+    "longitude": -77.2966,
+    "sparec_dist_in_km": 66.47,
+    "rusty_dist_in_km": 60.62,
+    "warsaw_dist_in_km": 88.79
+  },
+  {
+    "id": 63,
+    "county": "Isle Of Wight",
+    "latitude": 36.8763,
+    "longitude": -76.7089,
+    "sparec_dist_in_km": 117.2,
+    "rusty_dist_in_km": 124.02,
+    "warsaw_dist_in_km": 120.86
+  },
+  {
+    "id": 64,
+    "county": "James City",
+    "latitude": 37.3098,
+    "longitude": -76.7812,
+    "sparec_dist_in_km": 111.19,
+    "rusty_dist_in_km": 106.18,
+    "warsaw_dist_in_km": 72.39
+  },
+  {
+    "id": 65,
+    "county": "King And Queen",
+    "latitude": 37.674,
+    "longitude": -76.8811,
+    "sparec_dist_in_km": 119.21,
+    "rusty_dist_in_km": 104.12,
+    "warsaw_dist_in_km": 33.48
+  },
+  {
+    "id": 66,
+    "county": "King George",
+    "latitude": 38.3017,
+    "longitude": -77.106,
+    "sparec_dist_in_km": 157.53,
+    "rusty_dist_in_km": 132.4,
+    "warsaw_dist_in_km": 49.1
+  },
+  {
+    "id": 67,
+    "county": "King William",
+    "latitude": 37.7043,
+    "longitude": -77.077,
+    "sparec_dist_in_km": 107.36,
+    "rusty_dist_in_km": 89.65,
+    "warsaw_dist_in_km": 39.89
+  },
+  {
+    "id": 68,
+    "county": "Lancaster",
+    "latitude": 37.6961,
+    "longitude": -76.4246,
+    "sparec_dist_in_km": 155.59,
+    "rusty_dist_in_km": 143.23,
+    "warsaw_dist_in_km": 41.47
+  },
+  {
+    "id": 69,
+    "county": "Lee",
+    "latitude": 36.7418,
+    "longitude": -83.1383,
+    "sparec_dist_in_km": 460.66,
+    "rusty_dist_in_km": 464.97,
+    "warsaw_dist_in_km": 582.44
+  },
+  {
+    "id": 70,
+    "county": "Lexington",
+    "latitude": 37.78,
+    "longitude": -79.4435,
+    "sparec_dist_in_km": 150.21,
+    "rusty_dist_in_km": 139.07,
+    "warsaw_dist_in_km": 237.6
+  },
+  {
+    "id": 71,
+    "county": "Loudoun",
+    "latitude": 39.0818,
+    "longitude": -77.6215,
+    "sparec_dist_in_km": 225.98,
+    "rusty_dist_in_km": 197.47,
+    "warsaw_dist_in_km": 146.49
+  },
+  {
+    "id": 72,
+    "county": "Louisa",
+    "latitude": 37.9461,
+    "longitude": -77.9079,
+    "sparec_dist_in_km": 97.02,
+    "rusty_dist_in_km": 68.41,
+    "warsaw_dist_in_km": 101.26
+  },
+  {
+    "id": 73,
+    "county": "Lunenburg",
+    "latitude": 36.9499,
+    "longitude": -78.229,
+    "sparec_dist_in_km": 25.3,
+    "rusty_dist_in_km": 48.65,
+    "warsaw_dist_in_km": 172.27
+  },
+  {
+    "id": 74,
+    "county": "Lynchburg",
+    "latitude": 37.3936,
+    "longitude": -79.1784,
+    "sparec_dist_in_km": 110.71,
+    "rusty_dist_in_km": 106.93,
+    "warsaw_dist_in_km": 223.03
+  },
+  {
+    "id": 75,
+    "county": "Madison",
+    "latitude": 38.4207,
+    "longitude": -78.2715,
+    "sparec_dist_in_km": 151.66,
+    "rusty_dist_in_km": 123.93,
+    "warsaw_dist_in_km": 142.56
+  },
+  {
+    "id": 76,
+    "county": "Manassas",
+    "latitude": 38.747,
+    "longitude": -77.4875,
+    "sparec_dist_in_km": 191.5,
+    "rusty_dist_in_km": 163.36,
+    "warsaw_dist_in_km": 108.88
+  },
+  {
+    "id": 77,
+    "county": "Manassas Park",
+    "latitude": 38.7709,
+    "longitude": -77.4494,
+    "sparec_dist_in_km": 194.9,
+    "rusty_dist_in_km": 166.84,
+    "warsaw_dist_in_km": 109.16
+  },
+  {
+    "id": 78,
+    "county": "Martinsville",
+    "latitude": 36.6796,
+    "longitude": -79.8652,
+    "sparec_dist_in_km": 172.8,
+    "rusty_dist_in_km": 183.76,
+    "warsaw_dist_in_km": 310.7
+  },
+  {
+    "id": 79,
+    "county": "Mathews",
+    "latitude": 37.4038,
+    "longitude": -76.3065,
+    "sparec_dist_in_km": 154.62,
+    "rusty_dist_in_km": 148.41,
+    "warsaw_dist_in_km": 73.64
+  },
+  {
+    "id": 80,
+    "county": "Mecklenburg",
+    "latitude": 36.6737,
+    "longitude": -78.4055,
+    "sparec_dist_in_km": 58.27,
+    "rusty_dist_in_km": 83.31,
+    "warsaw_dist_in_km": 204.88
+  },
+  {
+    "id": 81,
+    "county": "Middlesex",
+    "latitude": 37.6173,
+    "longitude": -76.4623,
+    "sparec_dist_in_km": 148.9,
+    "rusty_dist_in_km": 137.82,
+    "warsaw_dist_in_km": 46.13
+  },
+  {
+    "id": 82,
+    "county": "Montgomery",
+    "latitude": 37.1705,
+    "longitude": -80.3705,
+    "sparec_dist_in_km": 211.6,
+    "rusty_dist_in_km": 213.68,
+    "warsaw_dist_in_km": 331.67
+  },
+  {
+    "id": 83,
+    "county": "Nelson",
+    "latitude": 37.7873,
+    "longitude": -78.9004,
+    "sparec_dist_in_km": 112.48,
+    "rusty_dist_in_km": 96.12,
+    "warsaw_dist_in_km": 189.83
+  },
+  {
+    "id": 84,
+    "county": "New Kent",
+    "latitude": 37.4905,
+    "longitude": -77.0067,
+    "sparec_dist_in_km": 99.23,
+    "rusty_dist_in_km": 87.72,
+    "warsaw_dist_in_km": 56.6
+  },
+  {
+    "id": 85,
+    "county": "Newport News",
+    "latitude": 37.114,
+    "longitude": -76.5042,
+    "sparec_dist_in_km": 133.07,
+    "rusty_dist_in_km": 133.25,
+    "warsaw_dist_in_km": 96.88
+  },
+  {
+    "id": 86,
+    "county": "Norfolk",
+    "latitude": 36.9039,
+    "longitude": -76.2408,
+    "sparec_dist_in_km": 157.94,
+    "rusty_dist_in_km": 161.92,
+    "warsaw_dist_in_km": 126.33
+  },
+  {
+    "id": 87,
+    "county": "Northampton",
+    "latitude": 37.3879,
+    "longitude": -75.9093,
+    "sparec_dist_in_km": 188.83,
+    "rusty_dist_in_km": 183.59,
+    "warsaw_dist_in_km": 98.41
+  },
+  {
+    "id": 88,
+    "county": "Northumberland",
+    "latitude": 37.8721,
+    "longitude": -76.4355,
+    "sparec_dist_in_km": 164.27,
+    "rusty_dist_in_km": 148.91,
+    "warsaw_dist_in_km": 30.01
+  },
+  {
+    "id": 89,
+    "county": "Norton",
+    "latitude": 36.9377,
+    "longitude": -82.6226,
+    "sparec_dist_in_km": 412.84,
+    "rusty_dist_in_km": 416.1,
+    "warsaw_dist_in_km": 532.28
+  },
+  {
+    "id": 90,
+    "county": "Nottoway",
+    "latitude": 37.1546,
+    "longitude": -78.0857,
+    "sparec_dist_in_km": 11.43,
+    "rusty_dist_in_km": 22.49,
+    "warsaw_dist_in_km": 147.86
+  },
+  {
+    "id": 91,
+    "county": "Orange",
+    "latitude": 38.2491,
+    "longitude": -78.0325,
+    "sparec_dist_in_km": 130.58,
+    "rusty_dist_in_km": 102.11,
+    "warsaw_dist_in_km": 116.63
+  },
+  {
+    "id": 92,
+    "county": "Page",
+    "latitude": 38.6235,
+    "longitude": -78.4969,
+    "sparec_dist_in_km": 177.91,
+    "rusty_dist_in_km": 150.94,
+    "warsaw_dist_in_km": 169.6
+  },
+  {
+    "id": 93,
+    "county": "Patrick",
+    "latitude": 36.6644,
+    "longitude": -80.2857,
+    "sparec_dist_in_km": 209.7,
+    "rusty_dist_in_km": 219.26,
+    "warsaw_dist_in_km": 345.04
+  },
+  {
+    "id": 94,
+    "county": "Petersburg",
+    "latitude": 37.2047,
+    "longitude": -77.3906,
+    "sparec_dist_in_km": 55.77,
+    "rusty_dist_in_km": 54.08,
+    "warsaw_dist_in_km": 101.02
+  },
+  {
+    "id": 95,
+    "county": "Pittsylvania",
+    "latitude": 36.8263,
+    "longitude": -79.3827,
+    "sparec_dist_in_km": 126.89,
+    "rusty_dist_in_km": 137.67,
+    "warsaw_dist_in_km": 264.96
+  },
+  {
+    "id": 96,
+    "county": "Poquoson",
+    "latitude": 37.1323,
+    "longitude": -76.3654,
+    "sparec_dist_in_km": 145.48,
+    "rusty_dist_in_km": 145.04,
+    "warsaw_dist_in_km": 98.54
+  },
+  {
+    "id": 97,
+    "county": "Portsmouth",
+    "latitude": 36.8439,
+    "longitude": -76.3508,
+    "sparec_dist_in_km": 149.3,
+    "rusty_dist_in_km": 154.9,
+    "warsaw_dist_in_km": 129.55
+  },
+  {
+    "id": 98,
+    "county": "Powhatan",
+    "latitude": 37.6377,
+    "longitude": -77.9085,
+    "sparec_dist_in_km": 62.74,
+    "rusty_dist_in_km": 34.23,
+    "warsaw_dist_in_km": 107.63
+  },
+  {
+    "id": 99,
+    "county": "Prince Edward",
+    "latitude": 37.2522,
+    "longitude": -78.4359,
+    "sparec_dist_in_km": 43.51,
+    "rusty_dist_in_km": 41.91,
+    "warsaw_dist_in_km": 168.07
+  },
+  {
+    "id": 100,
+    "county": "Prince George",
+    "latitude": 37.1603,
+    "longitude": -77.3164,
+    "sparec_dist_in_km": 61.29,
+    "rusty_dist_in_km": 61.86,
+    "warsaw_dist_in_km": 101.85
+  },
+  {
+    "id": 101,
+    "county": "Prince William",
+    "latitude": 38.7102,
+    "longitude": -77.4604,
+    "sparec_dist_in_km": 188.1,
+    "rusty_dist_in_km": 160.06,
+    "warsaw_dist_in_km": 104.17
+  },
+  {
+    "id": 102,
+    "county": "Pulaski",
+    "latitude": 37.0361,
+    "longitude": -80.742,
+    "sparec_dist_in_km": 244.71,
+    "rusty_dist_in_km": 248.39,
+    "warsaw_dist_in_km": 367.71
+  },
+  {
+    "id": 103,
+    "county": "Radford",
+    "latitude": 37.127,
+    "longitude": -80.5558,
+    "sparec_dist_in_km": 227.99,
+    "rusty_dist_in_km": 230.6,
+    "warsaw_dist_in_km": 348.87
+  },
+  {
+    "id": 104,
+    "county": "Rappahannock",
+    "latitude": 38.6939,
+    "longitude": -78.1494,
+    "sparec_dist_in_km": 180.72,
+    "rusty_dist_in_km": 152.44,
+    "warsaw_dist_in_km": 147.05
+  },
+  {
+    "id": 105,
+    "county": "Richmond",
+    "latitude": 37.9247,
+    "longitude": -76.6827,
+    "sparec_dist_in_km": 149.87,
+    "rusty_dist_in_km": 131.97,
+    "warsaw_dist_in_km": 7.61
+  },
+  {
+    "id": 106,
+    "county": "Richmond City",
+    "latitude": 37.5352,
+    "longitude": -77.4708,
+    "sparec_dist_in_km": 69.05,
+    "rusty_dist_in_km": 50.04,
+    "warsaw_dist_in_km": 78.66
+  },
+  {
+    "id": 107,
+    "county": "Roanoke",
+    "latitude": 37.2911,
+    "longitude": -80.01,
+    "sparec_dist_in_km": 180.65,
+    "rusty_dist_in_km": 180.75,
+    "warsaw_dist_in_km": 297.14
+  },
+  {
+    "id": 108,
+    "county": "Roanoke City",
+    "latitude": 37.2739,
+    "longitude": -79.9554,
+    "sparec_dist_in_km": 175.61,
+    "rusty_dist_in_km": 175.99,
+    "warsaw_dist_in_km": 292.99
+  },
+  {
+    "id": 109,
+    "county": "Rockbridge",
+    "latitude": 37.8181,
+    "longitude": -79.4198,
+    "sparec_dist_in_km": 150.67,
+    "rusty_dist_in_km": 138.68,
+    "warsaw_dist_in_km": 235.14
+  },
+  {
+    "id": 110,
+    "county": "Rockingham",
+    "latitude": 38.4954,
+    "longitude": -78.8594,
+    "sparec_dist_in_km": 175.42,
+    "rusty_dist_in_km": 151.09,
+    "warsaw_dist_in_km": 193.9
+  },
+  {
+    "id": 111,
+    "county": "Russell",
+    "latitude": 36.973,
+    "longitude": -81.9847,
+    "sparec_dist_in_km": 355.77,
+    "rusty_dist_in_km": 359.14,
+    "warsaw_dist_in_km": 476.17
+  },
+  {
+    "id": 112,
+    "county": "Salem",
+    "latitude": 37.2881,
+    "longitude": -80.0678,
+    "sparec_dist_in_km": 185.71,
+    "rusty_dist_in_km": 185.9,
+    "warsaw_dist_in_km": 302.18
+  },
+  {
+    "id": 113,
+    "county": "Scott",
+    "latitude": 36.7201,
+    "longitude": -82.6639,
+    "sparec_dist_in_km": 418.75,
+    "rusty_dist_in_km": 423.61,
+    "warsaw_dist_in_km": 542.27
+  },
+  {
+    "id": 114,
+    "county": "Shenandoah",
+    "latitude": 38.8663,
+    "longitude": -78.5841,
+    "sparec_dist_in_km": 206.07,
+    "rusty_dist_in_km": 179.09,
+    "warsaw_dist_in_km": 189.31
+  },
+  {
+    "id": 115,
+    "county": "Smyth",
+    "latitude": 36.8387,
+    "longitude": -81.5296,
+    "sparec_dist_in_km": 316.42,
+    "rusty_dist_in_km": 321.45,
+    "warsaw_dist_in_km": 441.4
+  },
+  {
+    "id": 116,
+    "county": "Southampton",
+    "latitude": 36.7018,
+    "longitude": -77.1634,
+    "sparec_dist_in_km": 85.66,
+    "rusty_dist_in_km": 101.35,
+    "warsaw_dist_in_km": 144.82
+  },
+  {
+    "id": 117,
+    "county": "Spotsylvania",
+    "latitude": 38.1934,
+    "longitude": -77.634,
+    "sparec_dist_in_km": 128.4,
+    "rusty_dist_in_km": 100.42,
+    "warsaw_dist_in_km": 81.38
+  },
+  {
+    "id": 118,
+    "county": "Stafford",
+    "latitude": 38.4049,
+    "longitude": -77.4657,
+    "sparec_dist_in_km": 155.21,
+    "rusty_dist_in_km": 127.6,
+    "warsaw_dist_in_km": 79.71
+  },
+  {
+    "id": 119,
+    "county": "Staunton",
+    "latitude": 38.1584,
+    "longitude": -79.064,
+    "sparec_dist_in_km": 152.99,
+    "rusty_dist_in_km": 132.93,
+    "warsaw_dist_in_km": 204.02
+  },
+  {
+    "id": 120,
+    "county": "Suffolk",
+    "latitude": 36.7752,
+    "longitude": -76.6069,
+    "sparec_dist_in_km": 128.74,
+    "rusty_dist_in_km": 137.19,
+    "warsaw_dist_in_km": 132.76
+  },
+  {
+    "id": 121,
+    "county": "Surry",
+    "latitude": 37.101,
+    "longitude": -76.8902,
+    "sparec_dist_in_km": 98.66,
+    "rusty_dist_in_km": 100.1,
+    "warsaw_dist_in_km": 96.4
+  },
+  {
+    "id": 122,
+    "county": "Sussex",
+    "latitude": 36.9122,
+    "longitude": -77.2097,
+    "sparec_dist_in_km": 72.73,
+    "rusty_dist_in_km": 83.07,
+    "warsaw_dist_in_km": 123.45
+  },
+  {
+    "id": 123,
+    "county": "Tazewell",
+    "latitude": 37.1228,
+    "longitude": -81.6057,
+    "sparec_dist_in_km": 321.49,
+    "rusty_dist_in_km": 323.67,
+    "warsaw_dist_in_km": 439.29
+  },
+  {
+    "id": 124,
+    "county": "Virginia Beach",
+    "latitude": 36.808,
+    "longitude": -76.0696,
+    "sparec_dist_in_km": 174.75,
+    "rusty_dist_in_km": 179.86,
+    "warsaw_dist_in_km": 142.22
+  },
+  {
+    "id": 125,
+    "county": "Warren",
+    "latitude": 38.9211,
+    "longitude": -78.1908,
+    "sparec_dist_in_km": 206.31,
+    "rusty_dist_in_km": 178.06,
+    "warsaw_dist_in_km": 165.19
+  },
+  {
+    "id": 126,
+    "county": "Washington",
+    "latitude": 36.6982,
+    "longitude": -81.9688,
+    "sparec_dist_in_km": 357.35,
+    "rusty_dist_in_km": 363.13,
+    "warsaw_dist_in_km": 483.64
+  },
+  {
+    "id": 127,
+    "county": "Waynesboro",
+    "latitude": 38.0658,
+    "longitude": -78.9034,
+    "sparec_dist_in_km": 136.2,
+    "rusty_dist_in_km": 115.59,
+    "warsaw_dist_in_km": 189.17
+  },
+  {
+    "id": 128,
+    "county": "Westmoreland",
+    "latitude": 38.1161,
+    "longitude": -76.7717,
+    "sparec_dist_in_km": 158.57,
+    "rusty_dist_in_km": 137.53,
+    "warsaw_dist_in_km": 17.74
+  },
+  {
+    "id": 129,
+    "county": "Williamsburg",
+    "latitude": 37.3105,
+    "longitude": -76.7468,
+    "sparec_dist_in_km": 114.19,
+    "rusty_dist_in_km": 109.24,
+    "warsaw_dist_in_km": 72.29
+  },
+  {
+    "id": 130,
+    "county": "Winchester",
+    "latitude": 39.1687,
+    "longitude": -78.1686,
+    "sparec_dist_in_km": 233.75,
+    "rusty_dist_in_km": 205.41,
+    "warsaw_dist_in_km": 182.95
+  },
+  {
+    "id": 131,
+    "county": "Wise",
+    "latitude": 36.9725,
+    "longitude": -82.559,
+    "sparec_dist_in_km": 406.95,
+    "rusty_dist_in_km": 409.97,
+    "warsaw_dist_in_km": 525.83
+  },
+  {
+    "id": 132,
+    "county": "Wythe",
+    "latitude": 36.8775,
+    "longitude": -81.0865,
+    "sparec_dist_in_km": 276.58,
+    "rusty_dist_in_km": 281.76,
+    "warsaw_dist_in_km": 402.44
+  },
+  {
+    "id": 133,
+    "county": "York",
+    "latitude": 37.1713,
+    "longitude": -76.4518,
+    "sparec_dist_in_km": 138.01,
+    "rusty_dist_in_km": 136.77,
+    "warsaw_dist_in_km": 91.93
+  }
+]

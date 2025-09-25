@@ -1,5 +1,7 @@
-export function Recommendations() {
+import { Recommendations } from "../../components/Recommendations";
+
+export function RecommendationsPage() {
     return (
-        <div>Hello World!</div>
-    )
+        <Recommendations />  
+    );
 }

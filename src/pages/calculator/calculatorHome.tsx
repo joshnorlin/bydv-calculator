@@ -13,7 +13,7 @@ export function CalculatorHome() {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 3,
-                my: 5
+                my: 5,
             }}
         >
             <Location />

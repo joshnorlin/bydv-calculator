@@ -1,24 +1,33 @@
 import { Card, CardContent, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "../store/store";
+import { setPlantingStatus } from "../store/userDecisionSlice";
+import { plantingStatusOptions, plantingStatusOptionLabels, type PlantingStatusType } from "../types/types";
 
 export function PlantingStatus() {
-    const [value, setValue] = useState("");
+  const dispatch = useDispatch();
+  const selectedPlantingStatus = useSelector((state: RootState) => state.userDecision.plantingStatus);
 
-    return (
-            <Card>
-                <CardContent>
-                    <FormControl>
-                        <FormLabel>Have you planted?</FormLabel>
-                        <RadioGroup
-                            value={value}
-                            onChange={(e) => setValue(e.target.value)}
-                        >
-                            <FormControlLabel value="planted" control={<Radio />} label="Yes, I have planted" />
-                            <FormControlLabel value="not-planted" control={<Radio />} label="No, I have not planted yet" />
-                            <FormControlLabel value="not-farmer" control={<Radio />} label="I'm not a farmer" />
-                        </RadioGroup>
-                    </FormControl>
-                </CardContent>
-            </Card>
-    );
+  return (
+    <Card>
+      <CardContent>
+        <FormControl>
+          <FormLabel>Have you planted?</FormLabel>
+          <RadioGroup 
+            value={selectedPlantingStatus}
+            onChange={(e) => {dispatch(setPlantingStatus(e.target.value as PlantingStatusType))}}
+          >
+            {plantingStatusOptions.map(option => (
+              <FormControlLabel
+                key={option}
+                value={option}
+                control={<Radio />}
+                label={plantingStatusOptionLabels[option] ?? option}
+              />
+            ))}
+          </RadioGroup>
+        </FormControl>
+      </CardContent>
+    </Card>
+  );
 }

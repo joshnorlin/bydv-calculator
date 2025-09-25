@@ -1,24 +1,33 @@
 import { Card, CardContent, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "../store/store";
+import { setPlantingDate } from "../store/userDecisionSlice";
+import { plantingDateOptions, plantingDateOptionLabels, type PlantingDateType } from "../types/types";
 
 export function PlantingDate() {
-    const [value, setValue] = useState("");
+  const dispatch = useDispatch();
+  const selectedPlantingDate = useSelector((state: RootState) => state.userDecision.plantingDate);
 
-    return (
-      <Card>
-        <CardContent>
-          <FormControl>
-            <FormLabel>When did you plant?</FormLabel>
-            <RadioGroup
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            >
-              <FormControlLabel value="sept-oct" control={<Radio />} label="September - October" />
-              <FormControlLabel value="oct-nov" control={<Radio />} label="October - November" />
-              <FormControlLabel value="nov-dec" control={<Radio />} label="November - December" />
-            </RadioGroup>
-          </FormControl>
-        </CardContent>
-      </Card>
-    );
+  return (
+    <Card>
+      <CardContent>
+        <FormControl>
+          <FormLabel>When did you plant?</FormLabel>
+          <RadioGroup
+              value={selectedPlantingDate}
+              onChange={(e) => {dispatch(setPlantingDate(e.target.value as PlantingDateType))}}
+          >
+            {plantingDateOptions.map(option => (
+              <FormControlLabel
+                key={option}
+                value={option}
+                control={<Radio />}
+                label={plantingDateOptionLabels[option] ?? option}
+              />
+            ))}
+          </RadioGroup>
+        </FormControl>
+      </CardContent>
+    </Card>
+  );
 }

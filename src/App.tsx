@@ -6,7 +6,7 @@ import { store, persistor } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Home } from './pages/home';
 import { CalculatorHome } from './pages/calculator/calculatorHome';
-import { Recommendations } from './pages/calculator/recommendations';
+import { RecommendationsPage } from './pages/calculator/recommendations';
 import { Header } from './components/Header';
 
 export const pages = [
@@ -26,7 +26,7 @@ function App() {
               <Routes>
                 <Route path="/home" element={<Home />} />
                 <Route path="/calculator" element={<CalculatorHome />} />
-                  <Route path="/recommendations" element={<Recommendations />} />
+                  <Route path="/recommendations" element={<RecommendationsPage />} />
               </Routes>
             </BrowserRouter>
           </ConfigProvider>

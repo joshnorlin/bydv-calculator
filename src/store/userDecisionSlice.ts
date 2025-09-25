@@ -5,12 +5,14 @@ interface UserDecisionState {
   plantingStatus: PlantingStatusType,
   plantingDate: PlantingDateType,
   location: LocationType,
+  county: string | undefined,
 }
 
 const initialState: UserDecisionState = {
   plantingStatus: null,
   plantingDate: null,
-  location: null
+  location: null,
+  county: undefined,
 };
 
 const userDecisionSlice = createSlice({
@@ -25,10 +27,13 @@ const userDecisionSlice = createSlice({
     },
     setLocation(state, action: PayloadAction<LocationType>) {
       state.location = action.payload;
+    },
+    setCounty(state, action: PayloadAction<string | undefined>) {
+      state.county = action.payload;
     }
   },
 });
 
-export const { setPlantingStatus, setPlantingDate, setLocation } = userDecisionSlice.actions;
+export const { setPlantingStatus, setPlantingDate, setLocation, setCounty } = userDecisionSlice.actions;
 
 export default userDecisionSlice.reducer;
