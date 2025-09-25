@@ -1,11 +1,11 @@
 import { AppBar, Toolbar, Button, Stack, Box, IconButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import { pages } from "../App";
+import { calculatorSubPages } from "../App";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
-export function Header() {
+export function CalculateSubHeader() {
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -50,7 +50,7 @@ export function Header() {
                                         horizontal: "right",
                                     }}
                                 >
-                                    {pages.map(page => (
+                                    {calculatorSubPages.map(page => (
                                         <MenuItem
                                             key={page}
                                             component="a"
@@ -63,7 +63,7 @@ export function Header() {
                                 </Menu>
                             </>
                         ) : (
-                            pages.map(page => (
+                            calculatorSubPages.map(page => (
                                 <Button
                                     color="inherit"
                                     variant="text"
