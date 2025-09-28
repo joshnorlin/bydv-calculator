@@ -41,7 +41,7 @@ export function CalculateButton() {
   const handleClick = (inputData: InputDataType, dispatch: AppDispatch) => {
     const recommendations = calculateRecommendations(inputData, typedConfig);
     dispatch(setRecommendations(recommendations));
-    navigate("/recommendations");
+    navigate("recommendations");
   }
 
   const selectUserDecisionSlice = (state: RootState) => state.userDecision;

@@ -4,16 +4,22 @@ import { setCounty, setLocation } from "../store/userDecisionSlice";
 import type { RootState } from "../store/store";
 import countyList from '../data/counties.json';
 import { matchCounty } from "../utils/matchCounty";
-import { useMemo } from "react";
+import { createSelector } from "@reduxjs/toolkit";
+
+// Selector to get the county string from state
+const selectCountyString = (state: RootState) => state.userDecision.county;
+
+// Memoized selector to get the full county object
+const selectCountyValue = createSelector(
+  [selectCountyString],
+  (countyString) => countyList.find((c) => c.county === countyString) || null
+);
 
 export function Location() {
   const dispatch = useDispatch();
-  const selectedCountyString = useSelector((state: RootState) => state.userDecision.county);
-  const countyValue = useMemo(
-    () => countyList.find((c) => c.county === selectedCountyString),
-    [countyList, selectedCountyString]
-  );
 
+  // Use the memoized selector
+  const countyValue = useSelector(selectCountyValue);
 
   return (
     <Card>
