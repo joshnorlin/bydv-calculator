@@ -1,4 +1,4 @@
-import { DEFAULT_MAX_RADIUS_KM } from "../config/constants";
+import { MAX_RADIUS_IN_KM } from "../config/constants";
 import type { CountyObjectType, LocationType } from "../types/types";
 
 type LocationKey = "sparec" | "rusty" | "warsaw";
@@ -13,7 +13,7 @@ export function clearMatchCountyCache() {
 export function matchCounty(
   selectedOption: string | undefined,
   countyList: ReadonlyArray<CountyObjectType>,
-  maxRadiusKm: number = DEFAULT_MAX_RADIUS_KM
+  maxRadiusKm: number = MAX_RADIUS_IN_KM
 ): LocationType {
   if (selectedOption === undefined) return null;
 

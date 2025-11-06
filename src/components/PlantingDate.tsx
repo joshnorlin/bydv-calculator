@@ -41,7 +41,7 @@ export function PlantingDate() {
     )
   } else {
     return (
-      <div>Not displaying Planting Date.</div>
+      <div></div>
     )
   }
 }

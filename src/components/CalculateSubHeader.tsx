@@ -20,12 +20,11 @@ export function CalculateSubHeader() {
                     direction="row"
                     spacing={2}
                     sx={{
-                        justifyContent: "space-between",
+                        justifyContent: "center",
                         alignItems: "center",
                         width: "100%",
                     }}
                 >
-                    <Box>LOGO</Box>
                     <Box>
                         {isSmall ? (
                             <>

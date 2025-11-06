@@ -23,6 +23,7 @@ export type InputDataType = {
   location: LocationType;
   plantingStatus: PlantingStatusType;
   plantingDate: PlantingDateType;
+  bushelPrice: number;
 }
 
 /* ----------------------------------------------- */
@@ -63,20 +64,6 @@ export type RecommendationType<Treatment extends string> = {
 };
 
 /* ----------------------------------------------- */
-
-export type ConfigType = {
-  "bushelPrice": number;
-  treatmentCostsPerAcre: {
-    [treatment: string]: number
-  };
-  treatmentProfitsPerAcre: {
-    [location: string]: {
-      [date: string]: {
-        [treatment: string]: number | null
-      }
-    }
-  };
-};
 
 export type CountyObjectType = {
   id: number;

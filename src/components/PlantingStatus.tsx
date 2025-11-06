@@ -47,7 +47,7 @@ export function PlantingStatus() {
     );
   } else {
     return (
-      <div>Not displaying Planting Status.</div>
+      <div></div>
     )
   }
 }

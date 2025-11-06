@@ -1,90 +1,81 @@
 {
-  "bushelPrice": 5.30,
-  "treatmentCostsPerAcre": {
-    "cont": 0,
-    "neon": 16.92,
-    "fallApp": 8.67,
-    "springApp": 8.67,
-    "neonFallApp": 25.59,
-    "neonSpringApp": 25.59
-  },
-  "treatmentProfitsPerAcre": {
+  "yieldInBushelsPerAcre": {
     "sparec": {
       "sept-oct": {
-        "cont": 0,
-        "neon": 9.32,
-        "fallApp": 16.11,
-        "springApp": 18.10,
-        "neonFallApp": 35.76,
-        "neonSpringApp": 14.16
+        "cont": 68.175,
+        "neon": 73.125,
+        "fallApp": 72.85,
+        "springApp": 73.225,
+        "neonFallApp": 79.75,
+        "neonSpringApp": 75.675
       },
       "oct-nov": {
-        "cont": 0,
-        "neon": 43.90,
-        "fallApp": 39.69,
-        "springApp": 12.53,
-        "neonFallApp": 19.46,
-        "neonSpringApp": 38.94
+        "cont": 61.9,
+        "neon": 73.375,
+        "fallApp": 71.025,
+        "springApp": 65.9,
+        "neonFallApp": 70.4,
+        "neonSpringApp": 74.075
       },
       "nov-dec": {
-        "cont": 0,
-        "neon": -29.77,
+        "cont": 85.175,
+        "neon": 82.75,
         "fallApp": null,
-        "springApp": 42.21,
+        "springApp": 94.775,
         "neonFallApp": null,
-        "neonSpringApp": 9.79
+        "neonSpringApp": 91.85
       }
     },
     "rusty": {
       "sept-oct": {
-        "cont": 0,
-        "neon": 31.44,
-        "fallApp": 11.74,
-        "springApp": 3.39,
-        "neonFallApp": -23.20,
-        "neonSpringApp": -26.25
+        "cont": 49.3,
+        "neon": 58.425,
+        "fallApp": 53.15,
+        "springApp": 51.575,
+        "neonFallApp": 49.75,
+        "neonSpringApp": 49.175
       },
       "oct-nov": {
-        "cont": 0,
-        "neon": -5.79,
-        "fallApp": 8.82,
-        "springApp": 12.80,
-        "neonFallApp": 16.15,
-        "neonSpringApp": -5.32
+        "cont": 56.475,
+        "neon": 58.575,
+        "fallApp": 59.775,
+        "springApp": 60.525,
+        "neonFallApp": 64.35,
+        "neonSpringApp": 60.3
       },
       "nov-dec": {
-        "cont": 0,
-        "neon": -49.07,
+        "cont": 47.23,
+        "neon": 41.167,
         "fallApp": null,
-        "springApp": 27.19,
+        "springApp": 54,
         "neonFallApp": null,
-        "neonSpringApp": -37.29
+        "neonSpringApp": 45.025
       }
     },
     "warsaw": {
       "sept-oct": {
-        "cont": 0,
-        "neon": -9.93,
-        "fallApp": 10.44,
-        "springApp": -12.71,
-        "neonFallApp": 11.03,
-        "neonSpringApp": -6.16
+        "cont": 41.1763,
+        "neon": 42.4952,
+        "fallApp": 44.7821,
+        "springApp": 40.414,
+        "neonFallApp": 48.0854,
+        "neonSpringApp": 44.8426
       },
       "oct-nov": {
-        "cont": 0,
-        "neon": -3.90,
-        "fallApp": -28.55,
-        "springApp": 13.90,
-        "neonFallApp": -6.93,
-        "neonSpringApp": -12.12
+        "cont": 40.7286,
+        "neon": 43.1849,
+        "fallApp": 36.9776,
+        "springApp": 44.9878,
+        "neonFallApp": 44.2497,
+        "neonSpringApp": 43.2696
       },
       "nov-dec": {
-        "cont": 0,
-        "neon": -14.68,
+        "cont": 17.9201,
+        "neon": 18.3436,
         "fallApp": null,
-        "springApp": -1.17,
+        "springApp": 19.3358,
         "neonFallApp": null,
-        "neonSpringApp": -22.51
+        "neonSpringApp": 18.5009
       }
     }
   }

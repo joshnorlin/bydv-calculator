@@ -1,11 +1,13 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { LocationType, PlantingDateType, PlantingStatusType } from '../types/types';
+import { BUSHEL_PRICE_IN_DOLLARS } from '../config/constants';
 
 interface UserDecisionState {
   plantingStatus: PlantingStatusType,
   plantingDate: PlantingDateType,
   location: LocationType,
   county: string | undefined,
+  bushelPrice: number,
 }
 
 const initialState: UserDecisionState = {
@@ -13,6 +15,7 @@ const initialState: UserDecisionState = {
   plantingDate: null,
   location: null,
   county: undefined,
+  bushelPrice: BUSHEL_PRICE_IN_DOLLARS,
 };
 
 const userDecisionSlice = createSlice({
@@ -30,10 +33,13 @@ const userDecisionSlice = createSlice({
     },
     setCounty(state, action: PayloadAction<string | undefined>) {
       state.county = action.payload;
+    },
+    setBushelPrice(state, action: PayloadAction<number>) {
+      state.bushelPrice = action.payload;
     }
   },
 });
 
-export const { setPlantingStatus, setPlantingDate, setLocation, setCounty } = userDecisionSlice.actions;
+export const { setPlantingStatus, setPlantingDate, setLocation, setCounty, setBushelPrice } = userDecisionSlice.actions;
 
 export default userDecisionSlice.reducer;
