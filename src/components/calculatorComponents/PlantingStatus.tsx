@@ -1,8 +1,8 @@
 import { Card, CardContent, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import type { RootState } from "../store/store";
-import { setPlantingStatus } from "../store/userDecisionSlice";
-import { plantingStatusOptions, plantingStatusOptionLabels, type PlantingStatusType, type LocationType } from "../types/types";
+import type { RootState } from "../../store/store";
+import { setPlantingStatus } from "../../store/userDecisionSlice";
+import { plantingStatusOptions, plantingStatusOptionLabels, type PlantingStatusType, type LocationType } from "../../types/types";
 
 export function PlantingStatus() {
   const dispatch = useDispatch();

@@ -1,12 +1,12 @@
 import { Button } from "@mui/material";
-// import { calculateRecommendations } from "../utils/calculateRecommendations";
-import { draft } from "../utils/draft";
+// import { calculateRecommendations } from "./../utils/calculateRecommendations";
+import { draft } from "./../../utils/draft";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import type {InputDataType } from "../types/types";
-import type { AppDispatch, RootState } from "../store/store";
-import config from "../../data.config.json";
-import { setRecommendations } from "../store/recommendationsSlice";
+import type {InputDataType } from "./../../types/types";
+import type { AppDispatch, RootState } from "./../../store/store";
+import config from "./../../../data.config.json";
+import { setRecommendations } from "./../../store/recommendationsSlice";
 import { createSelector } from "@reduxjs/toolkit";
 
 const typedConfig = config as any;
@@ -77,6 +77,6 @@ export function CalculateButton() {
       </Button>
     );
   } else {
-    return <div>Not displaying Button.</div>
+    return <div></div>
   }
 }

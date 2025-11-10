@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Home } from './pages/home';
+import About from './pages/about';
 import { CalculatorHome } from './pages/calculator/calculatorHome';
 import { RecommendationsPage } from './pages/calculator/recommendations';
 import { MainHeader } from './components/MainHeader';
@@ -32,7 +33,8 @@ function App() {
           <BrowserRouter>
             <MainHeader />
             <Routes>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
 
               {/* Layout route for calculator */}
               <Route path="/calculator" element={<CalculatorLayout />}>

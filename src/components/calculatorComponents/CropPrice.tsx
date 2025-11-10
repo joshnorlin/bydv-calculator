@@ -1,8 +1,8 @@
 import { Card, CardContent, TextField, Typography, Stack } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../store/store";
-import { setBushelPrice } from "../store/userDecisionSlice";
-import type { PlantingStatusType, PlantingDateType } from "../types/types";
+import type { RootState } from "../../store/store";
+import { setBushelPrice } from "../../store/userDecisionSlice";
+import type { PlantingStatusType, PlantingDateType } from "../../types/types";
 
 export function CropPrice() {
     const dispatch = useDispatch();

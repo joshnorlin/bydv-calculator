@@ -1,9 +1,10 @@
-import { AppBar, Toolbar, Button, Stack, Box, IconButton, Menu, MenuItem } from "@mui/material";
+import { AppBar, Toolbar, Button, Stack, Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { mainPages } from "../App";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { Link as RouterLink } from "react-router-dom";
 
 export function MainHeader() {
     const theme = useTheme();
@@ -25,7 +26,24 @@ export function MainHeader() {
                         width: "100%",
                     }}
                 >
-                    <Box>LOGO</Box>
+                    <Stack
+                        direction="row"
+                        spacing={1.5}
+                        alignItems="center"
+                        component={RouterLink}
+                        to="/"
+                        sx={{ textDecoration: "none", color: "inherit" }}
+                    >
+                        <Box
+                            component="img"
+                            src="https://smallgrainsbydv.nkn.uidaho.edu/assets/img/bydv_logo_v1.png"
+                            alt="Small Grains BYDV logo"
+                            sx={{ height: 36, width: "auto", display: "block" }}
+                        />
+                        <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                            Small Grains BYDV
+                        </Typography>
+                    </Stack>
                     <Box>
                         {isSmall ? (
                             <>
