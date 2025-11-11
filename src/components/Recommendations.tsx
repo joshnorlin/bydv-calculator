@@ -99,7 +99,7 @@ export function Recommendations() {
   };
 
   return (
-    <Card sx={{ maxWidth: 1200, mx: "auto", my: 4, p: { xs: 1, sm: 2 } }}>
+    <Card sx={{ height: '100%', p: { xs: 1, sm: 2 }, display: 'flex', flexDirection: 'column' }}>
       <CardContent>
         <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }} gap={2}>
           <Typography variant="h5">Recommendations (profit per acre vs doing nothing)</Typography>
@@ -112,6 +112,10 @@ export function Recommendations() {
         </Stack>
 
         <Divider sx={{ my: 2 }} />
+
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          Values shown are estimated net profit per acre compared to doing nothing. Positive = more profit than no treatment; negative = less profit.
+        </Typography>
 
         {/* Top 3 overall */}
         {sorted.length === 0 ? (
