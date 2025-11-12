@@ -13,16 +13,13 @@ import CalculatorLayout from "./CalculatorLayout";
 export const mainPages = [
   "home",
   "calculator",
-  "about",
-  "community"
+  "about"
 ]
 
 export const calculatorSubPages = [
   "calculator",
   "recommendations",
-  "help",
   "about"
-  // potentially a home page.
 ]
 
 function App() {
@@ -40,6 +37,8 @@ function App() {
               <Route path="/calculator" element={<CalculatorLayout />}>
                 <Route index element={<CalculatorHome />} />  {/* /calculator */}
                 <Route path="recommendations" element={<RecommendationsPage />} />
+                <Route path="about" element={<About />} />
+                {/* add quick-calculate page here */}
               </Route>
 
             </Routes>

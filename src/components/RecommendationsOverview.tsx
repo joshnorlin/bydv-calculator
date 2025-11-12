@@ -3,7 +3,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export function RecommendationsOverview() {
   return (
-    <Card sx={{ maxWidth: 1200, mx: "auto", my: 2, p: { xs: 1, sm: 2 } }}>
+    <Card sx={{ p: 3, borderRadius: 2, boxShadow: 1 }}>
       <CardContent>
         <Stack gap={2}>
           <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }} gap={2}>

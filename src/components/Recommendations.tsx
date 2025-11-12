@@ -99,9 +99,9 @@ export function Recommendations() {
   };
 
   return (
-    <Card sx={{ height: '100%', p: { xs: 1, sm: 2 }, display: 'flex', flexDirection: 'column' }}>
+    <Card sx={{ height: '100%', p: 3, borderRadius: 2, boxShadow: 1, display: 'flex', flexDirection: 'column', bgcolor: 'background.paper' }}>
       <CardContent>
-        <Stack direction={{ xs: "column", sm: "row" }} justifyContent="space-between" alignItems={{ xs: "flex-start", sm: "center" }} gap={2}>
+        <Stack direction="column" justifyContent="flex-start" alignItems="flex-start" gap={2}>
           <Typography variant="h5">Recommendations (profit per acre vs doing nothing)</Typography>
           <Stack direction="row" gap={1} flexWrap="wrap">
             <Chip size="small" label="Best (green)" color="success" variant="filled" />
@@ -109,91 +109,91 @@ export function Recommendations() {
             <Chip size="small" label="Neutral (gray)" color="default" variant="filled" />
             <Chip size="small" label="Poor (red)" color="error" variant="filled" />
           </Stack>
-        </Stack>
 
-        <Divider sx={{ my: 2 }} />
+          <Divider sx={{ my: 2 }} />
 
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-          Values shown are estimated net profit per acre compared to doing nothing. Positive = more profit than no treatment; negative = less profit.
-        </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+            Values shown are estimated net profit per acre compared to doing nothing. Positive = more profit than no treatment; negative = less profit.
+          </Typography>
 
-        {/* Top 3 overall */}
-        {sorted.length === 0 ? (
-          <Typography color="text.secondary">No recommendations available.</Typography>
-        ) : (
-          <Box>
-            <Typography variant="subtitle1" sx={{ mb: 1 }} fontWeight={600}>Top 3 overall (profit per acre vs doing nothing)</Typography>
-            <Box sx={{
-              mb: 3,
-              display: 'grid',
-              gap: 1,
-              gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
-            }}>
-              {topThree.map((rec, i) => {
-                const severity = getSeverity(rec.profit);
-                const colors = colorFor(severity);
-                return (
-                  <Paper key={`top-${i}`} elevation={0} sx={{ p: 1.5, borderRadius: 2, border: `1px solid ${colors.main}`, bgcolor: colors.bg }}>
-                    <Stack gap={0.5}>
-                      <Typography variant="body2" fontWeight={600}>
-                        {TreatmentOptionLabels[rec.treatment]} — {rec.date}
-                      </Typography>
-                      <Chip size="small" color={colors.chip as any} label={`Profit: $${(rec.profit ?? 0).toFixed(2)}`} sx={{ alignSelf: 'flex-start' }} />
-                    </Stack>
-                  </Paper>
-                );
-              })}
+          {/* Top 3 overall */}
+          {sorted.length === 0 ? (
+            <Typography color="text.secondary">No recommendations available.</Typography>
+          ) : (
+            <Box>
+              <Typography variant="subtitle1" sx={{ mb: 1 }} fontWeight={600}>Top 3 overall (profit per acre vs doing nothing)</Typography>
+              <Box sx={{
+                mb: 3,
+                display: 'grid',
+                gap: 1,
+                gridTemplateColumns: '1fr',
+              }}>
+                {topThree.map((rec, i) => {
+                  const severity = getSeverity(rec.profit);
+                  const colors = colorFor(severity);
+                  return (
+                    <Paper key={`top-${i}`} elevation={0} sx={{ p: 1.5, borderRadius: 2, border: `1px solid ${colors.main}`, bgcolor: colors.bg }}>
+                      <Stack gap={0.5}>
+                        <Typography variant="body2" fontWeight={600}>
+                          {TreatmentOptionLabels[rec.treatment]} — {rec.date}
+                        </Typography>
+                        <Chip size="small" color={colors.chip as any} label={`Profit: $${(rec.profit ?? 0).toFixed(2)}`} sx={{ alignSelf: 'flex-start' }} />
+                      </Stack>
+                    </Paper>
+                  );
+                })}
+              </Box>
+
+              {/* Groups by treatment */}
+              <Typography variant="subtitle1" sx={{ mb: 1 }} fontWeight={600}>By treatment</Typography>
+              <Box sx={{
+                display: 'grid',
+                gap: 2,
+                gridTemplateColumns: '1fr',
+              }}>
+                {groups.map((group) => (
+                  <Card key={`group-${group.key}`} variant="outlined" sx={{ borderRadius: 2 }}>
+                    <CardContent>
+                      <Typography variant="h6" sx={{ mb: 1 }}>{group.label}</Typography>
+                      <Table size="small" aria-label={`${group.label} planting times`}>
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>Planting time</TableCell>
+                            <TableCell align="right">Profit vs doing nothing</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {group.items.map((rec, idx) => {
+                            const severity = getSeverity(rec.profit);
+                            const colors = colorFor(severity);
+                            return (
+                              <TableRow key={`${group.key}-${idx}`} sx={{
+                                '&:last-child td, &:last-child th': { border: 0 },
+                                backgroundColor: colors.bg,
+                              }}>
+                                <TableCell component="th" scope="row">
+                                  <Stack direction="row" alignItems="center" gap={1}>
+                                    <Box sx={{ width: 8, height: 8, borderRadius: 1, bgcolor: colors.main }} />
+                                    <Typography variant="body2">{rec.date}</Typography>
+                                  </Stack>
+                                </TableCell>
+                                <TableCell align="right">
+                                  <Tooltip title="Estimated net profit per acre">
+                                    <Chip size="small" color={colors.chip as any} label={`$${(rec.profit ?? 0).toFixed(2)} / acre`} />
+                                  </Tooltip>
+                                </TableCell>
+                              </TableRow>
+                            );
+                          })}
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                ))}
+              </Box>
             </Box>
-
-            {/* Groups by treatment */}
-            <Typography variant="subtitle1" sx={{ mb: 1 }} fontWeight={600}>By treatment</Typography>
-            <Box sx={{
-              display: 'grid',
-              gap: 2,
-              gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-            }}>
-              {groups.map((group) => (
-                <Card key={`group-${group.key}`} variant="outlined">
-                  <CardContent>
-                    <Typography variant="h6" sx={{ mb: 1 }}>{group.label}</Typography>
-                    <Table size="small" aria-label={`${group.label} planting times`}>
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Planting time</TableCell>
-                          <TableCell align="right">Profit vs doing nothing</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {group.items.map((rec, idx) => {
-                          const severity = getSeverity(rec.profit);
-                          const colors = colorFor(severity);
-                          return (
-                            <TableRow key={`${group.key}-${idx}`} sx={{
-                              '&:last-child td, &:last-child th': { border: 0 },
-                              backgroundColor: colors.bg,
-                            }}>
-                              <TableCell component="th" scope="row">
-                                <Stack direction="row" alignItems="center" gap={1}>
-                                  <Box sx={{ width: 8, height: 8, borderRadius: 1, bgcolor: colors.main }} />
-                                  <Typography variant="body2">{rec.date}</Typography>
-                                </Stack>
-                              </TableCell>
-                              <TableCell align="right">
-                                <Tooltip title="Estimated net profit per acre">
-                                  <Chip size="small" color={colors.chip as any} label={`$${(rec.profit ?? 0).toFixed(2)} / acre`} />
-                                </Tooltip>
-                              </TableCell>
-                            </TableRow>
-                          );
-                        })}
-                      </TableBody>
-                    </Table>
-                  </CardContent>
-                </Card>
-              ))}
-            </Box>
-          </Box>
         )}
+        </Stack>
       </CardContent>
     </Card>
   );

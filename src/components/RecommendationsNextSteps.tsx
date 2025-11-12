@@ -2,7 +2,7 @@ import { Card, CardContent, Stack, Typography, List, ListItem, ListItemText, Div
 
 export function RecommendationsNextSteps() {
   return (
-    <Card sx={{ maxWidth: 1200, mx: "auto", my: 2, p: { xs: 1, sm: 2 } }}>
+    <Card sx={{ p: 3, borderRadius: 2, boxShadow: 1 }}>
       <CardContent>
         <Stack gap={2}>
           <Box>

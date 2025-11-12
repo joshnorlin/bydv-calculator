@@ -2,25 +2,49 @@ import { Recommendations } from "../../components/Recommendations";
 import { RecommendationsOverview } from "../../components/RecommendationsOverview";
 import { RecommendationsSidebarInfo } from "../../components/RecommendationsSidebarInfo";
 import { RecommendationsNextSteps } from "../../components/RecommendationsNextSteps";
-import { Box } from "@mui/material";
+import { Typography, Stack, Button, Container, Paper } from "@mui/material";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../store/store";
+import { Link as RouterLink } from "react-router-dom";
 
 export function RecommendationsPage() {
+    const recommendations = useSelector((state: RootState) => state.recommendations.recommendations);
+
+    const hasRecs = recommendations && recommendations.length > 0;
+
+    if (!hasRecs) {
+        return (
+            <Container maxWidth="md" sx={{ my: 4 }}>
+                <Paper sx={{ p: 3, borderRadius: 2, boxShadow: 1, textAlign: 'center' }}>
+                    <Stack spacing={2} alignItems="center">
+                        <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                            No recommendations are available
+                        </Typography>
+                        <Typography variant="body1" color="text.secondary">
+                            Please provide your field information to generate recommendations, or learn more about how the calculator works.
+                        </Typography>
+                        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mt: 1 }}>
+                            <Button variant="contained" component={RouterLink} to="/calculator">
+                                Fill out your info
+                            </Button>
+                            <Button variant="text" component={RouterLink} to="/calculator/about">
+                                Learn more about the calculator
+                            </Button>
+                        </Stack>
+                    </Stack>
+                </Paper>
+            </Container>
+        );
+    }
+
     return (
-        <Box sx={{ my: 2, display: 'grid', gap: 2 }}>
-            <RecommendationsOverview />
-            <Box sx={{
-                display: 'grid',
-                gap: 2,
-                gridTemplateColumns: { xs: '1fr', lg: '2fr 1fr' },
-                alignItems: 'stretch',
-                maxWidth: 1200,
-                mx: 'auto',
-                width: '100%'
-            }}>
+        <Container maxWidth="md" sx={{ my: 4 }}>
+            <Stack spacing={3}>
+                <RecommendationsOverview />
                 <Recommendations />
                 <RecommendationsSidebarInfo />
-            </Box>
-            <RecommendationsNextSteps />
-        </Box>
+                <RecommendationsNextSteps />
+            </Stack>
+        </Container>
     );
 }

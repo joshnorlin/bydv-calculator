@@ -1,12 +1,17 @@
-import { Box, Card, CardContent, Divider, List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
+import { Card, CardContent, List, ListItem, ListItemText, Typography, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export function RecommendationsSidebarInfo() {
   return (
-    <Card sx={{ height: '100%', p: { xs: 1, sm: 2 }, display: 'flex', flexDirection: 'column' }}>
-      <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, flexGrow: 1 }}>
-        <Stack gap={2} sx={{ flexGrow: 1 }}>
-          <Box>
-            <Typography variant="h6" sx={{ mb: 1 }}>What are these treatments?</Typography>
+    <Card sx={{ p: 3, borderRadius: 2, boxShadow: 1 }}>
+      <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Typography variant="h4" sx={{ mb: 1 }}>Helpful Info</Typography>
+
+        <Accordion disableGutters>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography fontWeight={700}>What are these treatments?</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
             <List dense>
               <ListItem disableGutters>
                 <ListItemText
@@ -33,12 +38,14 @@ export function RecommendationsSidebarInfo() {
                 />
               </ListItem>
             </List>
-          </Box>
+          </AccordionDetails>
+        </Accordion>
 
-          <Divider />
-
-          <Box>
-            <Typography variant="h6" sx={{ mb: 1 }}>How to read the data</Typography>
+        <Accordion disableGutters>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography fontWeight={700}>How to read the data</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
             <List dense>
               <ListItem disableGutters>
                 <ListItemText primary="Per acre" secondary="Every profit value is per acre. Multiply by your acres for total impact." />
@@ -53,8 +60,8 @@ export function RecommendationsSidebarInfo() {
                 <ListItemText primary="Uncertainty" secondary="Estimates are based on limited data and assumptions; results vary with conditions." />
               </ListItem>
             </List>
-          </Box>
-        </Stack>
+          </AccordionDetails>
+        </Accordion>
       </CardContent>
     </Card>
   );

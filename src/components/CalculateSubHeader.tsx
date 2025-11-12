@@ -4,6 +4,7 @@ import { useState } from "react";
 import { calculatorSubPages } from "../App";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { Link as RouterLink } from "react-router-dom";
 
 export function CalculateSubHeader() {
     const theme = useTheme();
@@ -49,29 +50,36 @@ export function CalculateSubHeader() {
                                         horizontal: "right",
                                     }}
                                 >
-                                    {calculatorSubPages.map(page => (
-                                        <MenuItem
-                                            key={page}
-                                            component="a"
-                                            href={`/${page}`}
-                                            onClick={handleMenuClose}
-                                        >
-                                            {page}
-                                        </MenuItem>
-                                    ))}
+                                    {calculatorSubPages.map(page => {
+                                        const to = page === "calculator" ? "/calculator" : `/calculator/${page}`;
+                                        return (
+                                            <MenuItem
+                                                key={page}
+                                                component={RouterLink}
+                                                to={to}
+                                                onClick={handleMenuClose}
+                                            >
+                                                {page}
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Menu>
                             </>
                         ) : (
-                            calculatorSubPages.map(page => (
-                                <Button
-                                    color="inherit"
-                                    variant="text"
-                                    href={`/${page}`}
-                                    key={page}
-                                >
-                                    {page}
-                                </Button>
-                            ))
+                            calculatorSubPages.map(page => {
+                                const to = page === "calculator" ? "/calculator" : `/calculator/${page}`;
+                                return (
+                                    <Button
+                                        color="inherit"
+                                        variant="text"
+                                        component={RouterLink}
+                                        to={to}
+                                        key={page}
+                                    >
+                                        {page}
+                                    </Button>
+                                );
+                            })
                         )}
                     </Box>
                 </Stack>

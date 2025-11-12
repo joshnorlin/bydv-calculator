@@ -68,29 +68,36 @@ export function MainHeader() {
                                         horizontal: "right",
                                     }}
                                 >
-                                    {mainPages.map(page => (
-                                        <MenuItem
-                                            key={page}
-                                            component="a"
-                                            href={`/${page}`}
-                                            onClick={handleMenuClose}
-                                        >
-                                            {page}
-                                        </MenuItem>
-                                    ))}
+                                    {mainPages.map(page => {
+                                        const to = page === "home" ? "/" : `/${page}`;
+                                        return (
+                                            <MenuItem
+                                                key={page}
+                                                component={RouterLink}
+                                                to={to}
+                                                onClick={handleMenuClose}
+                                            >
+                                                {page}
+                                            </MenuItem>
+                                        );
+                                    })}
                                 </Menu>
                             </>
                         ) : (
-                            mainPages.map(page => (
-                                <Button
-                                    color="inherit"
-                                    variant="text"
-                                    href={`/${page}`}
-                                    key={page}
-                                >
-                                    {page}
-                                </Button>
-                            ))
+                            mainPages.map(page => {
+                                const to = page === "home" ? "/" : `/${page}`;
+                                return (
+                                    <Button
+                                        color="inherit"
+                                        variant="text"
+                                        component={RouterLink}
+                                        to={to}
+                                        key={page}
+                                    >
+                                        {page}
+                                    </Button>
+                                );
+                            })
                         )}
                     </Box>
                 </Stack>
