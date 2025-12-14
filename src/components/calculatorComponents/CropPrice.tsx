@@ -61,9 +61,9 @@ export function CropPrice() {
               label="Price per bushel ($)"
               type="number"
               size="small"
-              sx={{ width: { xs: "100%", sm: 180 } }}
+              sx={{ width: { xs: "100%", sm: 140 } }}
               inputProps={{ step: 0.1, min: 0 }}
-              value={bushelPrice}
+              value={bushelPrice.toFixed(2)}
               onChange={handleChange}
             />
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
