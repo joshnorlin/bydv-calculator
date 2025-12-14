@@ -8,6 +8,7 @@ import About from './pages/about';
 import { CalculatorHome } from './pages/calculator/calculatorHome';
 import { RecommendationsPage } from './pages/calculator/recommendations';
 import { MainHeader } from './components/MainHeader';
+import { ScrollToTop } from './components/ScrollToTop';
 import CalculatorLayout from "./CalculatorLayout";
 
 export const mainPages = [
@@ -28,6 +29,7 @@ function App() {
       <PersistGate persistor={persistor} loading={null}>
         <ConfigProvider>
           <BrowserRouter>
+            <ScrollToTop />
             <MainHeader />
             <Routes>
               <Route path="/" element={<Home />} />
