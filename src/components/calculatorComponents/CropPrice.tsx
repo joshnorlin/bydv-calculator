@@ -1,8 +1,9 @@
-import { Card, CardContent, TextField, Typography, Stack } from "@mui/material";
+import { TextField, Typography, Stack } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import { setBushelPrice } from "../../store/userDecisionSlice";
 import type { PlantingStatusType, PlantingDateType } from "../../types/types";
+import { FormFieldCard } from "./FormFieldCard";
 
 export function CropPrice() {
     const dispatch = useDispatch();
@@ -25,7 +26,6 @@ export function CropPrice() {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const next = parseFloat(e.target.value);
         if (Number.isNaN(next)) {
-            // If cleared, don't dispatch NaN; keep 0 or previous. Here we use 0.
             dispatch(setBushelPrice(0));
         } else {
             dispatch(setBushelPrice(next));
@@ -34,26 +34,28 @@ export function CropPrice() {
 
     if (inputDataIsValid(plantingStatus, plantingDate)) {
       return (
-        <Card sx={{ maxWidth: 600 }}>
-          <CardContent>
-            <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between" flexWrap="wrap">
-              <Typography variant="subtitle2" sx={{ flex: 1, whiteSpace: 'normal', wordBreak: 'break-word' }}>
-                We will calculate your treatment recommendations using a national average bushel price. Change it here if you want to use your own price.
-              </Typography>
-              <TextField
-                label="Price per bushel ($)"
-                type="number"
-                size="small"
-                sx={{ width: 180 }}
-                inputProps={{ step: 0.1, min: 0 }}
-                value={bushelPrice}
-                onChange={handleChange}
-              />
-            </Stack>
-          </CardContent>
-        </Card>
+        <FormFieldCard
+          title="Step 4: Crop Value (Optional)"
+          description="We'll estimate recommendations based on a national average bushel price. Update it here if you want location-specific economics."
+          infoMessage="A higher price makes more aggressive treatments economically justified."
+        >
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems={{ xs: "stretch", sm: "center" }} sx={{ mt: 2 }}>
+            <TextField
+              label="Price per bushel ($)"
+              type="number"
+              size="small"
+              sx={{ width: { xs: "100%", sm: 180 } }}
+              inputProps={{ step: 0.1, min: 0 }}
+              value={bushelPrice}
+              onChange={handleChange}
+            />
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              Used to calculate ROI of treatment options
+            </Typography>
+          </Stack>
+        </FormFieldCard>
       );
     } else {
-      return <></>
+      return null;
     }
 }

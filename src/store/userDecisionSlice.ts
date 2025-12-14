@@ -36,10 +36,17 @@ const userDecisionSlice = createSlice({
     },
     setBushelPrice(state, action: PayloadAction<number>) {
       state.bushelPrice = action.payload;
+    },
+    resetUserDecision(state) {
+      state.plantingStatus = initialState.plantingStatus;
+      state.plantingDate = initialState.plantingDate;
+      state.location = initialState.location;
+      state.county = initialState.county;
+      state.bushelPrice = initialState.bushelPrice;
     }
   },
 });
 
-export const { setPlantingStatus, setPlantingDate, setLocation, setCounty, setBushelPrice } = userDecisionSlice.actions;
+export const { setPlantingStatus, setPlantingDate, setLocation, setCounty, setBushelPrice, resetUserDecision } = userDecisionSlice.actions;
 
 export default userDecisionSlice.reducer;
