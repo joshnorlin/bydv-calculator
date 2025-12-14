@@ -1,6 +1,7 @@
 import { Card, CardContent, Typography, Stack, Box, Chip } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
-import { ReactNode, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import type { ReactNode } from "react";
 
 interface FormFieldCardProps {
   /** Title of the field */
@@ -31,10 +32,9 @@ export function FormFieldCard({
 }: FormFieldCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Smooth scroll to highlighted field and add pulse animation
+  // Smooth scroll to highlighted field
   useEffect(() => {
     if (isHighlighted && cardRef.current) {
-      // Scroll into view smoothly
       setTimeout(() => {
         cardRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 100);
@@ -44,20 +44,22 @@ export function FormFieldCard({
   return (
     <Card
       ref={cardRef}
-      elevation={isDisabled ? 0 : isHighlighted ? 3 : 1}
+      elevation={isDisabled ? 0 : isHighlighted ? 2 : 1}
       sx={{
         opacity: isDisabled ? 0.5 : 1,
         transition: "all 0.3s ease",
-        border: isDisabled ? "1px solid" : isHighlighted ? "2px solid" : "none",
+        border: isDisabled ? "1px solid" : isHighlighted ? "2px solid" : "1px solid transparent",
         borderColor: isHighlighted ? "info.main" : "divider",
-        backgroundColor: isDisabled ? "action.disabledBackground" : isHighlighted ? "info.lighter" : "background.paper",
-        animation: isHighlighted ? "pulse-highlight 1.5s ease-in-out" : "none",
-        "@keyframes pulse-highlight": {
-          "0%, 100%": {
-            boxShadow: "0 0 0 0 rgba(2, 136, 209, 0.7)",
+        backgroundColor: isDisabled ? "action.disabledBackground" : "background.paper",
+        animation: isHighlighted ? "highlight-pulse 0.6s ease-out" : "none",
+        "@keyframes highlight-pulse": {
+          "0%": {
+            borderColor: "rgb(2, 136, 209)",
+            boxShadow: "0 0 0 2px rgba(2, 136, 209, 0.2)",
           },
-          "50%": {
-            boxShadow: "0 0 0 10px rgba(2, 136, 209, 0)",
+          "100%": {
+            borderColor: "rgb(2, 136, 209)",
+            boxShadow: "0 0 0 0px rgba(2, 136, 209, 0)",
           },
         },
       }}

@@ -10,13 +10,12 @@ export const plantingDateOptionLabels: Record<string, string> = {
     "nov-dec": "November - December",
 };
 
-export const plantingStatusOptions = ['planted', 'not-planted', 'not-farmer'] as const;
+export const plantingStatusOptions = ['planted', 'not-planted'] as const;
 export type PlantingStatusType = typeof plantingStatusOptions[number] | null;
 
 export const plantingStatusOptionLabels: Record<string, string> = {
     "planted": "Yes, I have planted",
     "not-planted": "No, I have not planted yet",
-    "not-farmer": "I'm not a farmer",
 };
 
 export type InputDataType = {
@@ -74,3 +73,9 @@ export type CountyObjectType = {
   rusty_dist_in_km: number,
   warsaw_dist_in_km: number,
 }
+
+export type ConfigType = {
+  yieldInBushelsPerAcre: Record<string, Record<string, Record<string, number | null>>>;
+  treatmentCostInDollarsPerAcre: Record<string, number>;
+  [key: string]: any; // Allow for additional config properties
+};

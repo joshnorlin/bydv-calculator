@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
+import { FormControl, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../../store/store";
 import { setPlantingStatus } from "../../store/userDecisionSlice";
