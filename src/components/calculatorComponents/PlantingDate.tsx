@@ -29,7 +29,15 @@ export function PlantingDate() {
         <FormControl fullWidth>
           <RadioGroup
             value={plantingDate || ''}
-            onChange={(e) => {dispatch(setPlantingDate(e.target.value as PlantingDateType))}}
+            onChange={(e) => {
+              const value = e.target.value;
+              // Allow deselecting by clicking the same option again
+              if (plantingDate === value) {
+                dispatch(setPlantingDate(null));
+              } else {
+                dispatch(setPlantingDate(value as PlantingDateType));
+              }
+            }}
           >
             {plantingDateOptions.map(option => (
               <FormControlLabel

@@ -34,9 +34,15 @@ export function Location() {
         <Autocomplete
           value={countyValue}
           onChange={(_event, newCounty) => {
-            const location = matchCounty(newCounty?.county, countyList);
-            dispatch(setLocation(location));
-            dispatch(setCounty(newCounty?.county));
+            if (newCounty) {
+              const location = matchCounty(newCounty.county, countyList);
+              dispatch(setLocation(location));
+              dispatch(setCounty(newCounty.county));
+            } else {
+              // Clear county and location when user clears the selection
+              dispatch(setCounty(undefined));
+              dispatch(setLocation(null));
+            }
           }}
           options={countyList}
           getOptionLabel={(opt) => opt.county}

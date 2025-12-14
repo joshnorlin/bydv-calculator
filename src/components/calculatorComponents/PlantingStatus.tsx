@@ -36,7 +36,15 @@ export function PlantingStatus() {
         <FormControl fullWidth>
           <RadioGroup 
             value={selectedPlantingStatus || ''}
-            onChange={(e) => {dispatch(setPlantingStatus(e.target.value as PlantingStatusType))}}
+            onChange={(e) => {
+              const value = e.target.value;
+              // Allow deselecting by clicking the same option again
+              if (selectedPlantingStatus === value) {
+                dispatch(setPlantingStatus(null));
+              } else {
+                dispatch(setPlantingStatus(value as PlantingStatusType));
+              }
+            }}
           >
             {plantingStatusOptions.map(option => (
               <FormControlLabel
