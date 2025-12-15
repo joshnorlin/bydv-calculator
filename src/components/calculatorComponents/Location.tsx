@@ -28,6 +28,7 @@ export function Location() {
       title="Step 1: Where is your farm?"
       description="Select your Virginia county to connect to a local planting site and get location-specific recommendations."
       isHighlighted={isHighlighted}
+      fieldName="location"
       infoMessage="This calculator is designed for Virginia farmers only. Your county helps us match you with nearby weather and pest monitoring data."
     >
       <Box mt={2}>

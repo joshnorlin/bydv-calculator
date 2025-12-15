@@ -42,7 +42,7 @@ export function Home() {
               foliar spray is warranted vs. when it isn't.
             </Typography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-              <Button variant="contained" size="large" component={RouterLink} to="/calculator">
+              <Button variant="contained" size="large" component={RouterLink} to="/calculator?noAutoFocus=true">
                 View Calculator
               </Button>
               <Button

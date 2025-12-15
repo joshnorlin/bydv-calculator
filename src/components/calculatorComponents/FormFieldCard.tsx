@@ -2,6 +2,7 @@ import { Card, CardContent, Typography, Stack, Box, Chip } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
+import { useSearchParams } from "react-router-dom";
 
 interface FormFieldCardProps {
   /** Title of the field */
@@ -16,6 +17,8 @@ interface FormFieldCardProps {
   children: ReactNode;
   /** Whether to highlight this field (animation trigger) */
   isHighlighted?: boolean;
+  /** Field name for autofocus control */
+  fieldName?: string;
 }
 
 /**
@@ -29,17 +32,25 @@ export function FormFieldCard({
   infoMessage,
   children,
   isHighlighted = false,
+  fieldName,
 }: FormFieldCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [searchParams] = useSearchParams();
 
   // Smooth scroll to highlighted field
+  // If noAutoFocus=true, only skip autofocus for the 'location' field (first field)
+  // All subsequent fields should autofocus normally
   useEffect(() => {
-    if (isHighlighted && cardRef.current) {
+    const noAutoFocusParam = searchParams.get('noAutoFocus') === 'true';
+    const isLocationField = fieldName === 'location';
+    const shouldSkipScroll = noAutoFocusParam && isLocationField;
+    
+    if (isHighlighted && cardRef.current && !shouldSkipScroll) {
       setTimeout(() => {
         cardRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 100);
     }
-  }, [isHighlighted]);
+  }, [isHighlighted, searchParams, fieldName]);
 
   return (
     <Card

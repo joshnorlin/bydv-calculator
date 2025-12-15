@@ -11,6 +11,8 @@ import { Link as RouterLink } from "react-router-dom";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import EditIcon from "@mui/icons-material/Edit";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export function RecommendationsPage() {
     const recommendations = useSelector((state: RootState) => state.recommendations.recommendations);
@@ -41,10 +43,10 @@ export function RecommendationsPage() {
                             Please provide your field information to generate recommendations, or learn more about how the calculator works.
                         </Typography>
                         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mt: 1 }}>
-                            <Button variant="contained" component={RouterLink} to="/calculator">
-                                Fill out your info
+                            <Button variant="contained" startIcon={<ArrowBackIcon />} component={RouterLink} to="/calculator?noAutoFocus=true">
+                                Back to Calculator
                             </Button>
-                            <Button variant="text" component={RouterLink} to="/calculator/about">
+                            <Button variant="text" component={RouterLink} to="/about">
                                 Learn more about the calculator
                             </Button>
                         </Stack>
@@ -83,6 +85,15 @@ export function RecommendationsPage() {
                             sx={{ fontWeight: 700 }}
                         >
                             {expandEducational ? 'Hide' : 'Show'} How to Read This Page
+                        </Button>
+                        <Button
+                            variant="text"
+                            size="large"
+                            startIcon={<EditIcon />}
+                            component={RouterLink}
+                            to="/calculator?noAutoFocus=true"
+                        >
+                            Edit Input
                         </Button>
                     </Stack>
 

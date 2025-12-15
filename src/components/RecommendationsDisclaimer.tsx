@@ -1,5 +1,4 @@
 import { Card, CardContent, Stack, Typography, Box, Alert } from "@mui/material";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
 export function RecommendationsDisclaimer() {
   return (
