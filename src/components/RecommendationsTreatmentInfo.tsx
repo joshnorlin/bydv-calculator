@@ -65,7 +65,7 @@ export function RecommendationsTreatmentInfo({ plantedOnly = false }: { plantedO
       forPlantedCrops: true,
     },
     {
-      icon: <SprayIcon sx={{ fontSize: 40, transform: 'rotate(180deg)' }} />,
+      icon: <SprayIcon sx={{ fontSize: 40 }} />,
       title: "Spring Foliar Insecticide",
       shortName: "Spring Spray",
       color: "success",
@@ -156,6 +156,11 @@ export function RecommendationsTreatmentInfo({ plantedOnly = false }: { plantedO
                   expandIcon={<ExpandMoreIcon />}
                   sx={{
                     bgcolor: treatment.color === 'default' ? 'grey.100' : `${treatment.color}.light`,
+                    backgroundImage: treatment.color === 'primary' ? 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)' : 
+                                   treatment.color === 'info' ? 'linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%)' :
+                                   treatment.color === 'success' ? 'linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)' :
+                                   treatment.color === 'secondary' ? 'linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%)' :
+                                   'white',
                     borderRadius: '8px',
                     '&.Mui-expanded': {
                       borderBottomLeftRadius: 0,
