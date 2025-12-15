@@ -20,7 +20,7 @@ import {
 } from "@mui/material";
 import CategoryIcon from "@mui/icons-material/Category";
 // Using CSS grid via Box to avoid Grid version/type issues
-import { TreatmentOptionLabels } from "../types/types";
+import { TreatmentOptionLabels, plantingDateOptionLabels } from "../types/types";
 
 export function Recommendations() {
   const theme = useTheme();
@@ -129,7 +129,7 @@ export function Recommendations() {
               <Box>
                 <Typography variant="h4" fontWeight={700}>All Recommendations</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Complete breakdown by treatment type and timing
+                  Complete breakdown by treatment type and planting window
                 </Typography>
               </Box>
             </Stack>
@@ -163,7 +163,7 @@ export function Recommendations() {
           ) : (
             <Box sx={{ width: '100%' }}>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-                Detailed breakdown showing each treatment's profitability across different planting times
+                Each treatment shows profitability based on when you plant your wheat. The planting window refers to when seeds go in the ground.
               </Typography>
               <Box sx={{
                 display: 'grid',
@@ -177,7 +177,7 @@ export function Recommendations() {
                       <Table size="small" aria-label={`${group.label} planting times`}>
                         <TableHead>
                           <TableRow>
-                            <TableCell><Typography variant="body2" fontWeight={700}>Planting Time</Typography></TableCell>
+                            <TableCell><Typography variant="body2" fontWeight={700}>Wheat Planting Window</Typography></TableCell>
                             <TableCell align="right"><Typography variant="body2" fontWeight={700}>Profit vs Doing Nothing</Typography></TableCell>
                           </TableRow>
                         </TableHead>
@@ -203,7 +203,7 @@ export function Recommendations() {
                                       bgcolor: colors.main,
                                       boxShadow: 1,
                                     }} />
-                                    <Typography variant="body2" fontWeight={600}>{rec.date}</Typography>
+                                    <Typography variant="body2" fontWeight={600}>{plantingDateOptionLabels[rec.date] || rec.date}</Typography>
                                   </Stack>
                                 </TableCell>
                                 <TableCell align="right">
