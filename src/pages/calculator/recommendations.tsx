@@ -1,7 +1,5 @@
 import { Recommendations } from "../../components/Recommendations";
 import { RecommendationsOverview } from "../../components/RecommendationsOverview";
-import { RecommendationsSidebarInfo } from "../../components/RecommendationsSidebarInfo";
-import { RecommendationsNextSteps } from "../../components/RecommendationsNextSteps";
 import { RecommendationsTreatmentInfo } from "../../components/RecommendationsTreatmentInfo";
 import { RecommendationsDisclaimer } from "../../components/RecommendationsDisclaimer";
 import { TopRecommendations } from "../../components/TopRecommendations";
@@ -118,49 +116,25 @@ export function RecommendationsPage() {
 
                 <Divider sx={{ my: 2 }} />
 
-                {/* ========== SECTION 4: FULL BREAKDOWN ========== */}
+                {/* ========== SECTION 4: DISCLAIMER (PROMINENT) ========== */}
+                <Accordion defaultExpanded>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography variant="h6" fontWeight={700}>
+                            ⚠️ Important Disclaimer & Data Limitations
+                        </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ bgcolor: 'grey.50' }}>
+                        <Box sx={{ width: '100%' }}>
+                            <RecommendationsDisclaimer />
+                        </Box>
+                    </AccordionDetails>
+                </Accordion>
+
+                <Divider sx={{ my: 2 }} />
+
+                {/* ========== SECTION 5: ALL RECOMMENDATIONS BREAKDOWN ========== */}
                 <Box id="full-breakdown">
                     <Recommendations />
-                </Box>
-
-                <Divider sx={{ my: 2 }} />
-
-                {/* ========== SECTION 5: ACTIONABLE GUIDANCE ========== */}
-                <Stack spacing={3}>
-                    <Box>
-                        <Typography variant="h4" fontWeight={800} gutterBottom>
-                            Implementation & Next Steps
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Everything you need to make and execute your treatment decision
-                        </Typography>
-                    </Box>
-
-                    {/* Sidebar Info in Accordion */}
-                    <Accordion defaultExpanded>
-                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography variant="h6" fontWeight={700}>
-                                📚 Learn More About Treatments
-                            </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails sx={{ bgcolor: 'grey.50' }}>
-                            <Box sx={{ width: '100%' }}>
-                                <RecommendationsSidebarInfo />
-                            </Box>
-                        </AccordionDetails>
-                    </Accordion>
-
-                    {/* Next Steps */}
-                    <Box id="next-steps">
-                        <RecommendationsNextSteps />
-                    </Box>
-                </Stack>
-
-                <Divider sx={{ my: 2 }} />
-
-                {/* ========== SECTION 6: LEGAL DISCLAIMER ========== */}
-                <Box id="disclaimer">
-                    <RecommendationsDisclaimer />
                 </Box>
 
                 {/* Back to top button */}

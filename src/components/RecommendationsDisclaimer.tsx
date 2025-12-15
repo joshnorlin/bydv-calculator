@@ -55,7 +55,7 @@ export function RecommendationsDisclaimer() {
               Limitation of Liability
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
-              <strong>The University of Idaho, its researchers, developers, and affiliates make no warranties</strong> about the accuracy, reliability, completeness, or timeliness of this tool or the information it provides. 
+              <strong>The University of Idaho, Virginia Tech, their researchers, developers, and affiliates make no warranties</strong> about the accuracy, reliability, completeness, or timeliness of this tool or the information it provides. 
             </Typography>
             <Typography variant="body2" color="text.secondary" paragraph>
               <strong>We are not responsible for any losses, damages, or crop failures</strong> that may result from decisions made based on this tool's recommendations. Users assume all risks associated with treatment decisions.
