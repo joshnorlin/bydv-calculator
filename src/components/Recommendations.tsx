@@ -17,7 +17,10 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  Alert,
 } from "@mui/material";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import CategoryIcon from "@mui/icons-material/Category";
 // Using CSS grid via Box to avoid Grid version/type issues
 import { TreatmentOptionLabels } from "../types/types";
 
@@ -40,6 +43,11 @@ export function Recommendations() {
   // Top 3 overall
   const topThree = useMemo(() => sorted.slice(0, 3), [sorted]);
 
+  // Check if all are negative
+  const allNegative = useMemo(() => {
+    return sorted.every(r => (r.profit ?? 0) <= 0);
+  }, [sorted]);
+
   // Group by treatment -> array of up to 3 planting times
   const groups = useMemo(() => {
     const map = new Map<string | number, typeof sorted>();
@@ -59,34 +67,34 @@ export function Recommendations() {
   // Map profit -> visual severity buckets
   const getSeverity = (profit: number | null | undefined) => {
     const p = profit ?? 0;
-    if (p >= 1000) return "good" as const; // strong positive
-    if (p > 0) return "fair" as const; // modest positive
-    if (p === 0) return "neutral" as const;
-    return "poor" as const; // negative
+    if (p >= 15) return "excellent" as const; // Strong positive
+    if (p > 5) return "good" as const; // Modest positive
+    if (p > -5) return "neutral" as const; // Near zero
+    return "poor" as const; // Clearly negative
   };
 
   const colorFor = (severity: ReturnType<typeof getSeverity>) => {
     switch (severity) {
+      case "excellent":
+        return {
+          main: theme.palette.success.dark,
+          bg: theme.palette.success.light,
+          chip: "success",
+          border: theme.palette.success.main,
+        } as const;
       case "good":
         return {
-          // Light green emphasis
           main: theme.palette.success.main,
           bg: theme.palette.success.light,
           chip: "success",
-        } as const;
-      case "fair":
-        return {
-          // Also green, but same light scheme for clarity
-          main: theme.palette.success.main,
-          bg: theme.palette.success.light,
-          chip: "success",
+          border: theme.palette.success.light,
         } as const;
       case "neutral":
         return {
-          // Medium gray to de-emphasize
-          main: theme.palette.grey[600],
-          bg: theme.palette.grey[200],
+          main: theme.palette.grey[700],
+          bg: theme.palette.grey[100],
           chip: "default",
+          border: theme.palette.grey[400],
         } as const;
       case "poor":
       default:
@@ -94,50 +102,113 @@ export function Recommendations() {
           main: theme.palette.error.main,
           bg: theme.palette.error.light,
           chip: "error",
+          border: theme.palette.error.light,
         } as const;
     }
   };
 
   return (
-    <Card sx={{ height: '100%', p: 3, borderRadius: 2, boxShadow: 1, display: 'flex', flexDirection: 'column', bgcolor: 'background.paper' }}>
+    <Card sx={{ p: 3, borderRadius: 2, boxShadow: 2, display: 'flex', flexDirection: 'column', bgcolor: 'background.paper' }}>
       <CardContent>
-        <Stack direction="column" justifyContent="flex-start" alignItems="flex-start" gap={2}>
-          <Typography variant="h5">Recommendations (profit per acre vs doing nothing)</Typography>
-          <Stack direction="row" gap={1} flexWrap="wrap">
-            <Chip size="small" label="Best (green)" color="success" variant="filled" />
+        <Stack direction="column" justifyContent="flex-start" alignItems="flex-start" gap={3}>
+          
+          {/* Header */}
+          <Box sx={{ width: '100%' }}>
+            <Stack direction="row" alignItems="center" gap={1.5}>
+              <CategoryIcon color="primary" sx={{ fontSize: 36 }} />
+              <Box>
+                <Typography variant="h4" fontWeight={700}>Your Profit Recommendations</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Ranked by estimated net profit per acre vs doing nothing
+                </Typography>
+              </Box>
+            </Stack>
+          </Box>
+
+          {/* Alert if all negative */}
+          {allNegative && (
+            <Alert severity="warning" sx={{ width: '100%' }}>
+              <Typography variant="body2" fontWeight={600}>
+                All treatment options show negative returns. The most profitable choice is to <strong>do nothing</strong>.
+              </Typography>
+              <Typography variant="body2" sx={{ mt: 0.5 }}>
+                Expected aphid pressure appears low enough that treatment costs exceed yield benefits. Continue monitoring your fields.
+              </Typography>
+            </Alert>
+          )}
+
+          {/* Legend */}
+          <Stack direction="row" gap={1} flexWrap="wrap" sx={{ width: '100%' }}>
+            <Chip size="small" label="Excellent (dark green)" sx={{ bgcolor: theme.palette.success.dark, color: 'white' }} />
             <Chip size="small" label="Good (green)" color="success" variant="outlined" />
             <Chip size="small" label="Neutral (gray)" color="default" variant="filled" />
             <Chip size="small" label="Poor (red)" color="error" variant="filled" />
           </Stack>
 
-          <Divider sx={{ my: 2 }} />
-
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-            Values shown are estimated net profit per acre compared to doing nothing. Positive = more profit than no treatment; negative = less profit.
-          </Typography>
+          <Divider sx={{ width: '100%' }} />
 
           {/* Top 3 overall */}
           {sorted.length === 0 ? (
             <Typography color="text.secondary">No recommendations available.</Typography>
           ) : (
-            <Box>
-              <Typography variant="subtitle1" sx={{ mb: 1 }} fontWeight={600}>Top 3 overall (profit per acre vs doing nothing)</Typography>
+            <Box sx={{ width: '100%' }}>
+              <Stack direction="row" alignItems="center" gap={1} sx={{ mb: 2 }}>
+                <EmojiEventsIcon color="warning" sx={{ fontSize: 32 }} />
+                <Typography variant="h5" fontWeight={700}>Top 3 Recommendations</Typography>
+              </Stack>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                The three most profitable treatment and timing combinations for your situation
+              </Typography>
               <Box sx={{
-                mb: 3,
+                mb: 4,
                 display: 'grid',
-                gap: 1,
-                gridTemplateColumns: '1fr',
+                gap: 2,
+                gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
               }}>
                 {topThree.map((rec, i) => {
                   const severity = getSeverity(rec.profit);
                   const colors = colorFor(severity);
+                  const rankBadge = i === 0 ? '🥇' : i === 1 ? '🥈' : '🥉';
                   return (
-                    <Paper key={`top-${i}`} elevation={0} sx={{ p: 1.5, borderRadius: 2, border: `1px solid ${colors.main}`, bgcolor: colors.bg }}>
-                      <Stack gap={0.5}>
-                        <Typography variant="body2" fontWeight={600}>
-                          {TreatmentOptionLabels[rec.treatment]} — {rec.date}
+                    <Paper 
+                      key={`top-${i}`} 
+                      elevation={i === 0 ? 4 : 2} 
+                      sx={{ 
+                        p: 2.5, 
+                        borderRadius: 2, 
+                        border: `2px solid ${colors.border}`, 
+                        bgcolor: colors.bg,
+                        transform: i === 0 ? 'scale(1.02)' : 'scale(1)',
+                        transition: 'transform 0.2s',
+                        '&:hover': {
+                          transform: i === 0 ? 'scale(1.04)' : 'scale(1.02)',
+                        }
+                      }}
+                    >
+                      <Stack gap={1.5}>
+                        <Stack direction="row" alignItems="center" justifyContent="space-between">
+                          <Typography variant="h6" component="span" sx={{ fontSize: 32 }}>
+                            {rankBadge}
+                          </Typography>
+                          <Chip 
+                            size="small" 
+                            label={`#${i + 1}`} 
+                            color={colors.chip as any}
+                            sx={{ fontWeight: 700 }}
+                          />
+                        </Stack>
+                        <Typography variant="h6" fontWeight={700} sx={{ lineHeight: 1.3 }}>
+                          {TreatmentOptionLabels[rec.treatment]}
                         </Typography>
-                        <Chip size="small" color={colors.chip as any} label={`Profit: $${(rec.profit ?? 0).toFixed(2)}`} sx={{ alignSelf: 'flex-start' }} />
+                        <Typography variant="body2" color="text.secondary">
+                          Planting: <strong>{rec.date}</strong>
+                        </Typography>
+                        <Chip 
+                          size="medium" 
+                          color={colors.chip as any} 
+                          label={`${(rec.profit ?? 0) >= 0 ? '+' : ''}$${(rec.profit ?? 0).toFixed(2)} per acre`} 
+                          sx={{ alignSelf: 'flex-start', fontWeight: 700, fontSize: 14 }} 
+                        />
                       </Stack>
                     </Paper>
                   );
@@ -145,21 +216,26 @@ export function Recommendations() {
               </Box>
 
               {/* Groups by treatment */}
-              <Typography variant="subtitle1" sx={{ mb: 1 }} fontWeight={600}>By treatment</Typography>
+              <Divider sx={{ my: 3 }} />
+              
+              <Typography variant="h5" fontWeight={700} sx={{ mb: 1 }}>All Treatment Options</Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+                Detailed breakdown showing each treatment's profitability across different planting times
+              </Typography>
               <Box sx={{
                 display: 'grid',
-                gap: 2,
+                gap: 3,
                 gridTemplateColumns: '1fr',
               }}>
                 {groups.map((group) => (
-                  <Card key={`group-${group.key}`} variant="outlined" sx={{ borderRadius: 2 }}>
+                  <Card key={`group-${group.key}`} variant="outlined" sx={{ borderRadius: 2, borderWidth: 2 }}>
                     <CardContent>
-                      <Typography variant="h6" sx={{ mb: 1 }}>{group.label}</Typography>
+                      <Typography variant="h6" fontWeight={700} sx={{ mb: 2 }}>{group.label}</Typography>
                       <Table size="small" aria-label={`${group.label} planting times`}>
                         <TableHead>
                           <TableRow>
-                            <TableCell>Planting time</TableCell>
-                            <TableCell align="right">Profit vs doing nothing</TableCell>
+                            <TableCell><Typography variant="body2" fontWeight={700}>Planting Time</Typography></TableCell>
+                            <TableCell align="right"><Typography variant="body2" fontWeight={700}>Profit vs Doing Nothing</Typography></TableCell>
                           </TableRow>
                         </TableHead>
                         <TableBody>
@@ -167,19 +243,34 @@ export function Recommendations() {
                             const severity = getSeverity(rec.profit);
                             const colors = colorFor(severity);
                             return (
-                              <TableRow key={`${group.key}-${idx}`} sx={{
-                                '&:last-child td, &:last-child th': { border: 0 },
-                                backgroundColor: colors.bg,
-                              }}>
+                              <TableRow 
+                                key={`${group.key}-${idx}`} 
+                                sx={{
+                                  '&:last-child td, &:last-child th': { border: 0 },
+                                  backgroundColor: colors.bg,
+                                  borderLeft: `4px solid ${colors.main}`,
+                                }}
+                              >
                                 <TableCell component="th" scope="row">
-                                  <Stack direction="row" alignItems="center" gap={1}>
-                                    <Box sx={{ width: 8, height: 8, borderRadius: 1, bgcolor: colors.main }} />
-                                    <Typography variant="body2">{rec.date}</Typography>
+                                  <Stack direction="row" alignItems="center" gap={1.5}>
+                                    <Box sx={{ 
+                                      width: 12, 
+                                      height: 12, 
+                                      borderRadius: 1, 
+                                      bgcolor: colors.main,
+                                      boxShadow: 1,
+                                    }} />
+                                    <Typography variant="body2" fontWeight={600}>{rec.date}</Typography>
                                   </Stack>
                                 </TableCell>
                                 <TableCell align="right">
-                                  <Tooltip title="Estimated net profit per acre">
-                                    <Chip size="small" color={colors.chip as any} label={`$${(rec.profit ?? 0).toFixed(2)} / acre`} />
+                                  <Tooltip title="Estimated net profit per acre compared to doing nothing">
+                                    <Chip 
+                                      size="small" 
+                                      color={colors.chip as any} 
+                                      label={`${(rec.profit ?? 0) >= 0 ? '+' : ''}$${(rec.profit ?? 0).toFixed(2)} / acre`}
+                                      sx={{ fontWeight: 600 }}
+                                    />
                                   </Tooltip>
                                 </TableCell>
                               </TableRow>
