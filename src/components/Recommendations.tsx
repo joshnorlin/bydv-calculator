@@ -11,7 +11,6 @@ import {
   Divider,
   useTheme,
   Tooltip,
-  Paper,
   Table,
   TableBody,
   TableCell,
@@ -19,7 +18,6 @@ import {
   TableRow,
   Alert,
 } from "@mui/material";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import CategoryIcon from "@mui/icons-material/Category";
 // Using CSS grid via Box to avoid Grid version/type issues
 import { TreatmentOptionLabels } from "../types/types";
@@ -39,9 +37,6 @@ export function Recommendations() {
       .slice()
       .sort((a, b) => (b.profit ?? 0) - (a.profit ?? 0));
   }, [recommendations]);
-
-  // Top 3 overall
-  const topThree = useMemo(() => sorted.slice(0, 3), [sorted]);
 
   // Check if all are negative
   const allNegative = useMemo(() => {
@@ -117,9 +112,9 @@ export function Recommendations() {
             <Stack direction="row" alignItems="center" gap={1.5}>
               <CategoryIcon color="primary" sx={{ fontSize: 36 }} />
               <Box>
-                <Typography variant="h4" fontWeight={700}>Your Profit Recommendations</Typography>
+                <Typography variant="h4" fontWeight={700}>All Recommendations</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Ranked by estimated net profit per acre vs doing nothing
+                  Complete breakdown by treatment type and timing
                 </Typography>
               </Box>
             </Stack>
@@ -147,78 +142,11 @@ export function Recommendations() {
 
           <Divider sx={{ width: '100%' }} />
 
-          {/* Top 3 overall */}
+          {/* Groups by treatment */}
           {sorted.length === 0 ? (
             <Typography color="text.secondary">No recommendations available.</Typography>
           ) : (
             <Box sx={{ width: '100%' }}>
-              <Stack direction="row" alignItems="center" gap={1} sx={{ mb: 2 }}>
-                <EmojiEventsIcon color="warning" sx={{ fontSize: 32 }} />
-                <Typography variant="h5" fontWeight={700}>Top 3 Recommendations</Typography>
-              </Stack>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                The three most profitable treatment and timing combinations for your situation
-              </Typography>
-              <Box sx={{
-                mb: 4,
-                display: 'grid',
-                gap: 2,
-                gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
-              }}>
-                {topThree.map((rec, i) => {
-                  const severity = getSeverity(rec.profit);
-                  const colors = colorFor(severity);
-                  const rankBadge = i === 0 ? '🥇' : i === 1 ? '🥈' : '🥉';
-                  return (
-                    <Paper 
-                      key={`top-${i}`} 
-                      elevation={i === 0 ? 4 : 2} 
-                      sx={{ 
-                        p: 2.5, 
-                        borderRadius: 2, 
-                        border: `2px solid ${colors.border}`, 
-                        bgcolor: colors.bg,
-                        transform: i === 0 ? 'scale(1.02)' : 'scale(1)',
-                        transition: 'transform 0.2s',
-                        '&:hover': {
-                          transform: i === 0 ? 'scale(1.04)' : 'scale(1.02)',
-                        }
-                      }}
-                    >
-                      <Stack gap={1.5}>
-                        <Stack direction="row" alignItems="center" justifyContent="space-between">
-                          <Typography variant="h6" component="span" sx={{ fontSize: 32 }}>
-                            {rankBadge}
-                          </Typography>
-                          <Chip 
-                            size="small" 
-                            label={`#${i + 1}`} 
-                            color={colors.chip as any}
-                            sx={{ fontWeight: 700 }}
-                          />
-                        </Stack>
-                        <Typography variant="h6" fontWeight={700} sx={{ lineHeight: 1.3 }}>
-                          {TreatmentOptionLabels[rec.treatment]}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          Planting: <strong>{rec.date}</strong>
-                        </Typography>
-                        <Chip 
-                          size="medium" 
-                          color={colors.chip as any} 
-                          label={`${(rec.profit ?? 0) >= 0 ? '+' : ''}$${(rec.profit ?? 0).toFixed(2)} per acre`} 
-                          sx={{ alignSelf: 'flex-start', fontWeight: 700, fontSize: 14 }} 
-                        />
-                      </Stack>
-                    </Paper>
-                  );
-                })}
-              </Box>
-
-              {/* Groups by treatment */}
-              <Divider sx={{ my: 3 }} />
-              
-              <Typography variant="h5" fontWeight={700} sx={{ mb: 1 }}>All Treatment Options</Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
                 Detailed breakdown showing each treatment's profitability across different planting times
               </Typography>
