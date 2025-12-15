@@ -1,7 +1,7 @@
 import { Stack, Typography, Box, Chip, useTheme, Tooltip, Button, Card, CardContent } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import { TreatmentOptionLabels } from "../types/types";
+import { TreatmentOptionLabels, plantingDateOptionLabels } from "../types/types";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store/store";
 
@@ -88,7 +88,7 @@ export function TopRecommendations() {
             Your Top Recommendations
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Most profitable treatment and timing combinations for your situation
+            Most profitable treatment and planting window combinations for your situation
           </Typography>
         </Box>
       </Stack>
@@ -167,10 +167,10 @@ export function TopRecommendations() {
                   <Stack gap={1.5}>
                     <Box>
                       <Typography variant="caption" color="text.secondary" fontWeight={600}>
-                        PLANTING TIME
+                        WHEAT PLANTING WINDOW
                       </Typography>
                       <Typography variant="body2" fontWeight={600}>
-                        {rec.date}
+                        {plantingDateOptionLabels[rec.date] || rec.date}
                       </Typography>
                     </Box>
 

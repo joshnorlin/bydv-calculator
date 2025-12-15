@@ -5,9 +5,9 @@ export const plantingDateOptions = ['sept-oct', 'oct-nov', 'nov-dec'] as const;
 export type PlantingDateType = typeof plantingDateOptions[number] | null;
 
 export const plantingDateOptionLabels: Record<string, string> = {
-    "sept-oct": "September - October",
-    "oct-nov": "October - November",
-    "nov-dec": "November - December",
+    "sept-oct": "Early Fall (September - October)",
+    "oct-nov": "Mid Fall (October - November)",
+    "nov-dec": "Late Fall (November - December)",
 };
 
 export const plantingStatusOptions = ['planted', 'not-planted'] as const;
