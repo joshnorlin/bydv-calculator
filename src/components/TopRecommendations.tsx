@@ -10,9 +10,24 @@ export function TopRecommendations() {
   const recommendations = useSelector(
     (state: RootState) => state.recommendations.recommendations
   );
+  
+  // Get user's planting status and date
+  const plantingStatus = useSelector(
+    (state: RootState) => state.userDecision.plantingStatus
+  );
+  const plantingDate = useSelector(
+    (state: RootState) => state.userDecision.plantingDate
+  );
 
-  const sorted = recommendations
-    .filter(r => r.treatment !== 'cont')
+  // Filter and sort recommendations
+  let filtered = recommendations.filter(r => r.treatment !== 'cont');
+  
+  // If user has already planted, only show recommendations for their specific planting date
+  if (plantingStatus === 'planted' && plantingDate) {
+    filtered = filtered.filter(r => r.date === plantingDate);
+  }
+  
+  const sorted = filtered
     .slice()
     .sort((a, b) => (b.profit ?? 0) - (a.profit ?? 0));
 
