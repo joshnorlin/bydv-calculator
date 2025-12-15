@@ -76,7 +76,7 @@ export function RecommendationsOverview() {
           <Divider />
 
           <Box sx={{ bgcolor: 'warning.light', p: 2, borderRadius: 2, border: '1px solid', borderColor: 'warning.main' }}>
-            <Typography variant="h6" fontWeight={700} gutterBottom color="warning.dark">
+            <Typography variant="h6" fontWeight={700} gutterBottom sx={{ color: '#000' }}>
               When All Values Are Negative
             </Typography>
             <Typography variant="body2" color="text.secondary">

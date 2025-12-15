@@ -128,7 +128,7 @@ export function RecommendationsPage() {
                 <Divider sx={{ my: 2 }} />
 
                 {/* ========== SECTION 4: DISCLAIMER (PROMINENT) ========== */}
-                <Accordion defaultExpanded>
+                <Accordion defaultExpanded={false}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography variant="h6" fontWeight={700}>
                             ⚠️ Important Disclaimer & Data Limitations

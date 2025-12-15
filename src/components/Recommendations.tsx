@@ -108,7 +108,7 @@ export function Recommendations() {
     switch (severity) {
       case "excellent":
         return {
-          main: theme.palette.success.dark,
+          main: theme.palette.success.main,
           bg: theme.palette.success.light,
           chip: "success",
           border: theme.palette.success.main,
@@ -118,14 +118,14 @@ export function Recommendations() {
           main: theme.palette.success.main,
           bg: theme.palette.success.light,
           chip: "success",
-          border: theme.palette.success.light,
+          border: theme.palette.success.main,
         } as const;
       case "neutral":
         return {
           main: theme.palette.grey[700],
           bg: theme.palette.grey[100],
           chip: "default",
-          border: theme.palette.grey[400],
+          border: theme.palette.grey[700],
         } as const;
       case "poor":
       default:
@@ -133,7 +133,7 @@ export function Recommendations() {
           main: theme.palette.error.main,
           bg: theme.palette.error.light,
           chip: "error",
-          border: theme.palette.error.light,
+          border: theme.palette.error.main,
         } as const;
     }
   };
@@ -169,13 +169,13 @@ export function Recommendations() {
                   <Typography variant="h4" fontWeight={800} sx={{ mt: 1 }}>
                     Do Nothing
                   </Typography>
-                  <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>
+                  <Typography variant="body1" color="text.primary" sx={{ mt: 1 }}>
                     All treatment options cost more than they're worth. Monitor your fields but skip treatment this season.
                   </Typography>
                 </>
               ) : topRec ? (
                 <>
-                  <Typography variant="h4" fontWeight={800} sx={{ mt: 1, color: topColors.main }}>
+                  <Typography variant="h4" fontWeight={800} sx={{ mt: 1, color: 'text.primary' }}>
                     {TreatmentOptionLabels[topRec.treatment]}
                   </Typography>
                   <Stack direction="row" alignItems="center" gap={2} sx={{ mt: 2 }}>
@@ -233,7 +233,7 @@ export function Recommendations() {
                           key={`alt-${idx}`}
                           variant="outlined"
                           sx={{
-                            borderColor: colors.border,
+                            borderColor: colors.main,
                             borderWidth: 2,
                             borderLeftWidth: 4,
                             borderLeftColor: colors.main,
@@ -254,7 +254,7 @@ export function Recommendations() {
                                     width: 36,
                                     height: 36,
                                     borderRadius: '50%',
-                                    bgcolor: colors.bg,
+                                    bgcolor: 'background.paper',
                                     border: `2px solid ${colors.main}`,
                                     display: 'flex',
                                     alignItems: 'center',
@@ -272,7 +272,7 @@ export function Recommendations() {
                                     {TreatmentOptionLabels[rec.treatment]}
                                   </Typography>
                                   {!isProfitable && (
-                                    <Typography variant="caption" color="error.main" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                    <Typography variant="caption" color="text.primary" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
                                       ⚠️ Costs exceed expected benefit
                                     </Typography>
                                   )}
@@ -281,7 +281,7 @@ export function Recommendations() {
                               
                               <Chip
                                 icon={<TrendingUpIcon sx={{ fontSize: 16 }} />}
-                                label={`${(rec.profit ?? 0) >= 0 ? '+' : ''}$${(rec.profit ?? 0).toFixed(2)}/acre`}
+                                label={`${(rec.profit ?? 0) >= 0 ? '+' : '-'}$${Math.abs(rec.profit ?? 0).toFixed(2)}/acre`}
                                 color={colors.chip as any}
                                 sx={{ fontWeight: 700, fontSize: 13, height: 32 }}
                               />
@@ -360,7 +360,6 @@ function NotPlantedView({
             value={selectedTab} 
             onChange={(_, newValue) => {
               setSelectedTab(newValue);
-              setShowAllDetails(false); // Reset details when switching tabs
             }}
             variant="fullWidth"
             sx={{
@@ -409,7 +408,7 @@ function NotPlantedView({
                   </>
                 ) : topRec ? (
                   <>
-                    <Typography variant="h5" fontWeight={800} sx={{ mt: 1, color: topColors.main }}>
+                    <Typography variant="h5" fontWeight={800} sx={{ mt: 1, color: 'text.primary' }}>
                       → {TreatmentOptionLabels[topRec.treatment]}
                     </Typography>
                     <Chip
@@ -462,7 +461,7 @@ function NotPlantedView({
                             key={`scenario-alt-${idx}`}
                             variant="outlined"
                             sx={{ 
-                              borderColor: colors.border,
+                              borderColor: colors.main,
                               borderWidth: 2,
                               borderLeftWidth: 4,
                               borderLeftColor: colors.main,
@@ -482,7 +481,7 @@ function NotPlantedView({
                                       width: 28,
                                       height: 28,
                                       borderRadius: '50%',
-                                      bgcolor: colors.bg,
+                                      bgcolor: 'background.paper',
                                       border: `2px solid ${colors.main}`,
                                       display: 'flex',
                                       alignItems: 'center',
@@ -500,7 +499,7 @@ function NotPlantedView({
                                       {TreatmentOptionLabels[rec.treatment]}
                                     </Typography>
                                     {!isProfitable && (
-                                      <Typography variant="caption" color="error.main">
+                                      <Typography variant="caption" color="text.primary">
                                         ⚠️ Not recommended
                                       </Typography>
                                     )}
@@ -509,7 +508,7 @@ function NotPlantedView({
                                 
                                 <Chip
                                   icon={<TrendingUpIcon sx={{ fontSize: 14 }} />}
-                                  label={`${(rec.profit ?? 0) >= 0 ? '+' : ''}$${(rec.profit ?? 0).toFixed(2)}/acre`}
+                                  label={`${(rec.profit ?? 0) >= 0 ? '+' : '-'}$${Math.abs(rec.profit ?? 0).toFixed(2)}/acre`}
                                   color={colors.chip as any}
                                   size="small"
                                   sx={{ fontWeight: 600 }}
