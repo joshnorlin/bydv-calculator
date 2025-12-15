@@ -3,6 +3,9 @@ import { RecommendationsOverview } from "../../components/RecommendationsOvervie
 import { RecommendationsTreatmentInfo } from "../../components/RecommendationsTreatmentInfo";
 import { RecommendationsDisclaimer } from "../../components/RecommendationsDisclaimer";
 import { TopRecommendations } from "../../components/TopRecommendations";
+import { RecommendationTransition } from "../../components/RecommendationTransition";
+import { RecommendationSummary } from "../../components/RecommendationSummary";
+import { OperationalNextSteps } from "../../components/OperationalNextSteps";
 import { Typography, Stack, Button, Container, Paper, Box, Alert, Accordion, AccordionSummary, AccordionDetails, Divider } from "@mui/material";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -125,9 +128,26 @@ export function RecommendationsPage() {
                     <TopRecommendations />
                 </Box>
 
+                {/* ========== SECTION 3.5: TRANSITION CUE ========== */}
+                <RecommendationTransition />
+
+                {/* ========== SECTION 4: RECOMMENDATION SUMMARY ========== */}
+                {/* The two-part decision: WHEN to plant + WHAT treatment */}
+                <Box id="your-plan">
+                    <RecommendationSummary />
+                </Box>
+
                 <Divider sx={{ my: 2 }} />
 
-                {/* ========== SECTION 4: DISCLAIMER (PROMINENT) ========== */}
+                {/* ========== SECTION 5: OPERATIONAL NEXT STEPS ========== */}
+                {/* Step-by-step action plan with concrete instructions */}
+                <Box id="action-plan">
+                    <OperationalNextSteps />
+                </Box>
+
+                <Divider sx={{ my: 2 }} />
+
+                {/* ========== SECTION 6: DISCLAIMER (PROMINENT) ========== */}
                 <Accordion defaultExpanded={false}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography variant="h6" fontWeight={700}>
@@ -143,10 +163,20 @@ export function RecommendationsPage() {
 
                 <Divider sx={{ my: 2 }} />
 
-                {/* ========== SECTION 5: ALL RECOMMENDATIONS BREAKDOWN ========== */}
-                <Box id="full-breakdown">
-                    <Recommendations />
-                </Box>
+                {/* ========== SECTION 7: ALL RECOMMENDATIONS BREAKDOWN ========== */}
+                {/* Full comparison data for power users who want to dig deeper */}
+                <Accordion defaultExpanded={false}>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography variant="h6" fontWeight={700}>
+                            📊 Full Recommendations Breakdown
+                        </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Box sx={{ width: '100%' }}>
+                            <Recommendations />
+                        </Box>
+                    </AccordionDetails>
+                </Accordion>
 
                 {/* Back to top button */}
                 <Box sx={{ textAlign: 'center', pt: 3 }}>
