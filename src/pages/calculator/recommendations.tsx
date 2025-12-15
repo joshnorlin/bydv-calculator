@@ -131,6 +131,22 @@ export function RecommendationsPage() {
                 {/* ========== SECTION 3.5: TRANSITION CUE ========== */}
                 <RecommendationTransition />
 
+                {/* ========== SECTION 3.7: DISCLAIMER (PROMINENT) MOVED UP ========== */}
+                <Accordion defaultExpanded={false}>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Typography variant="h6" fontWeight={700}>
+                            ⚠️ Important Disclaimer & Data Limitations
+                        </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ bgcolor: 'grey.50' }}>
+                        <Box sx={{ width: '100%' }}>
+                            <RecommendationsDisclaimer />
+                        </Box>
+                    </AccordionDetails>
+                </Accordion>
+
+                <Divider sx={{ my: 2 }} />
+
                 {/* ========== SECTION 4: RECOMMENDATION SUMMARY ========== */}
                 {/* The two-part decision: WHEN to plant + WHAT treatment */}
                 <Box id="your-plan">
@@ -147,23 +163,7 @@ export function RecommendationsPage() {
 
                 <Divider sx={{ my: 2 }} />
 
-                {/* ========== SECTION 6: DISCLAIMER (PROMINENT) ========== */}
-                <Accordion defaultExpanded={false}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography variant="h6" fontWeight={700}>
-                            ⚠️ Important Disclaimer & Data Limitations
-                        </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails sx={{ bgcolor: 'grey.50' }}>
-                        <Box sx={{ width: '100%' }}>
-                            <RecommendationsDisclaimer />
-                        </Box>
-                    </AccordionDetails>
-                </Accordion>
-
-                <Divider sx={{ my: 2 }} />
-
-                {/* ========== SECTION 7: ALL RECOMMENDATIONS BREAKDOWN ========== */}
+                {/* ========== SECTION 6: ALL RECOMMENDATIONS BREAKDOWN ========== */}
                 {/* Full comparison data for power users who want to dig deeper */}
                 <Accordion defaultExpanded={false}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>

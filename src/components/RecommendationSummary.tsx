@@ -131,7 +131,7 @@ export function RecommendationSummary() {
           {/* PART 1: WHEN TO PLANT */}
           <Box sx={{ 
             p: 3, 
-            bgcolor: allNegative ? 'warning.light' : 'primary.light',
+            bgcolor: allNegative ? 'warning.light' : 'warning.light',
             borderBottom: '1px solid',
             borderColor: 'divider'
           }}>
@@ -139,7 +139,7 @@ export function RecommendationSummary() {
               <CalendarMonthIcon 
                 sx={{ 
                   fontSize: 32, 
-                  color: allNegative ? 'warning.dark' : 'primary.dark',
+                  color: allNegative ? 'warning.dark' : 'warning.main',
                   mt: 0.5 
                 }} 
               />
