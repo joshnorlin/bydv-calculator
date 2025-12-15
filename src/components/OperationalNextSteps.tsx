@@ -12,7 +12,6 @@
 
 import { Box, Typography, Stack, Paper, Button, Chip, Divider } from "@mui/material";
 import PrintIcon from "@mui/icons-material/Print";
-import ShareIcon from "@mui/icons-material/Share";
 import DownloadIcon from "@mui/icons-material/Download";
 import LoopIcon from "@mui/icons-material/Loop";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -175,18 +174,7 @@ export function OperationalNextSteps() {
     window.print();
   };
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: 'BYDV Management Plan',
-        text: `My BYDV recommendation: ${allNegative ? 'Do Nothing' : TreatmentOptionLabels[topRec?.treatment]}`,
-        url: window.location.href,
-      }).catch(() => {});
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
-    }
-  };
+  // Share removed: link does not persist recommendations reliably
 
   const handleDownload = () => {
     const recommendedTreatment = allNegative ? 'Do Nothing' : TreatmentOptionLabels[topRec?.treatment];
@@ -348,14 +336,7 @@ ${window.location.href}
             >
               Print This Page
             </Button>
-            <Button
-              variant="outlined"
-              startIcon={<ShareIcon />}
-              onClick={handleShare}
-              sx={{ flex: { sm: 1 } }}
-            >
-              Share with Agronomist
-            </Button>
+            {/* Share removed until persisted links are available */}
           </Stack>
 
           <Button

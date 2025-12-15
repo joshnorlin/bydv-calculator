@@ -1,4 +1,4 @@
-import { Stack, Typography, Box, Chip, useTheme, Tooltip, Button, Card, CardContent } from "@mui/material";
+import { Stack, Typography, Box, Chip, useTheme, Card, CardContent } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { TreatmentOptionLabels, plantingDateOptionLabels } from "../types/types";
@@ -184,17 +184,7 @@ export function TopRecommendations() {
                   </Stack>
                 </Box>
 
-                <Tooltip title="See detailed breakdown below for all treatment options">
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    color={colors.chip as any}
-                    fullWidth
-                    sx={{ mt: 'auto' }}
-                  >
-                    View Details
-                  </Button>
-                </Tooltip>
+                {/* Removed 'View Details' button to reduce confusion and keep focus on summary */}
               </CardContent>
             </Card>
           );
