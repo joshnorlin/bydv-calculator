@@ -18,7 +18,7 @@ export const mainPages = [
 ]
 
 export const calculatorSubPages = [
-  "calculator",
+  "quick calculate",
   "recommendations",
   "about"
 ]
