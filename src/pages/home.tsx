@@ -1,8 +1,5 @@
 import { Box, Button, Container, Paper, Typography, Stack } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import { Link as RouterLink } from "react-router-dom";
-
-const GridV2 = Grid as any;
 
 export function Home() {
   // Resolve hero image (remote) so it loads reliably in production
@@ -38,7 +35,7 @@ export function Home() {
             </Typography>
             <Typography variant="body1" sx={{ mb: 3 }}>
               Built from ongoing research, it translates scouting and local conditions into
-              practical recommendations—like planting date adjustments, seed treatments, and when a
+              practical recommendations - like planting date adjustments, seed treatments, and when a
               foliar spray is warranted vs. when it isn't.
             </Typography>
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
@@ -72,75 +69,137 @@ export function Home() {
       </Box>
 
       <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
-        <Stack spacing={{ xs: 6, md: 10 }}>
-          <Paper elevation={0} sx={{ bgcolor: '#FFF8E1', borderRadius: 3, py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
-            <Grid container spacing={4} alignItems="center">
-              <GridV2 xs={12} md={7}>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>The Problem</Typography>
-                <Typography variant="body1" sx={{ mb: 2 }}>
-                  Barley Yellow Dwarf Virus (BYDV) threatens Virginia's winter wheat. As weather patterns shift, aphids are moving and surviving differently, and advice that once worked no longer fits.
-                </Typography>
-                <Typography variant="body1">
-                  Routine, calendar-based spraying doesn't guarantee control or profit. Unnecessary insecticide use costs money, knocks back beneficial insects, and can undermine long-term profitability.
-                </Typography>
-              </GridV2 >
-              <GridV2 xs={12} md={5}>
-                <Box component="img" src={imgLeavesUrl} alt="Healthy vs discolored BYDV-affected wheat leaves" sx={{ width: '100%', height: { xs: 220, md: 300 }, objectFit: 'cover', borderRadius: 2 }} />
-              </GridV2 >
-            </Grid>
-          </Paper>
+        <Stack spacing={{ xs: 4, md: 6 }}>
+          
+          {/* ========== SECTION 1: The Problem - Image LEFT ========== */}
+          <Box 
+            sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', md: 'row' },
+              borderRadius: 3,
+              overflow: 'hidden',
+              bgcolor: '#FFF8E1',
+            }}
+          >
+            <Box
+              component="img"
+              src={imgLeavesUrl}
+              alt="Healthy vs discolored BYDV-affected wheat leaves"
+              sx={{
+                width: { xs: '100%', md: '45%' },
+                aspectRatio: { xs: '4 / 3', md: '1 / 1' },
+                objectFit: 'cover',
+                flexShrink: 0,
+              }}
+            />
+            <Box sx={{ p: { xs: 3, md: 5 }, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>The Problem</Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                Barley Yellow Dwarf Virus (BYDV) threatens Virginia's winter wheat. As weather patterns shift, aphids are moving and surviving differently, and advice that once worked no longer fits.
+              </Typography>
+              <Typography variant="body1">
+                Routine, calendar-based spraying doesn't guarantee control or profit. Unnecessary insecticide use costs money, knocks back beneficial insects, and can undermine long-term profitability.
+              </Typography>
+            </Box>
+          </Box>
 
-          <Paper elevation={0} sx={{ bgcolor: 'grey.50', borderRadius: 3, py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
-            <Grid container spacing={4} alignItems="center">
-              <GridV2 xs={12} md={5}>
-                <Box component="img" src={imgFieldUrl} alt="Field trials in Virginia" sx={{ width: '100%', height: { xs: 220, md: 300 }, objectFit: 'cover', borderRadius: 2 }} />
-              </GridV2 >
-              <GridV2 xs={12} md={7}>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>Our Approach</Typography>
-                <Typography variant="body1" sx={{ mb: 2 }}>
-                  Virginia Tech and the University of Idaho are combining field trials with economic modeling to refresh Integrated Pest Management (IPM) guidance for today's conditions.
-                </Typography>
-                <Typography variant="body1">
-                  We're testing planting dates, seed treatments, and well-timed foliar applications, and evaluating how shifting climate affects aphid pressure and BYDV risk—so growers get guidance that reflects what's happening now.
-                </Typography>
-              </GridV2 >
-            </Grid>
-          </Paper>
+          {/* ========== SECTION 2: Our Approach - Image RIGHT ========== */}
+          <Box 
+            sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', md: 'row-reverse' },
+              borderRadius: 3,
+              overflow: 'hidden',
+              bgcolor: 'grey.100',
+            }}
+          >
+            <Box
+              component="img"
+              src={imgFieldUrl}
+              alt="Field trials in Virginia"
+              sx={{
+                width: { xs: '100%', md: '45%' },
+                aspectRatio: { xs: '4 / 3', md: '1 / 1' },
+                objectFit: 'cover',
+                flexShrink: 0,
+              }}
+            />
+            <Box sx={{ p: { xs: 3, md: 5 }, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>Our Approach</Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                Virginia Tech and the University of Idaho are combining field trials with economic modeling to refresh Integrated Pest Management (IPM) guidance for today's conditions.
+              </Typography>
+              <Typography variant="body1">
+                We're testing planting dates, seed treatments, and well-timed foliar applications, and evaluating how shifting climate affects aphid pressure and BYDV risk—so growers get guidance that reflects what's happening now.
+              </Typography>
+            </Box>
+          </Box>
 
-          <Paper elevation={0} sx={{ bgcolor: '#E8F5E9', borderRadius: 3, py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
-            <Grid container spacing={4} alignItems="center">
-              <GridV2 xs={12} md={7}>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>The Tool</Typography>
-                <Typography variant="body1" sx={{ mb: 2 }}>
-                  The BYDV Profitability Calculator helps you assess risk for your field and timing, compare management options, and see when a treatment is worth the cost.
-                </Typography>
-                <Typography variant="body1">
-                  It's built on real field data and transparent assumptions, so you can make confident, cost-effective decisions with less guesswork.
-                </Typography>
-              </GridV2 >
-              <GridV2 xs={12} md={5}>
-                <Box component="img" src={imgAphidUrl} alt="Bird cherry-oat aphid on wheat" sx={{ width: '100%', height: { xs: 220, md: 300 }, objectFit: 'cover', borderRadius: 2 }} />
-              </GridV2 >
-            </Grid>
-          </Paper>
+          {/* ========== SECTION 3: The Tool - Image LEFT ========== */}
+          <Box 
+            sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', md: 'row' },
+              borderRadius: 3,
+              overflow: 'hidden',
+              bgcolor: '#E8F5E9',
+            }}
+          >
+            <Box
+              component="img"
+              src={imgAphidUrl}
+              alt="Bird cherry-oat aphid on wheat"
+              sx={{
+                width: { xs: '100%', md: '45%' },
+                aspectRatio: { xs: '4 / 3', md: '1 / 1' },
+                objectFit: 'cover',
+                flexShrink: 0,
+              }}
+            />
+            <Box sx={{ p: { xs: 3, md: 5 }, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>The Tool</Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                The BYDV Profitability Calculator helps you assess risk for your field and timing, compare management options, and see when a treatment is worth the cost.
+              </Typography>
+              <Typography variant="body1">
+                It's built on real field data and transparent assumptions, so you can make confident, cost-effective decisions with less guesswork.
+              </Typography>
+            </Box>
+          </Box>
 
-          <Paper elevation={0} sx={{ bgcolor: 'grey.50', borderRadius: 3, py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
-            <Grid container spacing={4} alignItems="center">
-              <GridV2 xs={12} md={5}>
-                <Box component="img" src={imgFieldUrl} alt="Wheat field in Virginia" sx={{ width: '100%', height: { xs: 220, md: 300 }, objectFit: 'cover', borderRadius: 2 }} />
-              </GridV2 >
-              <GridV2 xs={12} md={7}>
-                <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>Why It Matters</Typography>
-                <Typography variant="body1" sx={{ mb: 2 }}>
-                  Smarter management protects yield, saves money, and reduces unnecessary pesticide use. Updated guidance keeps pace with today's climate and pest pressures.
-                </Typography>
-                <Typography variant="body1">
-                  Every informed decision supports long-term farm profitability and the next generation of small-acreage growers across Virginia.
-                </Typography>
-              </GridV2 >
-            </Grid>
-          </Paper>
+          {/* ========== SECTION 4: Why It Matters - Image RIGHT ========== */}
+          <Box 
+            sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', md: 'row-reverse' },
+              borderRadius: 3,
+              overflow: 'hidden',
+              bgcolor: 'grey.100',
+            }}
+          >
+            <Box
+              component="img"
+              src={imgFieldUrl}
+              alt="Wheat field in Virginia"
+              sx={{
+                width: { xs: '100%', md: '45%' },
+                aspectRatio: { xs: '4 / 3', md: '1 / 1' },
+                objectFit: 'cover',
+                flexShrink: 0,
+              }}
+            />
+            <Box sx={{ p: { xs: 3, md: 5 }, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>Why It Matters</Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                Smarter management protects yield, saves money, and reduces unnecessary pesticide use. Updated guidance keeps pace with today's climate and pest pressures.
+              </Typography>
+              <Typography variant="body1">
+                Every informed decision supports long-term farm profitability and the next generation of small-acreage growers across Virginia.
+              </Typography>
+            </Box>
+          </Box>
 
+          {/* ========== CTA SECTION ========== */}
           <Paper elevation={0} sx={{ textAlign: 'center', bgcolor: 'background.paper', borderRadius: 3, py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
             <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>Get Started</Typography>
             <Typography variant="body1" sx={{ mb: 1 }}>

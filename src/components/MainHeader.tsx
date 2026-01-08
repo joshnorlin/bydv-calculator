@@ -2,6 +2,7 @@ import { AppBar, Toolbar, Button, Stack, Box, IconButton, Menu, MenuItem, Typogr
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { mainPages } from "../App";
+import { useLocation } from 'react-router-dom';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router-dom";
@@ -9,6 +10,7 @@ import { Link as RouterLink } from "react-router-dom";
 export function MainHeader() {
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
+    const location = useLocation();
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
@@ -70,12 +72,17 @@ export function MainHeader() {
                                 >
                                     {mainPages.map(page => {
                                         const to = page === "home" ? "/" : `/${page}`;
+                                        const isActive = to === '/'
+                                            ? location.pathname === '/'
+                                            : location.pathname === to || location.pathname.startsWith(to);
                                         return (
                                             <MenuItem
                                                 key={page}
                                                 component={RouterLink}
                                                 to={to}
                                                 onClick={handleMenuClose}
+                                                selected={isActive}
+                                                sx={{ fontWeight: isActive ? 700 : 500, textTransform: 'capitalize' }}
                                             >
                                                 {page}
                                             </MenuItem>
@@ -86,13 +93,23 @@ export function MainHeader() {
                         ) : (
                             mainPages.map(page => {
                                 const to = page === "home" ? "/" : `/${page}`;
+                                const isActive = to === '/'
+                                    ? location.pathname === '/'
+                                    : location.pathname === to || location.pathname.startsWith(to);
                                 return (
                                     <Button
-                                        color="inherit"
-                                        variant="text"
+                                        key={page}
                                         component={RouterLink}
                                         to={to}
-                                        key={page}
+                                        variant="text"
+                                        color="inherit"
+                                        sx={{
+                                            textTransform: 'capitalize',
+                                            fontWeight: isActive ? 700 : 500,
+                                            borderBottom: isActive ? `3px solid ${theme.palette.secondary.main}` : '3px solid transparent',
+                                            borderRadius: 0,
+                                            pb: '6px',
+                                        }}
                                     >
                                         {page}
                                     </Button>

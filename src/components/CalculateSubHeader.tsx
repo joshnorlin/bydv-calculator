@@ -4,11 +4,13 @@ import { useState } from "react";
 import { calculatorSubPages } from "../App";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
 export function CalculateSubHeader() {
     const theme = useTheme();
     const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
+
+    const location = useLocation();
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
@@ -51,13 +53,23 @@ export function CalculateSubHeader() {
                                     }}
                                 >
                                     {calculatorSubPages.map(page => {
-                                        const to = page === "calculator" ? "/calculator" : `/calculator/${page}`;
+                                        // map label to route
+                                        const lp = page.toLowerCase();
+                                        const to = lp.includes('quick') || lp.includes('calculate')
+                                            ? '/calculator'
+                                            : `/calculator/${lp.replace(/\s+/g, '')}`;
+                                        // Make "quick calculate" (/calculator) only active when at exact /calculator
+                                        const isActive = to === '/calculator'
+                                            ? location.pathname === '/calculator'
+                                            : location.pathname === to || location.pathname.startsWith(to);
                                         return (
                                             <MenuItem
                                                 key={page}
                                                 component={RouterLink}
                                                 to={to}
                                                 onClick={handleMenuClose}
+                                                selected={isActive}
+                                                sx={{ textTransform: 'capitalize', fontWeight: isActive ? 700 : 500 }}
                                             >
                                                 {page}
                                             </MenuItem>
@@ -67,14 +79,28 @@ export function CalculateSubHeader() {
                             </>
                         ) : (
                             calculatorSubPages.map(page => {
-                                const to = page === "calculator" ? "/calculator" : `/calculator/${page}`;
+                                const lp = page.toLowerCase();
+                                const to = lp.includes('quick') || lp.includes('calculate')
+                                    ? '/calculator'
+                                    : `/calculator/${lp.replace(/\s+/g, '')}`;
+                                // 'quick calculate' should only be active on exact /calculator path
+                                const isActive = to === '/calculator'
+                                    ? location.pathname === '/calculator'
+                                    : location.pathname === to || location.pathname.startsWith(to);
                                 return (
                                     <Button
-                                        color="inherit"
-                                        variant="text"
                                         component={RouterLink}
                                         to={to}
                                         key={page}
+                                        color="inherit"
+                                        variant="text"
+                                        sx={{
+                                            textTransform: 'capitalize',
+                                            fontWeight: isActive ? 700 : 500,
+                                            borderBottom: isActive ? `3px solid ${theme.palette.secondary.main}` : '3px solid transparent',
+                                            borderRadius: 0,
+                                            pb: '6px',
+                                        }}
                                     >
                                         {page}
                                     </Button>

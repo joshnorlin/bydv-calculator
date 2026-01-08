@@ -200,7 +200,7 @@ RECOMMENDATION
 --------------
 Treatment: ${recommendedTreatment}
 Planting Window: ${plantingWindow}
-${!allNegative ? `Projected Return: +${profit}` : 'Note: All treatments have negative ROI — doing nothing is the economically rational choice.'}
+${!allNegative ? `Projected Return: +${profit}` : 'Note: All treatments have negative ROI - doing nothing is the economically rational choice.'}
 
 YOUR ACTION PLAN
 ----------------
