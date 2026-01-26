@@ -1,7 +1,7 @@
 /**
  * OperationalNextSteps
  * 
- * Concrete, domain-specific next steps — not generic CTAs.
+ * Concrete, domain-specific next steps - not generic CTAs.
  * Each step tells the farmer exactly what to do, when, and how.
  * 
  * Design Intent:
@@ -94,7 +94,7 @@ const operationalSteps: Record<string, {
         details: 'Seed treatment is most valuable for early-planted wheat when aphid exposure is longest.'
       },
       {
-        action: 'Scout 3-4 weeks after emergence — spray if aphids persist',
+        action: 'Scout 3-4 weeks after emergence - spray if aphids persist',
         timing: 'As seed treatment protection wanes',
         details: 'If aphid counts exceed threshold (20-25/ft of row) after seed treatment window, apply foliar pyrethroid. This is your backup protection.'
       }
@@ -113,7 +113,7 @@ const operationalSteps: Record<string, {
         details: 'Seed treatment provides 4-6 weeks of protection during critical fall emergence.'
       },
       {
-        action: 'Scout in early spring — spray only if aphids resurge',
+        action: 'Scout in early spring - spray only if aphids resurge',
         timing: 'Late February through March',
         details: 'Monitor for aphid resurgence as temperatures warm. Apply foliar spray only if populations are building before jointing stage.'
       }
@@ -244,9 +244,9 @@ ${window.location.href}
             sx={{ mb: 1, fontWeight: 600 }}
           />
           <Typography variant="h5" fontWeight={700}>
-            What to do — step by step
+            What to do - step by step
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
             {isPlanted 
               ? 'Based on your current situation, here\'s your path forward'
               : 'Here\'s exactly what to do to implement this recommendation'}

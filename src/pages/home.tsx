@@ -130,7 +130,7 @@ export function Home() {
                 Virginia Tech and the University of Idaho are combining field trials with economic modeling to refresh Integrated Pest Management (IPM) guidance for today's conditions.
               </Typography>
               <Typography variant="body1">
-                We're testing planting dates, seed treatments, and well-timed foliar applications, and evaluating how shifting climate affects aphid pressure and BYDV risk—so growers get guidance that reflects what's happening now.
+                We're testing planting dates, seed treatments, and well-timed foliar applications, and evaluating how shifting climate affects aphid pressure and BYDV risk - so growers get guidance that reflects what's happening now.
               </Typography>
             </Box>
           </Box>

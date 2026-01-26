@@ -32,7 +32,7 @@ const plantingWindowDescriptions: Record<string, {
   'oct-nov': {
     shortName: 'Mid Fall',
     dateRange: 'October through early November',
-    whyItMatters: 'Moderate aphid exposure window. Balanced risk — treatment profitability depends on local pressure forecasts.'
+    whyItMatters: 'Moderate aphid exposure window. Balanced risk - treatment profitability depends on local pressure forecasts.'
   },
   'nov-dec': {
     shortName: 'Late Fall',
@@ -49,7 +49,7 @@ const treatmentDescriptions: Record<string, {
 }> = {
   'neon': {
     whatToBuy: 'Neonicotinoid-treated seed (e.g., Gaucho, Cruiser)',
-    whenToApply: 'Applied to seed before planting — order treated seed or treat your own',
+    whenToApply: 'Applied to seed before planting - order treated seed or treat your own',
     whyThisCombination: 'Seed treatment protects seedlings during the critical 4-6 week window when aphids transmit BYDV most actively.'
   },
   'fallApp': {
@@ -153,7 +153,7 @@ export function RecommendationSummary() {
                     <Typography variant="h5" fontWeight={800} sx={{ mt: 0.5 }}>
                       {isPlanted && plantingDate 
                         ? plantingWindowDescriptions[plantingDate]?.shortName || plantingDateOptionLabels[plantingDate]
-                        : 'Any window — treatment not cost-effective'}
+                        : 'Any window - treatment not cost-effective'}
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                       {isPlanted 
@@ -200,7 +200,7 @@ export function RecommendationSummary() {
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                       Skip treatment this season. The expected yield loss from BYDV is smaller than the cost of any treatment option.
-                      This isn't ignoring the problem — it's the economically rational choice based on current conditions.
+                      This isn't ignoring the problem - it's the economically rational choice based on current conditions.
                     </Typography>
                   </>
                 ) : treatment ? (
@@ -266,35 +266,6 @@ export function RecommendationSummary() {
               </Stack>
             </Box>
           )}
-        </Paper>
-
-        {/* The "I should..." Summary */}
-        <Paper 
-          elevation={0} 
-          sx={{ 
-            p: 2.5, 
-            borderRadius: 2, 
-            bgcolor: 'grey.100',
-            border: '1px dashed',
-            borderColor: 'grey.400'
-          }}
-        >
-          <Typography variant="subtitle2" fontWeight={700} color="text.secondary" sx={{ mb: 1 }}>
-            IN PLAIN TERMS
-          </Typography>
-          {allNegative ? (
-            <Typography variant="body1" fontWeight={500}>
-              "I should <strong>skip treatment this season</strong>. The math says any treatment costs more than the BYDV damage I'm likely to see. 
-              I'll keep an eye on conditions, but right now, doing nothing is the smart economic choice."
-            </Typography>
-          ) : topRec && plantingWindow ? (
-            <Typography variant="body1" fontWeight={500}>
-              "I should {isPlanted ? 'have planted' : 'plant'} in <strong>{plantingWindow.shortName} ({plantingWindow.dateRange})</strong>, 
-              and {isPlanted ? 'I should' : 'if I do, I should'} apply <strong>{TreatmentOptionLabels[topRec.treatment]}</strong>
-              {topRec.treatment.includes('neon') ? ' before planting' : ''} — 
-              this combination is projected to return <strong>+${(topRec.profit ?? 0).toFixed(2)}/acre</strong> compared to doing nothing."
-            </Typography>
-          ) : null}
         </Paper>
       </Stack>
     </Box>

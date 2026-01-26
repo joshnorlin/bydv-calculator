@@ -81,7 +81,7 @@ export function TopRecommendations() {
 
   return (
     <Box>
-      <Stack direction="row" alignItems="center" gap={1.5} sx={{ mb: 3 }}>
+      <Stack direction="row" alignItems="center" gap={1.5} sx={{ mb: 5 }}>
         <EmojiEventsIcon color="warning" sx={{ fontSize: 40 }} />
         <Box>
           <Typography variant="h4" fontWeight={800}>
@@ -92,10 +92,6 @@ export function TopRecommendations() {
           </Typography>
         </Box>
       </Stack>
-
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-        These are the three most economically attractive options based on your field data. Each shows estimated profit per acre compared to doing nothing.
-      </Typography>
 
       <Box sx={{
         display: 'grid',
@@ -148,15 +144,10 @@ export function TopRecommendations() {
               )}
               
               <CardContent sx={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 2 }}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', gap: 2 }}>
                   <Typography variant="h3" sx={{ fontSize: 48, lineHeight: 1 }}>
                     {rankBadges[i]}
                   </Typography>
-                  <Chip
-                    label={`#${i + 1}`}
-                    color={colors.chip as any}
-                    sx={{ fontWeight: 700, height: 32, fontSize: 12 }}
-                  />
                 </Box>
 
                 <Box sx={{ flex: 1 }}>
@@ -189,26 +180,6 @@ export function TopRecommendations() {
             </Card>
           );
         })}
-      </Box>
-
-      <Box sx={{
-        p: 2,
-        bgcolor: 'info.light',
-        borderRadius: 2,
-        border: '1px solid',
-        borderColor: 'info.main',
-      }}>
-        <Stack direction="row" gap={1.5}>
-          <TrendingUpIcon sx={{ color: 'info.main', flexShrink: 0 }} />
-          <Stack gap={0.5}>
-            <Typography variant="body2" fontWeight={700} color="info.dark">
-              What these numbers mean
-            </Typography>
-            <Typography variant="body2" fontSize={12} color="info.dark">
-              <strong>Positive values</strong> = more profit than doing nothing. <strong>Negative values</strong> = less profit than doing nothing. The highest number represents your best economic choice.
-            </Typography>
-          </Stack>
-        </Stack>
       </Box>
     </Box>
   );

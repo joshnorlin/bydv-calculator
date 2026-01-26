@@ -20,7 +20,6 @@ export const mainPages = [
 export const calculatorSubPages = [
   "quick calculate",
   "recommendations",
-  "about"
 ]
 
 function App() {
