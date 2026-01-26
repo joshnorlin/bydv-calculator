@@ -5,7 +5,6 @@ import { RecommendationsDisclaimer } from "../../components/RecommendationsDiscl
 import { TopRecommendations } from "../../components/TopRecommendations";
 import { RecommendationTransition } from "../../components/RecommendationTransition";
 import { RecommendationSummary } from "../../components/RecommendationSummary";
-import { OperationalNextSteps } from "../../components/OperationalNextSteps";
 import { Typography, Stack, Button, Container, Paper, Box, Alert, Accordion, AccordionSummary, AccordionDetails, Divider } from "@mui/material";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -14,6 +13,8 @@ import { Link as RouterLink } from "react-router-dom";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import EditIcon from "@mui/icons-material/Edit";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -134,8 +135,9 @@ export function RecommendationsPage() {
                 {/* ========== SECTION 3.7: DISCLAIMER (PROMINENT) MOVED UP ========== */}
                 <Accordion defaultExpanded={false}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography variant="h6" fontWeight={700}>
-                            ⚠️ Important Disclaimer & Data Limitations
+                        <Typography variant="h6" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <WarningAmberIcon sx={{ color: 'warning.main' }} />
+                            Important Disclaimer & Data Limitations
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails sx={{ bgcolor: 'grey.50' }}>
@@ -156,19 +158,13 @@ export function RecommendationsPage() {
                 <Divider sx={{ my: 2 }} />
 
                 {/* ========== SECTION 5: OPERATIONAL NEXT STEPS ========== */}
-                {/* Step-by-step action plan with concrete instructions */}
-                <Box id="action-plan">
-                    <OperationalNextSteps />
-                </Box>
-
-                <Divider sx={{ my: 2 }} />
-
                 {/* ========== SECTION 6: ALL RECOMMENDATIONS BREAKDOWN ========== */}
                 {/* Full comparison data for power users who want to dig deeper */}
                 <Accordion defaultExpanded={false}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography variant="h6" fontWeight={700}>
-                            📊 Full Recommendations Breakdown
+                        <Typography variant="h6" fontWeight={700} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <BarChartIcon sx={{ color: 'info.main' }} />
+                            Full Recommendations Breakdown
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails>

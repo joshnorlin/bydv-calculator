@@ -7,6 +7,7 @@ import { CalculateButton } from "../../components/calculatorComponents/Calculate
 import { CropPrice } from "../../components/calculatorComponents/CropPrice";
 import { FormProgress } from "../../components/calculatorComponents/FormProgress";
 import { resetUserDecision } from "../../store/userDecisionSlice";
+import { clearRecommendations } from "../../store/recommendationsSlice";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 export function CalculatorHome() {
@@ -14,6 +15,7 @@ export function CalculatorHome() {
 
     const handleReset = () => {
         dispatch(resetUserDecision());
+        dispatch(clearRecommendations());
     };
 
     return (

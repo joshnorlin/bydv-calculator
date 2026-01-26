@@ -5,7 +5,7 @@ export function RecommendationsDisclaimer() {
     <Card sx={{ p: 3, borderRadius: 2, boxShadow: 1, bgcolor: 'grey.50', border: '1px solid', borderColor: 'warning.light' }}>
       <CardContent>
         <Stack gap={2}>
-          <Alert severity="warning" sx={{ '& .MuiAlert-message': { width: '100%' } }}>
+          <Alert severity="warning" icon={false} sx={{ '& .MuiAlert-message': { width: '100%' } }}>
             <Typography variant="body2" fontWeight={600} gutterBottom>
               Read this carefully before making treatment decisions
             </Typography>
